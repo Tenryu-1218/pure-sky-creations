@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skyler Đỗ — Pure Sky Creations · 青天閣</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+  /* ────────────────────────────────────────────────────────────────
+     Pure Sky Creations · 青天閣 — Skyler Đỗ
+     Brand: deep navy + antique gold on warm ivory.
+     Classical serif headings (Cinzel / Cormorant) echo the logo's
+     Trajan-style lettering; clean system sans for body.
+     Recurring motif: a small gold diamond ◆ (from the logo's gem).
+     ──────────────────────────────────────────────────────────────── */
+
+  :root {
+    --bg:        #FAF6EC;   /* warm ivory */
+    --bg-tint:   #F2E9D6;   /* warm sand band */
+    --paper:     #FFFFFF;
+    --ink:       #20242C;   /* warm near-black */
+    --ink-soft:  #4C515C;
+    --ink-mute:  #938A77;   /* warm taupe */
+    --line:      #E6DCC6;   /* warm hairline */
+    --line-soft: #EFE7D6;
+
+    --navy:      #1B2A47;   /* logo navy */
+    --navy-deep: #121A2E;
+    --navy-soft: #3C4F71;
+
+    --gold:      #A8823C;   /* antique gold — decorative / large */
+    --gold-ink:  #876327;   /* darker gold — small text contrast */
+    --gold-soft: #C2A05A;
+    --gold-pale: #E7D6AC;
+    --gold-line: rgba(168, 130, 60, 0.34);
+
+    --slot:      #ECE3D0;   /* warm placeholder */
+
+    --font-serif:   "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --font-display: "Cinzel", Georgia, serif;
+    --font-sans:    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+    --max:    1280px;
+    --gutter: clamp(24px, 5vw, 72px);
+  }
+
+  *,*::before,*::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+  ::selection { background: var(--navy); color: var(--gold-pale); }
+
+  /* Recurring gold diamond motif (from the logo's gem) */
+  .diamond {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex: none;
+  }
+
+  /* ── Sticky nav ───────────────────────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 246, 236, 0.84);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s ease;
+  }
+  .nav.is-scrolled { border-bottom-color: var(--line); }
+
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .nav-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--navy);
+  }
+  .nav-mark img {
+    width: auto; height: 42px;
+    display: block;
+  }
+  .nav-mark .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 4px;
+    min-width: 0;
+  }
+  .nav-mark .wm-main {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+  .nav-mark .wm-sub {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    white-space: nowrap;
+  }
+  @media (max-width: 420px) {
+    .nav-mark .wm-main { font-size: 11.5px; letter-spacing: 0.12em; }
+    .nav-mark img { width: 34px; height: 34px; }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.4vw, 34px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .nav-links > li { display: flex; align-items: center; }
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--ink-soft);
+    padding: 6px 0;
+    position: relative;
+    transition: color .2s ease;
+    white-space: nowrap;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .3s ease;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a:hover::after,
+  .nav-links a.is-active::after { transform: scaleX(1); }
+
+  /* ── Dropdown submenus ────────────────────────────────────────── */
+  .nav-links > li { position: relative; }
+  .has-sub > a { gap: 7px; }
+  .caret {
+    width: 5px; height: 5px;
+    border-right: 1.4px solid currentColor;
+    border-bottom: 1.4px solid currentColor;
+    transform: translateY(-1px) rotate(45deg);
+    transition: transform .25s ease, opacity .2s ease;
+    opacity: 0.5;
+  }
+  .has-sub:hover .caret { opacity: 1; transform: translateY(1px) rotate(225deg); }
+
+  .nav-sub {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    min-width: 248px;
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    background: rgba(252, 249, 241, 0.97);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+    border: 1px solid var(--line);
+    box-shadow: 0 22px 48px rgba(27, 42, 71, 0.16);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .22s ease, transform .22s ease, visibility .22s;
+    z-index: 60;
+  }
+  /* hover bridge so the menu doesn't drop while the cursor crosses the gap */
+  .nav-sub::before {
+    content: "";
+    position: absolute;
+    top: -14px; left: 0; right: 0;
+    height: 14px;
+  }
+  .has-sub:hover .nav-sub,
+  .has-sub:focus-within .nav-sub {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-sub li { border: 0; }
+  .nav-sub a {
+    display: block;
+    padding: 10px 22px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    transition: color .18s ease, background .18s ease;
+  }
+  .nav-sub a::after { display: none; }
+  .nav-sub a:hover {
+    color: var(--navy);
+    background: rgba(168, 130, 60, 0.1);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 8px;
+    margin: -8px;
+    cursor: pointer;
+    color: var(--navy);
+  }
+  .nav-toggle svg { display: block; }
+
+  @media (max-width: 820px) {
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 0 var(--gutter);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+    .nav-links.is-open { max-height: calc(100vh - 64px); overflow-y: auto; }
+    .nav-links > li { display: block; align-items: stretch; }
+    .nav-links li { border-top: 1px solid var(--line-soft); }
+    .nav-links li:first-child { border-top: 0; }
+    .nav-links a { display: block; padding: 18px 0; }
+    .nav-toggle { display: inline-flex; }
+
+    /* submenus open as indented static lists on touch / small screens */
+    .has-sub > a { justify-content: space-between; }
+    .caret { opacity: 0.6; transform: rotate(45deg); }
+    .nav-sub {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      min-width: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: 0;
+      box-shadow: none;
+      padding: 0 0 12px;
+    }
+    .nav-sub::before { display: none; }
+    .nav-sub li { border-top: 0; }
+    .nav-sub a {
+      padding: 11px 0 11px 18px;
+      font-size: 11px;
+      color: var(--ink-mute);
+      border-left: 1px solid var(--gold-line);
+    }
+    .nav-sub a:hover { background: transparent; }
+  }
+
+  /* ── Layout containers ────────────────────────────────────────── */
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  section { scroll-margin-top: 88px; }
+  .practice[id], .subsection, .seki,
+  #exchanges, #ma-disciplines, #ma-gallery { scroll-margin-top: 88px; }
+
+  /* ── Hero ─────────────────────────────────────────────────────── */
+  .hero {
+    padding: clamp(64px, 11vh, 128px) 0 clamp(72px, 12vh, 140px);
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(820px 540px at 84% 18%, rgba(168, 130, 60, 0.14), transparent 68%),
+      radial-gradient(620px 420px at 6% 92%, rgba(27, 42, 71, 0.06), transparent 70%),
+      linear-gradient(180deg, #FCF9F1 0%, var(--bg) 60%);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-line) 28%, var(--gold-line) 72%, transparent);
+  }
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(32px, 6vw, 88px);
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin: 0 0 28px;
+    white-space: nowrap;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6.6vw, 88px);
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    margin: 0;
+    color: var(--navy);
+    text-wrap: balance;
+  }
+
+  .hero-tag {
+    margin: 22px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 25px);
+    color: var(--gold-ink);
+    letter-spacing: 0.01em;
+  }
+  .hero-tag .rule {
+    flex: 0 0 52px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .hero-statement {
+    margin: 34px 0 0;
+    max-width: 36em;
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 2vw, 24px);
+    line-height: 1.5;
+    color: var(--ink);
+    text-wrap: pretty;
+    font-weight: 500;
+    padding-left: 22px;
+    border-left: 2px solid var(--gold);
+  }
+
+  .hero-meta {
+    margin: 40px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--gold-line);
+  }
+  .hero-meta dt {
+    font-family: var(--font-display);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin: 0 0 6px;
+  }
+  .hero-meta dd {
+    margin: 0;
+    color: var(--navy);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Emblem medallion */
+  .hero-emblem {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 460px);
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+  }
+  .hero-emblem::before {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 42%, rgba(255,255,255,0.9), rgba(247,238,220,0.5) 55%, transparent 72%);
+    filter: blur(2px);
+  }
+  .hero-emblem img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 28px rgba(27, 42, 71, 0.14));
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      text-align: left;
+    }
+    .hero-emblem {
+      grid-row: 1;
+      width: min(78%, 360px);
+      margin: 0 0 8px;
+      justify-self: start;
+    }
+  }
+
+  /* ── Section headers ──────────────────────────────────────────── */
+  .section {
+    padding: clamp(80px, 12vh, 140px) 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .section::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 0;
+    width: clamp(72px, 11vw, 150px);
+    height: 2px;
+    background: var(--gold);
+  }
+  #about,
+  #experiences {
+    background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%);
+  }
+
+  /* ── Experiences ─────────────────────────────────────── */
+  .exp-list { display: grid; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    gap: clamp(20px, 4vw, 64px);
+    padding: clamp(30px, 4.5vh, 48px) 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+    position: relative;
+  }
+  .exp-item:first-child { border-top: 0; padding-top: 0; }
+  .exp-item:not(:first-child)::before {
+    content: ""; position: absolute; top: -1px; left: 0;
+    width: 34px; height: 2px; background: var(--gold);
+  }
+  .exp-cat {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold-ink);
+    display: inline-flex; align-items: center; gap: 11px;
+    margin: 0 0 9px;
+  }
+  .exp-cat .diamond { width: 6px; height: 6px; }
+  .exp-place {
+    margin: 0; font-size: 13px; color: var(--ink-mute);
+    letter-spacing: 0.02em; line-height: 1.5;
+  }
+  .exp-title {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 2.8vw, 31px);
+    line-height: 1.14; font-weight: 500; color: var(--navy);
+    margin: 0 0 12px; text-wrap: balance;
+  }
+  .exp-title em { font-style: italic; color: var(--gold-ink); }
+  .exp-desc {
+    font-size: 15.5px; line-height: 1.65; color: var(--ink-soft);
+    margin: 0; max-width: 60ch; text-wrap: pretty;
+  }
+  .exp-item.is-placeholder .exp-title { color: var(--ink-mute); font-style: italic; font-weight: 400; }
+  @media (max-width: 680px) {
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+  }
+  .exp-intro {
+    font-family: var(--font-serif);
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.55; color: var(--ink-soft);
+    max-width: 56ch; margin: 0 0 clamp(48px, 7vh, 76px);
+    text-wrap: pretty;
+  }
+  /* photo strip within an experience */
+  .exp-shots {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 22px;
+  }
+  .exp-shots figure { margin: 0; position: relative; }
+  .exp-shots img {
+    height: 210px; width: auto; max-width: 100%;
+    display: block; object-fit: cover;
+    border: 1px solid var(--line); background: var(--slot);
+    image-orientation: from-image;
+    transition: border-color .25s ease, filter .25s ease;
+  }
+  .exp-shots img:hover { border-color: var(--gold); filter: brightness(1.04); }
+  .exp-shots video {
+    height: 210px; width: auto; max-width: 100%;
+    display: block; object-fit: cover;
+    border: 1px solid var(--line); background: #000;
+  }
+  @media (max-width: 680px) {
+    .exp-shots img { height: 150px; }
+    .exp-shots video { height: 150px; }
+  }
+
+  /* Seki Ōdachi feature */
+  .seki {
+    margin-top: clamp(64px, 9vh, 104px);
+    padding-top: clamp(40px, 6vh, 60px);
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .seki::before {
+    content: ""; position: absolute; top: -1px; left: 0;
+    width: clamp(72px, 11vw, 150px); height: 2px; background: var(--gold);
+  }
+  .seki-jp {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold-ink); margin: 0 0 16px;
+    display: inline-flex; align-items: center; gap: 13px;
+  }
+  .seki-jp .diamond { width: 7px; height: 7px; }
+  .seki-intro {
+    font-family: var(--font-serif);
+    font-size: clamp(17px, 1.7vw, 21px); line-height: 1.55; color: var(--ink-soft);
+    max-width: 56ch; margin: 0 0 clamp(40px, 6vh, 64px); text-wrap: pretty;
+  }
+
+  /* Blade spec header */
+  .blade-header {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 4vw, 60px);
+    align-items: center;
+    background: var(--paper);
+    border: 1px solid var(--gold-line);
+    padding: clamp(22px, 3vw, 40px);
+    margin-bottom: clamp(48px, 7vh, 80px);
+  }
+  .blade-photo { background: var(--bg-tint); display: flex; align-items: center; justify-content: center; padding: 18px; }
+  .blade-photo img {
+    max-width: 100%; max-height: 460px; width: auto; height: auto; display: block;
+    box-shadow: 0 12px 30px rgba(27,42,71,0.16); image-orientation: from-image;
+  }
+  .blade-name-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--gold-ink); margin: 0 0 12px;
+  }
+  .blade-name {
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 6vw, 76px); line-height: 1; font-weight: 600;
+    color: var(--navy); margin: 0 0 6px;
+  }
+  .blade-name .kanji { display: block; font-size: 1.18em; letter-spacing: 0.06em; }
+  .blade-name .romaji { font-style: italic; font-weight: 500; color: var(--gold-ink); }
+  .blade-sub {
+    font-family: var(--font-display); font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-mute); margin: 0 0 26px;
+  }
+  .blade-specs { display: grid; gap: 22px; }
+  .blade-spec dt {
+    font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold-ink); margin: 0 0 7px;
+    padding-bottom: 7px; border-bottom: 1px solid var(--gold-line);
+  }
+  .blade-spec dd {
+    margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--navy);
+    display: flex; flex-wrap: wrap; gap: 4px 18px;
+  }
+  .blade-spec dd .num { font-variant-numeric: tabular-nums; }
+  .blade-hamon { font-family: var(--font-serif); font-style: italic; font-size: 18px; color: var(--navy); }
+  @media (max-width: 720px) {
+    .blade-header { grid-template-columns: 1fr; }
+  }
+
+  /* Process — forging gallery (showcase) + compact step index */
+  .process-title {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--gold-ink); margin: 0 0 clamp(22px, 3vh, 30px);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .process-title::after { content: ""; flex: 1; height: 1px; background: var(--gold-line); }
+  .process-title .pt-count {
+    font-family: var(--font-serif); font-style: italic; text-transform: none;
+    letter-spacing: 0; font-size: 15px; color: var(--ink-mute);
+  }
+
+  .forge-gallery {
+    columns: 3 300px;
+    column-gap: 16px;
+    margin-bottom: clamp(48px, 7vh, 80px);
+  }
+  .forge-shot { break-inside: avoid; margin: 0 0 16px; cursor: zoom-in; }
+  .forge-frame {
+    position: relative; overflow: hidden;
+    border: 1px solid var(--line); background: var(--slot);
+  }
+  .forge-frame img, .forge-frame video {
+    width: 100%; height: auto; display: block; background: #000;
+    image-orientation: from-image;
+    transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  }
+  .forge-shot:hover .forge-frame img { transform: scale(1.03); }
+  .forge-cap { display: flex; align-items: baseline; gap: 10px; margin-top: 9px; }
+  .forge-cap .fc-no {
+    font-family: var(--font-display); font-variant-numeric: tabular-nums;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--gold-ink); flex: none;
+  }
+  .forge-cap .fc-name { font-family: var(--font-serif); font-size: 15.5px; color: var(--navy); line-height: 1.25; }
+  .forge-cap .fc-name .en { font-style: italic; color: var(--ink-mute); }
+  @media (max-width: 900px) { .forge-gallery { columns: 2 240px; } }
+  @media (max-width: 540px) { .forge-gallery { columns: 1; } }
+
+  .step-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(184px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .step-chip {
+    background: var(--paper);
+    padding: 15px 17px 16px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .step-chip-top { display: flex; align-items: baseline; gap: 9px; }
+  .step-chip .sc-no {
+    font-family: var(--font-display); font-variant-numeric: tabular-nums;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--gold-ink);
+  }
+  .step-chip .sc-kanji { font-family: var(--font-serif); font-size: 21px; line-height: 1; color: var(--navy); }
+  .step-chip .sc-name { font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .step-chip .sc-en { font-size: 11.5px; letter-spacing: 0.03em; color: var(--ink-mute); font-style: italic; }
+
+  /* ── Martial Arts ─────────────────────────────────── */
+  .dojo-lead {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 2.1vw, 25px);
+    line-height: 1.5; color: var(--ink); font-weight: 500;
+    max-width: 40ch; margin: 0 0 18px;
+    text-wrap: pretty;
+  }
+  .dojo-lead .jp {
+    font-style: normal;
+    color: var(--gold-ink);
+    white-space: nowrap;
+  }
+  .dojo-lead em { font-style: italic; color: var(--gold-ink); }
+  .dojo-sub {
+    font-size: 15.5px; line-height: 1.65; color: var(--ink-soft);
+    max-width: 56ch; margin: 0 0 clamp(36px, 5vh, 52px);
+    text-wrap: pretty;
+  }
+  .dojo-disciplines {
+    display: flex; flex-wrap: wrap; gap: 10px 12px;
+    margin: 0 0 clamp(40px, 6vh, 60px);
+    padding-top: 26px;
+    border-top: 1px solid var(--gold-line);
+  }
+  .dojo-chip {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--navy);
+    border: 1px solid var(--gold-line);
+    padding: 7px 13px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.4);
+  }
+  .dojo-chip .jp { color: var(--gold-ink); letter-spacing: 0.1em; }
+
+  .dojo-gallery {
+    columns: 4 240px;
+    column-gap: 20px;
+  }
+  .shot {
+    break-inside: avoid;
+    margin: 0 0 20px;
+  }
+  .shot-frame {
+    position: relative;
+    overflow: hidden;
+    background: var(--slot);
+  }
+  .shot-frame img {
+    width: 100%; height: auto; display: block;
+    image-orientation: from-image;
+  }
+  .shot-frame::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transition: border-color .25s ease;
+  }
+  .shot:hover .shot-frame::after { border-color: var(--gold); }
+  .shot figcaption {
+    margin-top: 11px;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .shot-name {
+    font-family: var(--font-serif);
+    font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.2;
+  }
+  .shot-jp {
+    font-family: var(--font-display);
+    font-size: 10.5px; letter-spacing: 0.14em;
+    color: var(--gold-ink);
+  }
+  @media (max-width: 980px) { .dojo-gallery { columns: 3 200px; } }
+  @media (max-width: 620px) { .dojo-gallery { columns: 2 140px; column-gap: 14px; } .shot { margin-bottom: 14px; } }
+
+  /* Artwork gallery (Ink Painting / Calligraphy real pieces) */
+  .art-gallery {
+    columns: 2 240px;
+    column-gap: 18px;
+  }
+  .art-gallery .shot { margin: 0 0 18px; }
+  @media (max-width: 520px) { .art-gallery { columns: 1; } }
+
+  /* Origami collage — casual, no cards */
+  .origami-collage {
+    columns: 4 200px;
+    column-gap: 12px;
+  }
+  .origami-collage img {
+    width: 100%; height: auto; display: block;
+    margin: 0 0 12px;
+    border: 1px solid var(--line);
+    image-orientation: from-image;
+    transition: filter .25s ease;
+    break-inside: avoid;
+  }
+  .origami-collage img:hover { filter: brightness(1.06); }
+  @media (max-width: 760px) { .origami-collage { columns: 3 150px; column-gap: 10px; } .origami-collage img { margin-bottom: 10px; } }
+  @media (max-width: 460px) { .origami-collage { columns: 2 120px; } }
+
+  /* Pieces shop layout */
+  /* specificity bumped to .practice.practice--shop so it beats the later base .practice grid */
+  .practice.practice--shop { display: block; }
+  .practice.practice--shop .practice-head {
+    position: static; top: auto;
+    max-width: none;
+    margin-bottom: clamp(32px, 4.5vh, 48px);
+  }
+  .practice.practice--shop .practice-desc { max-width: 60ch; }
+  .pieces-pay {
+    margin: 0 0 clamp(44px, 6vh, 68px);
+    padding: clamp(20px, 3vw, 30px) clamp(22px, 3vw, 34px);
+    border: 1px solid var(--gold-line);
+    background: rgba(255,255,255,0.5);
+    display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: baseline;
+  }
+  .pieces-pay-lead { font-family: var(--font-serif); font-style: italic; font-size: clamp(17px,1.8vw,21px); color: var(--navy); margin: 0; }
+  .pieces-pay-note { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; max-width: 62ch; }
+  .pieces-pay-note a { color: var(--gold-ink); border-bottom: 1px solid var(--gold-line); }
+  .pieces-pay-note a:hover { color: var(--navy); }
+
+  .piece-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: clamp(26px, 2.6vw, 40px) clamp(20px, 2vw, 30px);
+  }
+  .piece-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .piece-mat {
+    aspect-ratio: 4 / 5;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: flex; align-items: stretch; justify-content: center;
+    overflow: hidden;
+  }
+  .piece-mat img {
+    width: 100%; height: 100%; display: block;
+    object-fit: cover;
+    image-orientation: from-image;
+    transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  }
+  .piece-card:hover .piece-mat img { transform: scale(1.03); }
+  .piece-body { padding: 16px 2px 0; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+  .piece-title { font-family: var(--font-serif); font-size: clamp(20px, 1.9vw, 25px); line-height: 1.15; font-weight: 600; color: var(--navy); margin: 0; text-wrap: balance; }
+  .piece-spec { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-ink); margin: 0; }
+  .piece-desc { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin: 2px 0 0; flex: 1; text-wrap: pretty; }
+  .piece-foot { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .piece-status { font-family: var(--font-serif); font-size: 16px; color: var(--navy); font-weight: 500; }
+  .piece-buy {
+    font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--navy); border: 1px solid var(--navy); padding: 9px 16px; white-space: nowrap;
+    transition: background .2s ease, color .2s ease;
+  }
+  .piece-buy:hover { background: var(--navy); color: var(--gold-pale); }
+  .piece-card.is-sold .piece-mat img { opacity: .72; filter: saturate(.55); }
+  .piece-card.is-sold .piece-buy { display: none; }
+  .piece-card.is-sold .piece-status { color: var(--ink-mute); }
+  .piece-zelle { margin: 9px 0 0; font-size: 11.5px; line-height: 1.45; color: var(--ink-mute); }
+  .piece-zelle a { color: var(--gold-ink); border-bottom: 1px solid var(--gold-line); }
+  .piece-zelle a:hover { color: var(--navy); }
+  .piece-card.is-sold .piece-zelle { display: none; }
+  @media (max-width: 540px) {
+    .piece-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 22px 14px; }
+    .piece-body { padding-top: 12px; }
+  }
+
+  /* Commissioned pieces — grouped, two-photo mats, no buy button */
+  .commission-group { margin-top: clamp(40px, 5vh, 60px); }
+  .commission-group:first-of-type { margin-top: 0; }
+  .commission-group[id] { scroll-margin-top: 88px; }
+  .commission-note {
+    font-family: var(--font-serif);
+    font-size: clamp(16px, 1.7vw, 19px);
+    line-height: 1.55; color: var(--ink-soft);
+    max-width: 62ch; margin: 0 0 clamp(24px, 3vh, 32px);
+    text-wrap: pretty;
+  }
+  .commission-note em { font-style: italic; color: var(--gold-ink); }
+  .commission-note .jp { font-family: var(--font-display); letter-spacing: 0.08em; color: var(--gold-ink); }
+  .piece-mat--tbd {
+    display: flex; align-items: center; justify-content: center;
+    border-style: dashed; border-color: var(--gold-line);
+    background:
+      repeating-linear-gradient(45deg, transparent, transparent 9px, rgba(168,130,60,0.07) 9px, rgba(168,130,60,0.07) 10px),
+      var(--slot);
+  }
+  .piece-mat--tbd .tbd-mark {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .piece-card.is-placeholder .piece-title { color: var(--ink-mute); font-style: italic; font-weight: 500; }
+  .commission-group-label {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--navy);
+    display: flex; align-items: center; gap: 14px;
+    margin: 0 0 clamp(24px, 3vh, 34px);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gold-line);
+  }
+  .commission-group-label .diamond { width: 6px; height: 6px; }
+  .commission-group-label .count {
+    margin-left: auto; font-family: var(--font-serif); font-style: italic;
+    text-transform: none; letter-spacing: 0; font-size: 15px; color: var(--ink-mute);
+  }
+  .piece-mat--duo { gap: 0; }
+  .piece-mat--duo img { width: 50%; height: 100%; aspect-ratio: auto; object-fit: cover; }
+  .piece-status--commission { font-family: var(--font-serif); font-size: 15px; color: var(--gold-ink); font-style: italic; }
+  #contact {
+    background:
+      radial-gradient(600px 320px at 96% 2%, rgba(168, 130, 60, 0.12), transparent 70%),
+      var(--bg);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: clamp(56px, 8vh, 96px);
+  }
+  .section-num {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-num .diamond { width: 7px; height: 7px; }
+  .section-num::after {
+    content: "";
+    flex: 0 0 56px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-left: 4px;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.04;
+    letter-spacing: 0;
+    font-weight: 500;
+    margin: 0;
+    max-width: 16ch;
+    color: var(--navy);
+    text-wrap: balance;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-ink);
+    font-weight: 500;
+  }
+
+  /* ── Work / Practices ─────────────────────────────────────────── */
+  .practice {
+    padding: clamp(56px, 8vh, 88px) 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+    position: relative;
+  }
+  .practice:first-of-type { border-top: 0; padding-top: 0; }
+  .practice:not(:first-of-type)::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 0;
+    width: 34px; height: 2px;
+    background: var(--gold);
+  }
+
+  .practice-head { position: sticky; top: 96px; }
+  .practice-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin: 0 0 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .practice-label .diamond { width: 6px; height: 6px; }
+  .practice-title {
+    font-family: var(--font-serif);
+    font-size: clamp(26px, 3.4vw, 38px);
+    letter-spacing: 0;
+    line-height: 1.12;
+    font-weight: 500;
+    margin: 0 0 20px;
+    color: var(--navy);
+    text-wrap: balance;
+  }
+  .practice-desc {
+    font-size: 15.5px;
+    line-height: 1.66;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 38ch;
+    text-wrap: pretty;
+  }
+  .practice-credit {
+    margin: 24px 0 0;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--navy);
+    padding-left: 16px;
+    border-left: 2px solid var(--gold);
+    line-height: 1.5;
+  }
+  .practice-credit strong {
+    display: block;
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin-bottom: 6px;
+  }
+
+  /* Plate (image grid) */
+  .plate { display: grid; gap: 20px; }
+  .plate.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .plate.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .plate.single { grid-template-columns: 1fr; }
+
+  figure { margin: 0; }
+
+  .slot {
+    position: relative;
+    background: var(--slot);
+    overflow: hidden;
+    transition: transform .25s ease;
+  }
+  .slot.ar-3-4 { aspect-ratio: 3 / 4; }
+  .slot.ar-4-3 { aspect-ratio: 4 / 3; }
+  .slot.ar-1-1 { aspect-ratio: 1 / 1; }
+  .slot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transition: border-color .25s ease;
+  }
+  figure:hover .slot::after { border-color: var(--gold); }
+  .slot image-slot { width: 100%; height: 100%; display: block; }
+
+  .slot-caption {
+    margin: 12px 2px 0;
+    font-size: 12.5px;
+    letter-spacing: 0.01em;
+    color: var(--ink-mute);
+    line-height: 1.45;
+  }
+  .slot-caption .idx {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    color: var(--gold-ink);
+    margin-right: 9px;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+  }
+
+  @media (max-width: 860px) {
+    .practice { grid-template-columns: 1fr; gap: 32px; }
+    .practice-head { position: static; }
+    .plate.cols-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .plate.cols-2, .plate.cols-3 { grid-template-columns: 1fr; }
+  }
+
+  /* ── About ────────────────────────────────────────────────────── */
+  .about-body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+  }
+  .about-body p {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 1.9vw, 23px);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 1em;
+    text-wrap: pretty;
+    max-width: 56ch;
+    font-weight: 500;
+  }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body p .softer { color: var(--ink-soft); }
+
+  .about-facts {
+    display: grid;
+    gap: 26px;
+    padding-left: 22px;
+    border-left: 2px solid var(--gold);
+  }
+  .about-facts dt {
+    font-family: var(--font-display);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin: 0 0 7px;
+  }
+  .about-facts dd {
+    margin: 0;
+    color: var(--navy);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .about-body { grid-template-columns: 1fr; }
+  }
+
+  /* ── Contact ──────────────────────────────────────────────────── */
+  .contact-body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+  .contact-list { display: grid; gap: 28px; }
+  .contact-item .lbl {
+    font-family: var(--font-display);
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin: 0 0 9px;
+  }
+  .contact-item a,
+  .contact-item .val {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 1.8vw, 23px);
+    color: var(--navy);
+    letter-spacing: 0;
+    line-height: 1.3;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    transition: color .2s ease;
+    font-weight: 500;
+  }
+  .contact-item a:hover { color: var(--gold-ink); }
+  .contact-item a .arrow {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity .25s ease, transform .25s ease;
+    color: var(--gold);
+    font-size: 15px;
+  }
+  .contact-item a:hover .arrow { opacity: 1; transform: translateX(0); }
+  .contact-item .icon {
+    width: 17px; height: 17px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.4;
+  }
+
+  /* form */
+  .form { display: grid; gap: 24px; }
+  .field { display: grid; gap: 8px; }
+  .field label {
+    font-family: var(--font-display);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+  }
+  .field input,
+  .field textarea {
+    appearance: none;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    padding: 10px 0 12px;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.5;
+    transition: border-color .2s ease;
+    border-radius: 0;
+  }
+  .field input:focus,
+  .field textarea:focus { outline: none; border-bottom-color: var(--gold); }
+  .field textarea { min-height: 120px; resize: vertical; }
+  .field.invalid input,
+  .field.invalid textarea { border-bottom-color: #B33A3A; }
+  .field .hint {
+    font-size: 12px;
+    color: #B33A3A;
+    min-height: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .submit {
+    justify-self: start;
+    background: var(--navy);
+    color: var(--gold-pale);
+    border: 1px solid var(--navy);
+    font-family: var(--font-display);
+    font-size: 11.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, transform .15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .submit:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); }
+  .submit:hover .diamond { background: var(--navy-deep); }
+  .submit:active { transform: translateY(1px); }
+  .submit:disabled { opacity: 0.55; cursor: not-allowed; }
+  .submit .diamond { background: var(--gold); }
+
+  .form-status {
+    font-size: 13px;
+    color: var(--ink-soft);
+    min-height: 20px;
+    margin-top: -4px;
+  }
+  .form-status.sent { color: var(--gold-ink); font-weight: 500; }
+
+  @media (max-width: 860px) {
+    .contact-body { grid-template-columns: 1fr; }
+  }
+
+  /* ── Footer ───────────────────────────────────────────────────── */
+  .foot {
+    background: var(--navy-deep);
+    color: var(--gold-pale);
+    padding: clamp(48px, 8vh, 76px) 0 clamp(40px, 6vh, 60px);
+  }
+  .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px 48px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .foot-brand {
+    display: grid;
+    gap: 10px;
+  }
+  .foot-mark {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .foot-zh {
+    font-size: 14px;
+    letter-spacing: 0.5em;
+    color: rgba(231, 214, 172, 0.7);
+    padding-left: 1px;
+  }
+  .foot-meta {
+    text-align: right;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: rgba(231, 214, 172, 0.62);
+    line-height: 1.8;
+  }
+  .foot-meta a { color: var(--gold-soft); transition: color .2s ease; }
+  .foot-meta a:hover { color: var(--gold-pale); }
+  .foot-rule {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold-line), transparent);
+    margin: 0 0 clamp(32px, 5vh, 48px);
+  }
+  @media (max-width: 560px) {
+    .foot-inner { flex-direction: column; align-items: flex-start; }
+    .foot-meta { text-align: left; }
+  }
+
+  /* ── Lightbox ─────────────────────────────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 5vw, 64px);
+    background: rgba(15, 22, 40, 0.86);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    opacity: 0;
+    transition: opacity .28s ease;
+  }
+  .lightbox.is-open { display: flex; opacity: 1; }
+
+  .lb-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(18px, 3vh, 28px);
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .lightbox.is-open .lb-stage { animation: lb-rise .34s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes lb-rise {
+    from { transform: translateY(16px); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox.is-open .lb-stage { animation: none; }
+  }
+
+  .lb-img {
+    max-width: min(1040px, 88vw);
+    max-height: 64vh;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border: 1px solid var(--gold-line);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.55);
+    background: var(--slot);
+  }
+
+  .lb-caption {
+    text-align: center;
+    max-width: min(640px, 90vw);
+  }
+  .lb-sub {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin: 0 0 11px;
+  }
+  .lb-title {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    color: #FCFAF4;
+    margin: 0 0 11px;
+    text-wrap: balance;
+  }
+  .lb-desc {
+    font-family: var(--font-serif);
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.55;
+    color: rgba(231, 214, 172, 0.9);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .lb-close {
+    position: fixed;
+    top: clamp(16px, 3vw, 28px);
+    right: clamp(16px, 3vw, 28px);
+    width: 46px; height: 46px;
+    background: rgba(250, 246, 236, 0.08);
+    border: 1px solid rgba(231, 214, 172, 0.4);
+    color: var(--gold-pale);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .lb-close:hover { background: rgba(231, 214, 172, 0.16); border-color: var(--gold-soft); }
+  .lb-close svg { display: block; }
+</style>
+<link id="gfont-Roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<body>
+
+<!-- ─────────── NAV ─────────── -->
+<header class="nav" id="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark" aria-label="Pure Sky Creations — home">
+      <img src="assets/logo-emblem.png" alt="Pure Sky Creations emblem" />
+      <span class="wordmark">
+        <span class="wm-main">Pure Sky Creations</span>
+        <span class="wm-sub">青天閣 · Skyler Đỗ</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <line x1="3" y1="7"  x2="19" y2="7"  stroke="currentColor" stroke-width="1.4"/>
+        <line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="has-sub">
+        <a href="#work">PIECES<span class="caret" aria-hidden="true"></span></a>
+        <ul class="nav-sub">
+          <li><a href="#jewelry">Jewelry &amp; Metalsmithing</a></li>
+          <li><a href="#sumi-e">Sumi-e Ink Painting</a></li>
+          <li><a href="#shodo">Shodo Calligraphy</a></li>
+          <li><a href="#origami">Origami</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#commissions">Commissions<span class="caret" aria-hidden="true"></span></a>
+        <ul class="nav-sub">
+          <li><a href="#commissions-jewelry">Jewelry</a></li>
+          <li><a href="#commissions-hanko">Hanko — Name Seals</a></li>
+          <li><a href="#commissions-shodo">Shodo Calligraphy</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#experiences">Experiences<span class="caret" aria-hidden="true"></span></a>
+        <ul class="nav-sub">
+          <li><a href="#exchanges">Skill Exchanges</a></li>
+          <li><a href="#events">Events &amp; Exhibitions</a></li>
+          <li><a href="#seki">Seki Ōdachi — Sword Forging</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="#martial-arts">Martial Arts<span class="caret" aria-hidden="true"></span></a>
+        <ul class="nav-sub">
+          <li><a href="#ma-disciplines">Disciplines</a></li>
+          <li><a href="#ma-gallery">Gallery</a></li>
+        </ul>
+      </li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ─────────── HERO ─────────── -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="wrap" style="font-family: BlinkMacSystemFont">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">ARTIST · WARRIOR · ENGINEER </p>
+          <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
+          <p class="hero-tag">青天閣 Pure Sky Creations</p>
+          <p class="hero-statement">Welcome to Pure Sky Creations. I work across jewelry, metalsmithing, ink painting, calligraphy, seal carving, whatever catches my eye.  At the intersection of Eastern aesthetic tradition and Western fabrication craft. Precise in execution, narrative in form.</p>
+          <dl class="hero-meta">
+            <div>
+              <dt>MEDIUMS</dt>
+              <dd>Jewelry &amp; Metalsmithing · Sumi-e · Shodo · Hanko · Origami</dd>
+            </div>
+            <div>
+              <dt>Languages</dt>
+              <dd>English · Cantonese · Mandarin · Vietnamese · Japanese</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-emblem">
+          <img src="assets/logo-emblem.png" alt="Pure Sky Creations — navy dragon and gem emblem with the characters 青天閣" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── PIECES ─────────── -->
+  <section class="section" id="work" data-screen-label="02 Pieces">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>01 — Pieces</span>
+        <h2 class="section-title">Four practices, <em>one hand.</em></h2>
+      </header>
+
+      <div class="pieces-pay">
+        <p class="pieces-pay-lead">Each piece is one of a kind, sold as shown.</p>
+        <p class="pieces-pay-note">Secure card checkout through <strong>Stripe</strong> — or pay by <strong>Zelle</strong> — with the option listed beneath every piece below.</p>
+      </div>
+
+      <!-- Practice 1 — Jewelry -->
+      <article class="practice practice--shop" id="jewelry">
+        <div class="practice-head">
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>i. Jewelry &amp; Metalsmithing</p>
+          <h3 class="practice-title">Sterling silver, designed and fabricated from sketch to finished piece.</h3>
+          <p class="practice-desc">
+            Bezel and prong setting, mixed-metal construction, and sculptural casting —
+            with labradorite, dendritic opal, amethyst, mystic topaz, ruby, and emerald
+            as recurring stones.
+          </p>
+        </div>
+        <!-- To sell a piece: point its Acquire link at the piece's Stripe Payment Link (href="https://buy.stripe.com/...").
+             Edit <span class="piece-status"> to a price like "$185", or "Sold" / "Reserved".
+             To mark a piece sold, add class "is-sold" to its <figure class="piece-card">. -->
+        <div class="piece-grid">
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/azure-souls.jpg" alt="Azure Souls — two silver dolphins encircling a faceted blue heart gem on a box chain" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Azure Souls</h4>
+              <p class="piece-spec">Sterling Silver · Blue Emerald</p>
+              <p class="piece-desc">Two silver dolphins arc around a faceted blue heart held in a slim ring.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/dragon-necklace.jpg" alt="Dragon Necklace — silver dragon head pendant cradling an oval labradorite cabochon on a black cord" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Dragon Necklace</h4>
+              <p class="piece-spec">Sterling Silver · Labradorite</p>
+              <p class="piece-desc">A horned dragon's head guards a glowing labradorite cabochon on a black cord.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/mystic-topaz-pendant.jpg" alt="Mystic Topaz Pendant — blue-green mystic topaz prong-set between silver oak-leaf wings" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Mystic Topaz Pendant</h4>
+              <p class="piece-spec">Sterling Silver · Mystic Topaz</p>
+              <p class="piece-desc">A blue-green mystic topaz prong-set between a pair of silver oak-leaf wings.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/la-vie-en-amethyste.jpg" alt="La Vie en Améthyste — trillion amethyst with a silver-and-copper rose and leaf vine necklace" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">La Vie en Améthyste</h4>
+              <p class="piece-spec">Silver &amp; Copper · Amethyst</p>
+              <p class="piece-desc">A trillion amethyst meets a silver-and-copper rose climbing a slender vine.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/double-banded-labradorite-ring.jpg" alt="Double Banded Labradorite Ring worn on a hand, bezel-set blue labradorite on a split band" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Double Banded Labradorite Ring</h4>
+              <p class="piece-spec">Sterling Silver · Labradorite</p>
+              <p class="piece-desc">A bezel-set labradorite floats above a split double band.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/double-heart-ring.jpg" alt="Double Heart Ring — cluster of red and green stones forming blossoms on a silver band" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Double Heart Ring</h4>
+              <p class="piece-spec">Sterling Silver · Zirconium Stones</p>
+              <p class="piece-desc">Red and green stones cluster into twin blossoms across a silver band.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/midnight-sextant.jpg" alt="Midnight Sextant — two labradorite cabochons joined by a silver armature in a dropped pendant" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Midnight Sextant</h4>
+              <p class="piece-spec">Sterling Silver · Labradorite</p>
+              <p class="piece-desc">Twin labradorite cabochons linked by a silver armature, like an instrument for night navigation.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/sylvan.jpg" alt="Sylvan — oval dendritic-opal pendant resembling a tree against sky, with a silver bird and copper clouds" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Sylvan</h4>
+              <p class="piece-spec">Silver &amp; Copper · Dendritic Opal</p>
+              <p class="piece-desc">A dendritic-opal landscape framed by a silver bird and drifting copper clouds.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/jiggly-belly.jpg" alt="Jiggly Belly — a slim silver bar necklace with a perched cat silhouette and draped chain" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Jiggly Belly</h4>
+              <p class="piece-spec">Sterling Silver · Cat Motif</p>
+              <p class="piece-desc">A perched cat and curling tail trace a slim silver bar across the collarbone.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/origami-earrings.jpg" alt="Origami Earrings — a pair of folded chiyogami paper cranes on gold-fill ear hooks" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Origami Earrings</h4>
+              <p class="piece-spec">Chiyogami · Gold-fill</p>
+              <p class="piece-desc">A pair of folded chiyogami paper cranes suspended from gold-fill hooks.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Practice 1b — Teardrop Kitten Series -->
+      <article class="practice practice--shop">
+        <div class="practice-head">
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>Teardrop Kitten Series</p>
+          <h3 class="practice-title">One silhouette, <em>many stones.</em></h3>
+          <p class="practice-desc">
+            A signature seated-cat pendant — an oval head framing a single teardrop
+            cabochon — cast again and again in different stones, each with its own character.
+          </p>
+        </div>
+        <div class="piece-grid">
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/tk-african-azurite.jpg" alt="Teardrop Kitten in African azurite — silver cat silhouette framing a teal teardrop cabochon" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Teardrop Kitten — African Azurite</h4>
+              <p class="piece-spec">Sterling Silver · African Azurite</p>
+              <p class="piece-desc">Teal and indigo swirl through a polished azurite teardrop.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/tk-blue-lace-agate.jpg" alt="Teardrop Kitten in blue lace agate — silver cat silhouette framing a pale banded blue teardrop" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Teardrop Kitten — Blue Lace Agate</h4>
+              <p class="piece-spec">Sterling Silver · Blue Lace Agate</p>
+              <p class="piece-desc">Soft sky-blue banding drifts through a gentle lace agate.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/tk-dendritic-opal.jpg" alt="Teardrop Kitten in dendritic opal — silver cat silhouette framing a black-and-white dendritic teardrop" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Teardrop Kitten — Dendritic Opal</h4>
+              <p class="piece-spec">Sterling Silver · Dendritic Opal</p>
+              <p class="piece-desc">Black dendrites branch like winter trees across a snow-white opal.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/tk-labradorite.jpg" alt="Teardrop Kitten in labradorite — silver cat silhouette framing a deep blue-flash teardrop on a silver chain" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Teardrop Kitten — Labradorite</h4>
+              <p class="piece-spec">Sterling Silver · Labradorite</p>
+              <p class="piece-desc">A deep labradorite with an electric blue flash, hung on a fine silver chain.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/tk-red-tiger-eye.jpg" alt="Teardrop Kitten in red tiger eye — silver cat silhouette framing a warm chatoyant red-brown teardrop" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Teardrop Kitten — Red Tiger Eye</h4>
+              <p class="piece-spec">Sterling Silver · Red Tiger Eye</p>
+              <p class="piece-desc">Warm chatoyant bands of red tiger eye catch the light.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Practice 2 — Ink Painting -->
+      <article class="practice practice--shop" id="sumi-e">
+        <div class="practice-head">
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>ii. Sumi-e Ink Painting</p>
+          <h3 class="practice-title">Original narrative compositions in the East Asian sumi-e tradition.</h3>
+          <p class="practice-desc">
+            Brush, ink, and selective watercolor on paper and fabric — wet and dry
+            brushwork, wash gradation, and gestural line. All subject matter is
+            original.
+          </p>
+        </div>
+        <div class="piece-grid">
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/dragon-kimono.jpg" alt="Sumi-e of a black dragon with blue scale accents coiled above a red-robed kimono figure on water, with a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Dragon &amp; Kimono Figure</h4>
+              <p class="piece-spec">墨絵 · Sumi-e</p>
+              <p class="piece-desc">A black dragon coils above a red-robed figure on the water, its scales caught in blue.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/enso-zen.jpg" alt="Ensō circle in black and red ink enclosing a bonsai, with the kanji 禅 and a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Zen</h4>
+              <p class="piece-spec">禅 · Ensō &amp; Bonsai</p>
+              <p class="piece-desc">An ensō in black and red encircles a bonsai beneath the character for Zen.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/enso-budo.jpg" alt="Ensō circle enclosing a bare ink tree on rock with the characters 武道 and a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Budō</h4>
+              <p class="piece-spec">武道 · Ensō &amp; Tree</p>
+              <p class="piece-desc">A bare ink tree takes root inside a sweeping ensō, paired with 武道, “the martial way.”</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Practice 3 — Calligraphy -->
+      <article class="practice practice--shop" id="shodo">
+        <div class="practice-head">
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iii. Shodo Calligraphy</p>
+          <h3 class="practice-title">Japanese brush calligraphy — single-take, performance and object at once.</h3>
+          <p class="practice-desc">
+            Kanji and Chinese characters rendered in gyosho and related scripts at
+            gallery scale.
+          </p>
+          <div class="practice-credit">
+            <strong>Exhibited</strong>
+            Heike Monogatari opening verse — Bloomfield Birmingham Art Center Student Showcase.
+          </div>
+        </div>
+        <div class="piece-grid">
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-heike.jpg" alt="Shodo of the Heike Monogatari opening verse — 祇園精舎の鐘の声… brushed in four vertical columns with a red seal, framed and hung at the BBAC gallery" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Heike Monogatari — Opening Verse</h4>
+              <p class="piece-spec">平家物語 · The Tale of the Heike</p>
+              <p class="piece-desc">The famous opening lines — “the sound of the Gion Shōja bells echoes the impermanence of all things” — brushed in four columns and sealed. Exhibited at the BBAC Commons Gallery, 2026.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-kuhaku.jpg" alt="Shodo calligraphy of the two kanji 空白 (kūhaku, blank space) in black ink with a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Kūhaku</h4>
+              <p class="piece-spec">空白 · Blank Space</p>
+              <p class="piece-desc">Two characters for “blank space” — the emptiness that gives a composition room to breathe.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-gi.jpg" alt="Shodo calligraphy of the kanji 義 (gi, righteousness) in gyosho brushwork with a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Gi</h4>
+              <p class="piece-spec">義 · Righteousness</p>
+              <p class="piece-desc">The character for righteousness, drawn in a single decisive gyōsho pass.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-furuike.jpg" alt="Shodo of Bashō's haiku 古池や蛙飛び込む水の音 beside a green origami frog" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Furuike ya — Bashō</h4>
+              <p class="piece-spec">古池や · The Old Pond</p>
+              <p class="piece-desc">Bashō's frog haiku brushed in full, set beside a folded origami frog.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-bu.jpg" alt="Shodo calligraphy of the kanji 武 (bu, martial) in bold black brushwork with a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Bu</h4>
+              <p class="piece-spec">武 · Martial</p>
+              <p class="piece-desc">A bold rendering of “martial” — weight and restraint held in one stroke.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-collection.jpg" alt="A set of framed shodo and ink works displayed together, including 空白, 武道, 義 and 禅" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Selected Works</h4>
+              <p class="piece-spec">Framed &amp; Mounted</p>
+              <p class="piece-desc">A set of framed shodō and ink pieces, matted and ready to hang.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Origami subsection -->
+      <article class="practice practice--shop" id="origami">
+        <div class="practice-head">
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iv. Origami</p>
+          <h3 class="practice-title">Folded by <em>hand.</em></h3>
+          <p class="practice-desc">A lighter practice — animals, birds, and creatures folded from single sheets. Studies in patience between the larger work.</p>
+        </div>
+        <div class="origami-collage">
+          <img src="assets/origami/origami-01.jpg" alt="Orange origami eagle with spread wings" loading="lazy" />
+          <img src="assets/origami/origami-02.jpg" alt="Red origami fox" loading="lazy" />
+          <img src="assets/origami/origami-03.jpg" alt="Green origami turtle" loading="lazy" />
+          <img src="assets/origami/origami-04.jpg" alt="Purple origami rearing horse" loading="lazy" />
+          <img src="assets/origami/origami-05.jpg" alt="Pink origami flamingo on a stand" loading="lazy" />
+          <img src="assets/origami/origami-06.jpg" alt="Orange origami giraffe" loading="lazy" />
+          <img src="assets/origami/origami-07.jpg" alt="Pink and orange origami rabbits" loading="lazy" />
+          <img src="assets/origami/origami-08.jpg" alt="Green origami dragon perched on a tin" loading="lazy" />
+          <img src="assets/origami/origami-09.jpg" alt="Green origami snake" loading="lazy" />
+          <img src="assets/origami/origami-10.jpg" alt="Red origami dragon" loading="lazy" />
+          <img src="assets/origami/origami-11.jpg" alt="Washi-paper origami cranes and butterflies" loading="lazy" />
+          <img src="assets/origami/origami-12.jpg" alt="Black and pink origami dinosaur" loading="lazy" />
+          <img src="assets/origami/origami-13.jpg" alt="Orange origami winged fox" loading="lazy" />
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ─────────── COMMISSIONS ─────────── -->
+  <section class="section" id="commissions" data-screen-label="03 Commissions">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>02 — Commissions</span>
+        <h2 class="section-title">Made to <em>order.</em></h2>
+      </header>
+      <p class="exp-intro">Bespoke pieces created in dialogue with the person who will carry them — from a single stone or name to a finished object. A selection of past commissions.</p>
+
+        <!-- Jewelry commissions -->
+        <div class="commission-group" id="commissions-jewelry">
+          <p class="commission-group-label"><span class="diamond" aria-hidden="true"></span>Jewelry<span class="count">Sun &amp; Moon — a couple's pair</span></p>
+          <div class="piece-grid">
+            <figure class="piece-card">
+              <div class="piece-mat"><img src="assets/commissions/sun-bracelet.jpg" alt="Sun Bracelet — a cast silver sun medallion on a braided black cord with silver barrel beads" loading="lazy" /></div>
+              <div class="piece-body">
+                <h4 class="piece-title">Sun Bracelet</h4>
+                <p class="piece-spec">Brass · Braided Cord</p>
+                <p class="piece-desc">A cast silver sun, rayed and rounded, strung on a hand-braided cord — the bright half of a couple's pair.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
+              </div>
+            </figure>
+            <figure class="piece-card">
+              <div class="piece-mat"><img src="assets/commissions/moon-ring.jpg" alt="Moon Ring — a round silver signet ring with a crescent moon motif" loading="lazy" /></div>
+              <div class="piece-body">
+                <h4 class="piece-title">Moon Ring</h4>
+                <p class="piece-spec">Sterling Silver · Signet</p>
+                <p class="piece-desc">A round silver signet carrying a crescent moon — the quiet half, made to answer the Sun Bracelet.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Hanko commissions -->
+        <div class="commission-group" id="commissions-hanko">
+          <p class="commission-group-label"><span class="diamond" aria-hidden="true"></span>Hanko<span class="count">Four name seals, carved by hand</span></p>
+          <p class="commission-note">A <em>hanko</em> <span class="jp">判子</span> is a personal name seal carved into a small block of stone. Inked in vermilion and pressed to paper, it stands in for a handwritten signature across much of East Asia. Each one here is cut by hand, rendering a name in characters chosen for both their sound and their meaning.</p>
+          <div class="piece-grid">
+            <figure class="piece-card">
+              <div class="piece-mat piece-mat--duo">
+                <img src="assets/commissions/hanko-jacqueline-1.jpg" alt="Hanko stone carved with the characters 雀蓮 for Jacqueline, held in a carving vise" loading="lazy" />
+                <img src="assets/commissions/hanko-jacqueline-2.jpg" alt="Close-up of the 雀蓮 hanko seal face" loading="lazy" />
+              </div>
+              <div class="piece-body">
+                <h4 class="piece-title">雀蓮 · Jacqueline</h4>
+                <p class="piece-spec">Hand-carved Seal · Soapstone</p>
+                <p class="piece-desc">A personal name seal — 雀 (sparrow) and 蓮 (lotus) — carved in intaglio.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
+              </div>
+            </figure>
+            <figure class="piece-card">
+              <div class="piece-mat piece-mat--duo">
+                <img src="assets/commissions/hanko-leah-1.jpg" alt="Hanko stone carved with the characters 丽亚 for Leah" loading="lazy" />
+                <img src="assets/commissions/hanko-leah-2.jpg" alt="Close-up of the 丽亚 hanko seal face inked in red" loading="lazy" />
+              </div>
+              <div class="piece-body">
+                <h4 class="piece-title">丽亚 · Leah</h4>
+                <p class="piece-spec">Hand-carved Seal · Soapstone</p>
+                <p class="piece-desc">A name seal rendering Leah in 丽 (beautiful) and 亚, cut in seal script.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
+              </div>
+            </figure>
+            <figure class="piece-card">
+              <div class="piece-mat piece-mat--duo">
+                <img src="assets/commissions/hanko-shaandili-1.jpg" alt="Hanko stone carved with the characters 珊迪丽 for Shaandili" loading="lazy" />
+                <img src="assets/commissions/hanko-shaandili-2.jpg" alt="Close-up of the 珊迪丽 hanko seal face" loading="lazy" />
+              </div>
+              <div class="piece-body">
+                <h4 class="piece-title">珊迪丽 · Shaandili</h4>
+                <p class="piece-spec">Hand-carved Seal · Soapstone</p>
+                <p class="piece-desc">Three characters — 珊 (coral), 迪 (guide), 丽 (beautiful) — chosen to sound and mean.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
+              </div>
+            </figure>
+            <figure class="piece-card">
+              <div class="piece-mat piece-mat--duo">
+                <img src="assets/commissions/hanko-sagarika-1.jpg" alt="Hanko stone carved with the characters 萨加丽卡 for Sagarika" loading="lazy" />
+                <img src="assets/commissions/hanko-sagarika-2.jpg" alt="Close-up of the 萨加丽卡 hanko seal face" loading="lazy" />
+              </div>
+              <div class="piece-body">
+                <h4 class="piece-title">萨加丽卡 · Sagarika</h4>
+                <p class="piece-spec">Hand-carved Seal · Soapstone</p>
+                <p class="piece-desc">A four-character transliteration — 萨·加·丽·卡 — with 丽 (beautiful) at its heart.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Shodo commissions -->
+        <div class="commission-group" id="commissions-shodo">
+          <p class="commission-group-label"><span class="diamond" aria-hidden="true"></span>Shodo Calligraphy<span class="count">Custom brushwork, commissioned to order</span></p>
+          <p class="commission-note">Commissioned <em>shodō</em> <span class="jp">書道</span> — a name, a word, or a line of verse brushed by hand in a chosen script, then sealed. New commissions are open.</p>
+          <div class="piece-grid">
+            <figure class="piece-card is-placeholder">
+              <div class="piece-mat piece-mat--tbd"><span class="tbd-mark">TBD</span></div>
+              <div class="piece-body">
+                <h4 class="piece-title">New Commission</h4>
+                <p class="piece-spec">書道 · Hand-brushed · Forthcoming</p>
+                <p class="piece-desc">A custom calligraphy commission — character, script, and dimensions to be decided together.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Open for commission</span></div>
+              </div>
+            </figure>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ─────────── EXPERIENCES ─────────── -->
+  <section class="section" id="experiences" data-screen-label="04 Experiences">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>03 — Experiences</span>
+        <h2 class="section-title">"What joy to share in <em>creations with others</em>…"</h2>
+      </header>
+      <p class="exp-intro">Time spent learning beside other makers — at the forge, in artisans' studios, and under the brush of generous teachers. The collaborations and lessons that shape the work.</p>
+
+      <div class="exp-list" id="exchanges">
+        <article class="exp-item">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Blacksmithing</p>
+            <p class="exp-place">At the forge, alongside working smiths</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Moving hot steel</h3>
+            <p class="exp-desc">Days at the forge learning to draw out, twist, and shape bar stock by hammer and heat — the same instinct as silversmithing, scaled up to glowing iron.</p>
+            <div class="exp-shots">
+              <figure><img src="assets/experiences/blacksmithing-1.jpg" alt="Skyler hammering glowing steel on an anvil at a forge" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/blacksmithing-2.jpg" alt="A blacksmithing class gathered around the forge and power hammer" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/blacksmithing-bottle-opener.jpg" alt="A hand-forged twisted iron hook resting on cloth" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Local Japanese Artisans</p>
+            <p class="exp-place">In studios across Japan</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Learning the local crafts</h3>
+            <p class="exp-desc">Shaping a clay onigawara guardian tile, dyeing tenugui cloth, and sitting with local craftspeople in their workshops — each tradition passed hand to hand.</p>
+            <div class="exp-shots">
+              <figure><img src="assets/experiences/onigawara-1.jpg" alt="Three makers holding their finished clay onigawara guardian tiles" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/onigawara-2.jpg" alt="Close-up of a hand-sculpted clay onigawara demon-face tile" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/tenugui.jpg" alt="Skyler in an indigo apron beside a tenugui dyeing artisan" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/artisans-1.jpg" alt="Skyler in yukata with a woman artisan before a bamboo scroll" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/artisans-2.jpg" alt="Skyler in yukata with a local craftsman in his studio" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Shodo Teachers</p>
+            <p class="exp-place">Kyoko sensei &amp; Mana</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Under the brush of teachers</h3>
+            <p class="exp-desc">Studying calligraphy with two generous teachers — Kyoko sensei, beside the Heike Monogatari at exhibition, and Mana, in her Asakusa studio.</p>
+            <div class="exp-shots">
+              <figure><img src="assets/experiences/kyoko-sensei.jpg" alt="Skyler with Kyoko sensei in front of the framed Heike Monogatari calligraphy at the gallery" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/shodo-asakusa.jpg" alt="Skyler with Mana in Asakusa, holding a black shirt brushed with 雲外蒼天" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Events & Exhibitions feature -->
+      <div class="seki" id="events">
+        <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>展示会 · Events &amp; Exhibitions</p>
+        <p class="seki-intro">Where the work has been shown in public — group exhibitions and gallery showcases alongside other makers.</p>
+
+        <article class="exp-item" style="border-top:0;padding-top:0;">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Group Exhibition</p>
+            <p class="exp-place">Birmingham Bloomfield Art Center — Dr. Myron &amp; Joyce LaBan Commons Gallery</p>
+            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">May 8 – June 4, 2026</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Students of Nobuko Yamasaki &amp; Kyoko Fujii</h3>
+            <p class="exp-desc">A student showcase of Japanese calligraphy and ink work at the BBAC's Commons Gallery. My brushing of the <em>Heike Monogatari</em> opening verse — 祇園精舎の鐘の声… — hung among the class's pieces, the tall white scroll near the gallery's far wall.</p>
+            <div class="exp-shots">
+              <figure><img src="assets/events/bbac-gallery-wall.jpg" alt="The Commons Gallery wall hung with framed shodo and ink works, the tall Heike Monogatari scroll near the right" loading="lazy" /></figure>
+              <figure><video src="assets/events/bbac-gallery-pan.mp4" controls muted loop playsinline preload="metadata" aria-label="Slow pan across the gallery wall of calligraphy works"></video></figure>
+              <figure><img src="assets/events/bbac-gallery-sign.jpg" alt="Gallery signage: Dr. Myron & Joyce LaBan Commons Gallery — Students of Nobuko Yamasaki & Kyoko Fujii, May 8 – June 4 2026, Birmingham Bloomfield Art Center" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Seki Ōdachi feature -->
+      <div class="seki" id="seki">
+        <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>大太刀 · Ōdachi · Seki</p>
+        <p class="seki-intro">I travelled to Seki City — home to generations of Japanese bladesmiths — and, together with the smiths there, forged an ōdachi: the great long sword. What follows is the blade, step by step, from iron sand to finished edge.</p>
+
+        <div class="blade-header">
+          <div class="blade-photo">
+            <img src="assets/seki/odachi-final.jpg" alt="The finished ōdachi 龍牙 Tatsukiba, a long curved blade leaning against a wall" loading="lazy" />
+          </div>
+          <div class="blade-info">
+            <p class="blade-name-label">Blade Name</p>
+            <h2 class="blade-name"><span class="kanji">龍牙</span><span class="romaji">Tatsukiba</span></h2>
+            <p class="blade-sub">大太刀 · Ōdachi · "Dragon Fang"</p>
+            <dl class="blade-specs">
+              <div class="blade-spec">
+                <dt>Hamon</dt>
+                <dd><span class="blade-hamon">Ichimonji Chōji</span></dd>
+              </div>
+              <div class="blade-spec">
+                <dt>Construction</dt>
+                <dd><span class="num">150&nbsp;lbs</span> coal<span aria-hidden="true">·</span><span class="num">5&nbsp;kg</span> tamahagane<span aria-hidden="true">·</span><span class="num">7</span> folds<span aria-hidden="true">·</span><span class="num">1,536</span> layers<span aria-hidden="true">·</span><span class="num">12</span> initial layers</dd>
+              </div>
+              <div class="blade-spec">
+                <dt>Geometry</dt>
+                <dd><span class="num">91&nbsp;cm</span> blade<span aria-hidden="true">·</span><span class="num">118&nbsp;cm</span> overall<span aria-hidden="true">·</span>sori <span class="num">2.5&nbsp;cm</span></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <p class="process-title">The Forging · 制作工程</p>
+        <div class="forge-gallery">
+          <figure class="forge-shot">
+            <div class="forge-frame"><video src="assets/seki/tamahagane-consolidation.mp4" style="aspect-ratio:9/16" controls muted loop playsinline preload="metadata" aria-label="Consolidating the tamahagane block"></video></div>
+            <figcaption class="forge-cap"><span class="fc-no">03</span><span class="fc-name">Tsumi-Kasane<span class="en"> · First weld</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/sword-forging.jpg" width="1500" height="844" alt="Forging the folded steel bar at the forge" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">05</span><span class="fc-name">Age-Kitae<span class="en"> · Refining folds</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/clay-coating.jpg" width="844" height="1500" alt="Coating the blade with clay slip before quenching" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">09</span><span class="fc-name">Tsuchioki<span class="en"> · Clay application</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><video src="assets/seki/sensei-power-hammer.mp4" style="aspect-ratio:16/9" controls muted loop playsinline preload="metadata" aria-label="The smith folding steel under the power hammer"></video></div>
+            <figcaption class="forge-cap"><span class="fc-no">04</span><span class="fc-name">Shita-Kitae<span class="en"> · Rough forging</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/sunobe-inspection.jpg" width="1500" height="844" alt="Inspecting the straightness of the drawn-out sunobe blank" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">07</span><span class="fc-name">Sunobe<span class="en"> · Drawing the blank</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/pre-quench.jpg" width="844" height="1500" alt="The clay-coated blade ready for the quench" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">09</span><span class="fc-name">Tsuchioki<span class="en"> · Ready for quench</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/chiseling.jpg" width="1500" height="844" alt="Shaping and filing the blade at the workbench" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">08</span><span class="fc-name">Hizukuri<span class="en"> · Shaping</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/post-quench.jpg" width="844" height="1500" alt="The blade after quenching, now curved" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">10</span><span class="fc-name">Yakiire<span class="en"> · After the quench</span></span></figcaption>
+          </figure>
+          <figure class="forge-shot">
+            <div class="forge-frame"><img src="assets/seki/sensei-at-work.jpg" width="1500" height="844" alt="The smith quenching the heated blade in the long water trough" loading="lazy" /></div>
+            <figcaption class="forge-cap"><span class="fc-no">10</span><span class="fc-name">Yakiire<span class="en"> · The quench</span></span></figcaption>
+          </figure>
+        </div>
+
+        <p class="process-title">All Thirteen Steps<span class="pt-count">iron sand to finished edge</span></p>
+        <div class="step-index">
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">01</span><span class="sc-kanji">鑪</span></div><span class="sc-name">Tatara</span><span class="sc-en">Smelting tamahagane</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">02</span><span class="sc-kanji">水減し</span></div><span class="sc-name">Mizushiki</span><span class="sc-en">Sorting by carbon</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">03</span><span class="sc-kanji">積み沸かし</span></div><span class="sc-name">Tsumi-Kasane</span><span class="sc-en">First weld</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">04</span><span class="sc-kanji">下鍛え</span></div><span class="sc-name">Shita-Kitae</span><span class="sc-en">Rough forging</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">05</span><span class="sc-kanji">上げ鍛え</span></div><span class="sc-name">Age-Kitae</span><span class="sc-en">Refining folds</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">06</span><span class="sc-kanji">造り込み</span></div><span class="sc-name">Tsukuri-Komi</span><span class="sc-en">Lamination</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">07</span><span class="sc-kanji">素延べ</span></div><span class="sc-name">Sunobe</span><span class="sc-en">Drawing the blank</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">08</span><span class="sc-kanji">火造り</span></div><span class="sc-name">Hizukuri</span><span class="sc-en">Shaping</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">09</span><span class="sc-kanji">土置き</span></div><span class="sc-name">Tsuchioki</span><span class="sc-en">Clay application</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">10</span><span class="sc-kanji">焼き入れ</span></div><span class="sc-name">Yakiire</span><span class="sc-en">The quench</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">11</span><span class="sc-kanji">合いもどし</span></div><span class="sc-name">Aomoshi</span><span class="sc-en">Tempering</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">12</span><span class="sc-kanji">鍛冶押し</span></div><span class="sc-name">Kaji-Oshi</span><span class="sc-en">Rough grind</span></div>
+          <div class="step-chip"><div class="step-chip-top"><span class="sc-no">13</span><span class="sc-kanji">研ぎ</span></div><span class="sc-name">Togishi</span><span class="sc-en">Polishing</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── MARTIAL ARTS ─────────── -->
+  <section class="section" id="martial-arts" data-screen-label="05 Martial Arts">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>04 — Martial Arts</span>
+        <h2 class="section-title">The discipline <em>of the body.</em></h2>
+      </header>
+      <p class="dojo-lead"><span class="jp">Bunbu Ryōdō · 文武両道 · "Văn võ kiêm toàn"</span> — <em>the harmonious balance of the pen and the sword.</em></p>
+      <p class="dojo-sub">A Japanese philosophical concept: the same discipline that guides the brush guides the body. A parallel practice, trained with the same attention to form, patience, and intention as the work made by hand.</p>
+
+      <div class="dojo-disciplines" id="ma-disciplines" aria-label="Disciplines trained">
+        <span class="dojo-chip">Kendo <span class="jp">剣道</span></span>
+        <span class="dojo-chip">Iaido <span class="jp">居合道</span></span>
+        <span class="dojo-chip">Kyūdō <span class="jp">弓道</span></span>
+        <span class="dojo-chip">Judo <span class="jp">柔道</span></span>
+        <span class="dojo-chip">Brazilian Jiu-Jitsu</span>
+        <span class="dojo-chip">Kenpō <span class="jp">拳法</span></span>
+        <span class="dojo-chip">Sumo <span class="jp">相撲</span></span>
+        <span class="dojo-chip">Strength &amp; Conditioning</span>
+      </div>
+
+      <div class="dojo-gallery" id="ma-gallery">
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/kendo-1.jpg" width="1440" height="1800" alt="Skyler in a kendo competition bout, bogu armor, shinai crossed at close quarters" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Kendo</span><span class="shot-jp">剣道 · Competition</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/iaido-1.jpg" width="1836" height="3264" alt="Iaido sword form performed in a dojo, blade drawn at the ready" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Iaido</span><span class="shot-jp">居合道</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/kyudo-1.jpg" width="2048" height="1536" alt="Kyudo group in white keikogi and black hakama holding longbows before a purple banner" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Kyūdō</span><span class="shot-jp">弓道 · Archery</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/judo-1.jpg" width="1080" height="811" alt="Judo club group photo on the tatami beneath calligraphy" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Judo</span><span class="shot-jp">柔道</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/bjj-1.jpg" width="2268" height="4032" alt="Three Brazilian Jiu-Jitsu practitioners in gi with colored belts before a painted portrait" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Brazilian Jiu-Jitsu</span><span class="shot-jp">Gi · Grappling</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/iaido-2.jpg" width="2048" height="1151" alt="Iaido practitioner with an elder sensei holding katana in a dojo" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Iaido</span><span class="shot-jp">居合道</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/sumo-1.jpg" width="4032" height="2268" alt="Sumo training group flexing in mawashi inside a sand keiko ring" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Sumo</span><span class="shot-jp">相撲</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/kempo-1.jpg" width="4032" height="2268" alt="Kenpo group in black gi with sashes lined up in formation on the mat" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Kenpō</span><span class="shot-jp">拳法</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/iaido-3.jpg" width="1080" height="1920" alt="Iaido form drawing the blade across the body in a wood-paneled room" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Iaido</span><span class="shot-jp">居合道 · Form</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/judo-2.jpg" width="2268" height="4032" alt="Judo practitioner with an elder sensei beneath framed calligraphy and portraits" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Judo</span><span class="shot-jp">柔道 · With sensei</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/kendo-2.jpg" width="750" height="834" alt="Two kendoka in bogu armor celebrating after training" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Kendo</span><span class="shot-jp">剣道 · Keiko</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/judo-3.jpg" width="2160" height="3840" alt="Judo dojo group on red and green tatami giving peace signs" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Judo</span><span class="shot-jp">柔道 · Dojo</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/strength-1.jpg" width="1080" height="1920" alt="Barbell back squat in a Hammer Strength rack at the gym" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Strength</span><span class="shot-jp">Squat</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/climbing-1.jpg" width="2268" height="4032" alt="Bouldering on an indoor climbing wall, mid-route" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Bouldering</span><span class="shot-jp">Cross-training</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="shot-frame"><img src="assets/martial/strength-2.jpg" width="1080" height="1920" alt="Hanging leg raise on a vertical knee-raise station" loading="lazy" /></div>
+          <figcaption><span class="shot-name">Conditioning</span><span class="shot-jp">Core</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── ABOUT ─────────── -->
+  <section class="section" id="about" data-screen-label="06 About">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>05 — About</span>
+        <h2 class="section-title">Created with purity of mind, executed with care.</h2>
+      </header>
+
+      <div class="about-body">
+        <dl class="about-facts">
+          <div>
+            <dt>Education</dt>
+            <dd style="font-family: BlinkMacSystemFont">University of Illinois<br />University of Michigan</dd>
+          </div>
+          <div>
+            <dt>Disciplines</dt>
+            <dd style="font-family: BlinkMacSystemFont">Jewelry &amp; Metalsmithing · Sumi-e · Shodo · Hanko · Origami</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd style="font-family: BlinkMacSystemFont">English · Cantonese · Mandarin · Vietnamese · Japanese</dd>
+          </div>
+        </dl>
+
+        <div style="width: 750px">
+          <p>Pure Sky Creations, established 1/10/2025, is the home for my creative outlets. It has been an unexpected journey, exploring different mediums and realizing creative energies I didn't expect within me. 
+
+
+<span style="color:#21252d">Born in California and raised in Asia, I developed a distinct aesthetic sense that crosses borders and cultures.</span> I wanted a way to express that aesthetic.
+ 
+I hope you've enjoyed viewing my work. </p>
+          <p>
+            <span class="softer">Born in California and raised in Asia, I developed a distinct aesthetic sense that crosses borders and cultures. </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── CONTACT ─────────── -->
+  <section class="section" id="contact" data-screen-label="07 Contact">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>06 — Contact</span>
+        <h2 class="section-title">Commissions, collaborations, &amp; conversation.</h2>
+      </header>
+
+      <div class="contact-body">
+        <div class="contact-list">
+          <div class="contact-item">
+            <p class="lbl">EMAIL</p>
+            <a href="mailto:pure.sky.creations.contact@gmail.com">
+              pure.sky.creations.contact@gmail.com
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="contact-item">
+            <p class="lbl">Instagram</p>
+            <a href="https://www.instagram.com/pure_sky_creations/" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="4.5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/>
+              </svg>
+              @pure_sky_creations
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="contact-item">
+            <p class="lbl">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/skylerdo/" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2.5"/>
+                <line x1="7.5" y1="10" x2="7.5" y2="16.5"/>
+                <circle cx="7.5" cy="7.2" r="0.6" fill="currentColor" stroke="none"/>
+                <path d="M11 16.5v-6.5M11 12.3c0-1.4 1.1-2.3 2.4-2.3s2.6.7 2.6 2.7v3.8"/>
+              </svg>
+              in/skylerdo
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <form class="form" id="contactForm" novalidate>
+          <div class="field" data-field="name">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required />
+            <span class="hint" aria-live="polite"></span>
+          </div>
+          <div class="field" data-field="email">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required />
+            <span class="hint" aria-live="polite"></span>
+          </div>
+          <div class="field" data-field="message">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" required></textarea>
+            <span class="hint" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="submit">
+            <span class="diamond" aria-hidden="true"></span>
+            Send Message
+          </button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ─────────── FOOTER ─────────── -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-rule"></div>
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <span class="foot-mark">
+          <span class="diamond" aria-hidden="true"></span>
+          Pure Sky Creations
+        </span>
+        <span class="foot-zh">青天閣 · Skyler Đỗ</span>
+      </div>
+      <div class="foot-meta">
+        © <span id="year"></span> Skyler Đỗ — All works original<br />
+        <a href="mailto:pure.sky.creations.contact@gmail.com">pure.sky.creations.contact@gmail.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/pure_sky_creations/" target="_blank" rel="noopener">@pure_sky_creations</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+
+<!-- ─────────── LIGHTBOX ─────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close image">
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.6" />
+      <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.6" />
+    </svg>
+  </button>
+  <figure class="lb-stage">
+    <img class="lb-img" id="lbImg" alt="" />
+    <figcaption class="lb-caption">
+      <p class="lb-sub" id="lbSub"></p>
+      <h3 class="lb-title" id="lbTitle"></h3>
+      <p class="lb-desc" id="lbDesc"></p>
+    </figcaption>
+  </figure>
+</div>
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav: scrolled state + mobile toggle + active link tracking
+  const nav = document.getElementById('nav');
+  const navLinks = document.getElementById('navLinks');
+  const navToggle = document.getElementById('navToggle');
+  const linkEls = navLinks.querySelectorAll('a');
+
+  const onScroll = () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  linkEls.forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Active section highlight
+  const sections = ['work', 'commissions', 'experiences', 'martial-arts', 'about', 'contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        linkEls.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+  sections.forEach(s => io.observe(s));
+
+  // Contact form — client-side validation + simulated send
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  function setError(name, msg) {
+    const field = form.querySelector(`.field[data-field="${name}"]`);
+    if (!field) return;
+    field.classList.toggle('invalid', !!msg);
+    field.querySelector('.hint').textContent = msg || '';
+  }
+
+  function validate() {
+    let ok = true;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    setError('name',   name ? '' : (ok = false, 'Please enter your name.'));
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setError('email',  emailRe.test(email) ? '' : (ok = false, 'Please enter a valid email.'));
+    setError('message', message.length >= 4 ? '' : (ok = false, 'A short message, please.'));
+    return ok;
+  }
+
+  ['name', 'email', 'message'].forEach(n => {
+    form[n].addEventListener('input', () => {
+      const field = form.querySelector(`.field[data-field="${n}"]`);
+      if (field.classList.contains('invalid')) setError(n, '');
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.classList.remove('sent');
+    status.textContent = '';
+    if (!validate()) {
+      status.textContent = 'Please complete the highlighted fields.';
+      return;
+    }
+    const btn = form.querySelector('.submit');
+    btn.disabled = true;
+    status.textContent = 'Sending…';
+    setTimeout(() => {
+      btn.disabled = false;
+      status.classList.add('sent');
+      status.textContent = 'Thank you — your message has been received.';
+      form.reset();
+    }, 900);
+  });
+
+  // ── Lightbox — click any photo to expand with title + caption ──
+  (function () {
+    const overlay = document.getElementById('lightbox');
+    const lbImg   = document.getElementById('lbImg');
+    const lbSub   = document.getElementById('lbSub');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbDesc  = document.getElementById('lbDesc');
+    const lbClose = document.getElementById('lbClose');
+    let lastFocus = null;
+
+    const txt = (el, sel) => {
+      const n = el && el.querySelector(sel);
+      return n ? n.textContent.replace(/\s+/g, ' ').trim() : '';
+    };
+
+    function meta(img) {
+      const card = img.closest('.piece-card');
+      if (card) return { sub: txt(card, '.piece-spec'), title: txt(card, '.piece-title'), desc: txt(card, '.piece-desc') };
+      const shot = img.closest('.shot');
+      if (shot) return { sub: txt(shot, '.shot-jp'), title: txt(shot, '.shot-name'), desc: img.alt || '' };
+      const exp = img.closest('.exp-item');
+      if (exp) return { sub: txt(exp, '.exp-cat'), title: txt(exp, '.exp-title'), desc: img.alt || '' };
+      const forge = img.closest('.forge-shot');
+      if (forge) return { sub: '大太刀 · Ōdachi — Step ' + txt(forge, '.fc-no'), title: txt(forge, '.fc-name'), desc: img.alt || '' };
+      if (img.closest('.blade-photo')) return { sub: '大太刀 · Ōdachi', title: '龍牙 Tatsukiba', desc: img.alt || '' };
+      if (img.closest('.origami-collage')) return { sub: '折り紙 · Origami', title: 'Folded by hand', desc: img.alt || '' };
+      return { sub: '', title: '', desc: img.alt || '' };
+    }
+
+    function setLine(el, value) {
+      el.textContent = value;
+      el.style.display = value ? '' : 'none';
+    }
+
+    function open(img) {
+      const m = meta(img);
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      setLine(lbSub, m.sub);
+      setLine(lbTitle, m.title);
+      setLine(lbDesc, m.desc);
+      lastFocus = document.activeElement;
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function close() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    const selector = '.piece-mat img, .shot-frame img, .origami-collage img, .exp-shots img, .forge-frame img, .blade-photo img';
+    document.querySelectorAll(selector).forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => open(img));
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay || e.target.classList.contains('lb-stage') || e.target.classList.contains('lb-caption')) close();
+    });
+    lbClose.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+  })();
+</script>
+</body>
+</html>
