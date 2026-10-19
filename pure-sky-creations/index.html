@@ -220,7 +220,25 @@
     transform: translateX(-50%) translateY(0);
   }
   .nav-sub li { border: 0; }
-  .nav-sub .nav-sub-label{padding:12px 22px 4px;font-family:var(--font-display);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink)}
+  .bio-portrait{margin:0;justify-self:center;width:min(100%,400px);aspect-ratio:3/4;overflow:hidden;background:var(--bg-tint)}.bio-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+@media (max-width:860px){.bio-portrait{grid-row:1;justify-self:start;width:min(70%,300px);margin:0 0 8px}}
+.hero-meta dd a{color:inherit;text-decoration:none;border-bottom:1px solid var(--gold-line)}.hero-meta dd a:hover{border-color:currentColor}
+@media (max-width:600px){.mode-tab .mt-long{display:none}.mode-inner{gap:clamp(14px,5vw,28px)}}
+.origami-collage{columns:auto!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;max-width:880px}.origami-collage img{margin:0!important;aspect-ratio:1/1;height:auto;object-fit:cover}
+.cb-grid.dsc-grid .cb-hero{grid-column:1/-1!important;grid-row:auto!important}
+.docv{position:fixed;inset:0;z-index:1000;display:none;background:rgba(10,14,24,.86);padding:clamp(12px,3vw,40px)}.docv.is-open{display:flex;flex-direction:column;gap:12px}
+.docv-bar{display:flex;align-items:center;gap:12px;color:#fff;font-size:13px;letter-spacing:.06em}.docv-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.docv-bar a,.docv-bar button{font:inherit;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);padding:10px 14px;min-height:44px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}.docv-bar a:hover,.docv-bar button:hover{border-color:#fff}
+.docv-frame{flex:1;min-height:0;width:100%;border:0;background:#fff}
+.docv-note{flex:1;display:none;place-items:center;text-align:center;color:#fff;font-size:15px;line-height:1.6;padding:24px}.docv-frame{display:none}.docv-pages{display:none;flex:1;min-height:0;overflow:auto;flex-direction:column;align-items:center;gap:16px;padding:12px 0}.docv-pages canvas{display:block;max-width:100%;height:auto;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.35)}.docv-load{color:#fff;margin:auto}.docv-count{opacity:.75;white-space:nowrap}.docv[data-view="pdf"] .docv-pages{display:flex}.docv[data-view="office"] .docv-frame{display:block}.docv[data-view="note"] .docv-note{display:grid}
+.nav-yr{display:block;margin-top:3px;font-size:10px;letter-spacing:.12em;color:var(--gold-ink)}
+#eng-experience .exp-item{scroll-margin-top:136px}
+.exp-order{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 clamp(20px,3vh,32px)}
+.exp-order-l{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);margin-right:6px}
+.exp-order-b{font:inherit;font-size:13px;letter-spacing:.06em;padding:10px 16px;min-height:44px;border:1px solid var(--gold-line);background:transparent;color:var(--navy);cursor:pointer;transition:background .2s,color .2s}
+.exp-order-b:hover{border-color:var(--navy)}
+.exp-order-b.is-on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav-sub .nav-sub-label{padding:12px 22px 4px;font-family:var(--font-display);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink)}
   .nav-sub .nav-sub-label:not(:first-child){margin-top:6px;border-top:1px solid var(--line-soft);padding-top:12px}
   .nav-sub a {
     display: block;
@@ -232,6 +250,7 @@
     transition: color .18s ease, background .18s ease;
   }
   .nav-sub a::after { display: none; }
+  .nav-sub a.nav-long { white-space: normal; width: 340px; max-width: 100%; line-height: 1.45; }
   .nav-sub a:hover {
     color: var(--navy);
     background: rgba(168, 130, 60, 0.1);
@@ -248,7 +267,7 @@
   }
   .nav-toggle svg { display: block; }
 
-  @media (max-width: 820px) {
+  @media (max-width: 1080px) {
     .nav-links {
       position: absolute;
       top: 100%;
@@ -838,6 +857,7 @@
     transition: transform .5s cubic-bezier(.2,.7,.3,1);
   }
   .piece-card:hover .piece-mat img { transform: scale(1.03); }
+  .piece-thumbs{display:flex;gap:8px;margin-top:8px}.piece-thumbs button{flex:1;padding:0;border:1px solid var(--line);background:var(--paper);cursor:pointer;aspect-ratio:1;overflow:hidden;opacity:.7;transition:opacity .2s ease,border-color .2s ease}.piece-thumbs button:hover{opacity:1}.piece-thumbs button.is-on{opacity:1;border-color:var(--gold)}.piece-thumbs img{display:block;width:100%;height:100%;object-fit:cover}
   .piece-body { padding: 16px 2px 0; display: flex; flex-direction: column; gap: 7px; flex: 1; }
   .piece-title { font-family: var(--font-serif); font-size: clamp(20px, 1.9vw, 25px); line-height: 1.15; font-weight: 600; color: var(--navy); margin: 0; text-wrap: balance; }
   .piece-spec { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-ink); margin: 0; }
@@ -1385,7 +1405,7 @@
   .lb-close:hover { background: rgba(231, 214, 172, 0.16); border-color: var(--gold-soft); }
   .lb-close svg { display: block; }
 
-/* ── Modes: Artist · Warrior · Engineer ── */
+/* ── Modes: Warrior · Artist · Engineer ── */
 body[data-mode="warrior"]{--bg:#F6F4EF;--bg-tint:#EAE6DF;--paper:#FFFFFF;--ink:#141414;--ink-soft:#464441;--ink-mute:#7A7670;--line:#DCD7CE;--line-soft:#E8E4DC;--navy:#121212;--navy-deep:#0C0C0C;--navy-soft:#3A3A3A;--gold:#A51E24;--gold-ink:#9A1B21;--gold-soft:#C7353B;--gold-pale:#EDE6DC;--gold-line:rgba(165,30,36,.3);--slot:#E6E2DA}
 body[data-mode="engineer"]{--bg:#F4F6F9;--bg-tint:#E6EBF2;--paper:#FFFFFF;--ink:#141C2E;--ink-soft:#435069;--ink-mute:#6B778C;--line:#D5DCE7;--line-soft:#E4E9F0;--navy:#1B2D57;--navy-deep:#0D1731;--navy-soft:#3A5189;--gold:#B87048;--gold-ink:#8E4F2C;--gold-soft:#D39470;--gold-pale:#F2D8C6;--gold-line:rgba(184,112,72,.34);--slot:#E3E8F0}
 body:not([data-mode="artist"]) [data-for="artist"],body:not([data-mode="warrior"]) [data-for="warrior"],body:not([data-mode="engineer"]) [data-for="engineer"],body:not([data-mode="artist"]) [data-panel="artist"],body:not([data-mode="warrior"]) [data-panel="warrior"],body:not([data-mode="engineer"]) [data-panel="engineer"]{display:none!important}
@@ -1440,6 +1460,7 @@ body[data-mode="engineer"] .diamond{transform:none;border-radius:50%;background:
 .proj-grid img,.proj-grid video{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper);transition:border-color .25s ease}
 .proj-grid figure:not(.wide) img{aspect-ratio:4/3;object-fit:cover}
 .proj-grid img:hover{border-color:var(--gold)}
+.proj-grid figcaption{margin-top:8px;font-size:12.5px;line-height:1.45;font-style:italic;color:var(--ink-mute)}
 .proj-grid video{background:var(--navy-deep);aspect-ratio:16/9}
 .proj-title{font-family:var(--font-serif);font-size:clamp(22px,2.4vw,30px);line-height:1.18;font-weight:500;color:var(--navy);margin:0 0 14px;text-wrap:balance}
 .proj-desc{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin:0;text-wrap:pretty}
@@ -1467,6 +1488,7 @@ body[data-mode="engineer"] .diamond{transform:none;border-radius:50%;background:
 @media (max-width:860px){.proj{grid-template-columns:1fr}.proj--flip .proj-media{order:0}}
 @media (max-width:560px){.skill-list>div{grid-template-columns:1fr}.proj-stats{grid-template-columns:1fr}}
 
+.proj-group-h{scroll-margin-top:136px}.proj-list+.proj-group-h{margin-top:clamp(72px,10vh,120px)}.proj-group-h+.proj-list,.proj-group-h+.case-list{margin-top:clamp(28px,4vh,40px)}
 .case-list{margin-top:clamp(72px,10vh,120px);display:grid;gap:clamp(40px,6vh,64px)}
 .case{background:var(--paper);border:1px solid var(--line);border-top:2px solid var(--gold);padding:clamp(24px,4vw,52px);scroll-margin-top:136px}
 .case-head{max-width:72ch;margin-bottom:clamp(28px,4vh,40px)}
@@ -1522,10 +1544,24 @@ body[data-mode="engineer"] .diamond{transform:none;border-radius:50%;background:
 .edu-cw{margin:28px 0 0!important}
 .edu .proj-tags{margin-top:12px}
 .eng-skill-h{margin:0 0 18px!important}
+.edu-cert-h{margin:clamp(40px,6vh,64px) 0 18px!important;scroll-margin-top:136px}
+.cert-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:0 20px;border-top:1px solid var(--gold-line)}
+.cert-list li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:start;padding:18px 0;border-bottom:1px solid var(--gold-line)}
+.cert-list .cred-abbr{text-align:center;white-space:nowrap}
+.cert-name{margin:0 0 4px;font-family:var(--font-serif);font-size:clamp(18px,1.8vw,21px);line-height:1.25;color:var(--navy);font-weight:500}
+.cert-meta{margin:0;font-size:14px;color:var(--ink-mute);text-wrap:pretty}
 @media (max-width:480px){.edu-rows>div{grid-template-columns:1fr}}
-@media (max-width:1100px) and (min-width:821px){body[data-mode="engineer"] .nav-links{gap:18px;letter-spacing:.12em}}
+
 
 a.dojo-chip{transition:border-color .2s ease,color .2s ease}
+.ph{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}.ph img{display:block;width:100%;height:100%;object-fit:cover;cursor:zoom-in;background:var(--bg-tint);transition:opacity .25s ease}.ph img:hover{opacity:.92}.ph figcaption{font-family:var(--font-display);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute)}
+.ph-places{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}.ph-places .ph{grid-column:span 3}.ph-places .ph:nth-child(n+5){grid-column:span 4}.ph-places .ph img{aspect-ratio:3/2;height:auto}
+.ph-portraits{columns:3;column-gap:18px}.ph-portraits .ph{break-inside:avoid;margin-bottom:18px}.ph-portraits .ph img{height:auto}
+.ph-product{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:center}.ph-product .ph img{aspect-ratio:2/3;height:auto}.ph-product-copy{max-width:52ch}
+#photography .seki+.seki{margin-top:clamp(48px,6vw,80px)}
+@media (max-width:820px){.ph-places{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-places .ph,.ph-places .ph:nth-child(n+5){grid-column:auto}.ph-places .ph:last-child{grid-column:1/-1}.ph-portraits{columns:2}.ph-product{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-product-copy{grid-column:1/-1}}
+@media (max-width:520px){.ph-places{grid-template-columns:1fr}.ph-places .ph:last-child{grid-column:auto}.ph-portraits{columns:1}}
+.svc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}.svc-list li{font-family:var(--font-serif);font-size:clamp(18px,1.6vw,21px);color:var(--navy);font-weight:500;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}.svc-list li::before{content:"";width:6px;height:6px;background:var(--gold);transform:rotate(45deg) translateY(-3px);flex:none}.svc-list li span{flex-basis:100%;padding-left:18px;font-family:var(--font-display);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute)}
 a.dojo-chip:hover{border-color:var(--gold)}
 .disc-list{display:grid}
 .disc{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px);padding:clamp(40px,6vh,64px) 0;border-top:1px solid var(--line);align-items:start;position:relative;scroll-margin-top:136px}
@@ -1549,14 +1585,34 @@ a.dojo-chip:hover{border-color:var(--gold)}
 .eng-role{padding-top:18px;border-top:1px solid var(--line-soft)}
 .eng-role:first-child{padding-top:0;border-top:0}
 .eng-role-t{font-family:var(--font-display);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--gold-ink);margin:0 0 12px}
+.case-list{grid-template-columns:minmax(0,1fr)}.case{min-width:0}
+@media (max-width:600px){
+.section{padding:64px 0}.section-head{margin-bottom:40px}.section-title{max-width:none}
+.practice{padding:44px 0}.practice.practice--shop .practice-head{margin-bottom:24px}
+.hero{padding:40px 0 56px}.hero-eyebrow{margin-bottom:18px;font-size:11px;letter-spacing:.2em}.hero-statement{margin-top:24px;padding-left:16px}.hero-meta{margin-top:28px;gap:18px}
+.hero-emblem{width:min(62%,260px)}
+.nav-mark .wm-sub{font-size:10px;letter-spacing:.2em}.mode-tab{font-size:11px}.nav-sub .nav-sub-label{font-size:10.5px}.nav-sub a{padding:14px 0 14px 18px;font-size:12px}
+.piece-spec,.piece-buy,.cred-issuer,.contact-item .lbl,.field label,.hero-meta dt,.about-facts dt,.proj-stats dt,.brief-metric dt,.edu-rows dt,.cm-head span,.rq-head span{font-size:11px}
+.piece-foot{flex-wrap:wrap;gap:10px}.piece-buy{padding:12px 16px;text-align:center;flex:1 1 auto}
+.piece-desc,.exp-desc,.proj-desc,.practice-desc,.eng-points li,.disc-desc{font-size:15px}
+.exp-shots{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exp-shots img,.exp-shots video{height:180px;width:100%;object-fit:cover}
+.disc-shots figure{flex:1 1 100%}
+.blade-header{padding:18px}.blade-photo{padding:10px}
+.case{padding:22px 18px}.cm-row,.rq-row{padding:12px 14px}.cm-row strong{font-size:22px;margin-right:6px}.cm-row:not(.cm-head) span:nth-child(2){font-size:19px}
+.lb-img{max-height:58vh;max-width:92vw}.lightbox{padding:16px}
+.submit{width:100%;justify-content:center}
+.contact-item a,.contact-item .val{word-break:break-word}
+}
+@media (max-width:380px){.piece-grid{grid-template-columns:1fr}}
+@media (max-width:600px){.dojo-lead .jp{white-space:normal}}
 </style>
 <link id="gfont-Roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap">
 </head>
-<body data-mode="artist">
+<body data-mode="warrior">
 
 <!-- ─────────── NAV ─────────── -->
 <header class="nav" id="nav" data-screen-label="Nav">
-<nav class="mode-ribbon" aria-label="Choose a section"><div class="mode-inner" role="tablist"><a href="#artist" class="mode-tab" data-mode-go="artist" role="tab" style="--sw:#C2A05A">Artist</a><a href="#warrior" class="mode-tab" data-mode-go="warrior" role="tab" style="--sw:#C7353B">Warrior</a><a href="#engineer" class="mode-tab" data-mode-go="engineer" role="tab" style="--sw:#D39470">Engineer</a></div></nav>
+<nav class="mode-ribbon" aria-label="Choose a section"><div class="mode-inner" role="tablist"><a href="#warrior" class="mode-tab" data-mode-go="warrior" role="tab" style="--sw:#C7353B">About</a><a href="#artist" class="mode-tab" data-mode-go="artist" role="tab" style="--sw:#C2A05A">Art</a><a href="#engineer" class="mode-tab" data-mode-go="engineer" role="tab" style="--sw:#D39470">Engineering</a></div></nav>
 <div class="nav-inner">
 <a href="#top" class="nav-mark" aria-label="Pure Sky Creations home">
 <img data-for="artist" src="assets/logo-artist.png" alt="Pure Sky Creations emblem" />
@@ -1566,21 +1622,22 @@ a.dojo-chip:hover{border-color:var(--gold)}
 </a>
 <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" stroke-width="1.4"></line><line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.4"></line></svg></button>
 <ul class="nav-links" data-for="artist">
-<li class="has-sub"><a href="#work">Pieces<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#jewelry">Jewelry &amp; Metalsmithing</a></li><li><a href="#sumi-e">Sumi-e Ink Painting</a></li><li><a href="#shodo">Shodo Calligraphy</a></li><li><a href="#origami">Origami</a></li></ul></li>
-<li class="has-sub"><a href="#commissions">Commissions<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#commissions-jewelry">Jewelry</a></li><li><a href="#commissions-hanko">Hanko · Name Seals</a></li><li><a href="#commissions-shodo">Shodo Calligraphy</a></li></ul></li>
-<li class="has-sub"><a href="#experiences">Experiences<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li class="nav-sub-label">Skill Exchanges</li><li><a href="#exp-blacksmithing">Blacksmithing</a></li><li><a href="#exp-artisans">Local Japanese Artisans</a></li><li><a href="#exp-teachers">Shodo Teachers</a></li><li class="nav-sub-label">Events &amp; Exhibitions</li><li><a href="#exp-michigan-central">Calligraphy Class · Michigan Central</a></li><li><a href="#exp-chinatown">Artist Stall · Chinatown Block Party</a></li><li><a href="#exp-bbac">Group Exhibition · BBAC</a></li></ul></li>
-<li><a href="#about">About</a></li>
+<li class="has-sub"><a href="#work">Pieces<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#jewelry">Jewelry &amp; Metalsmithing</a></li><li><a href="#teardrop-kittens">Teardrop Kittens</a></li><li><a href="#sumi-e">Sumi-e Ink Painting</a></li><li><a href="#shodo">Shodo Calligraphy</a></li><li><a href="#origami">Origami</a></li></ul></li>
+<li class="has-sub"><a href="#events-exhibitions">Events &amp; Exhibitions<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#exp-dsc">Calligraphy Booth · Detroit Shipping Co.</a></li><li><a href="#exp-michigan-central">Calligraphy Class · Michigan Central</a></li><li><a href="#exp-chinatown">Artist Stall · Chinatown Block Party</a></li><li><a href="#exp-bbac">Group Exhibition · BBAC</a></li></ul></li>
+<li class="has-sub"><a href="#photography">Photography<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#photo-places">Places</a></li><li><a href="#photo-portraits">Portraits</a></li><li><a href="#photo-product">Product</a></li></ul></li>
+<li class="has-sub"><a href="#commissions">Commissions<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#commissions-jewelry">Jewelry</a></li><li><a href="#commissions-hanko">Hanko · Name Seals</a></li><li><a href="#commissions-shodo">Shodo Calligraphy</a></li><li><a href="#photography">Photography</a></li></ul></li>
+<li class="has-sub"><a href="#experiences">Experiences<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li class="nav-sub-label">Skill Exchanges</li><li><a href="#exp-blacksmithing">Blacksmithing</a></li><li><a href="#exp-artisans">Local Japanese Artisans</a></li><li><a href="#exp-teachers">Shodo Teachers</a></li><li><a href="#forging">Sword Forging · Seki</a></li></ul></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 <ul class="nav-links" data-for="warrior">
+<li><a href="#bio">Bio</a></li>
 <li class="has-sub"><a href="#martial-arts">Martial Arts<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#ma-kendo">Kendo</a></li><li><a href="#ma-iaido">Iaido</a></li><li><a href="#ma-bjj">Brazilian Jiu-Jitsu</a></li><li><a href="#ma-judo">Judo</a></li><li><a href="#ma-kyudo">Kyūdō</a></li><li><a href="#ma-kenpo">Kenpō</a></li><li><a href="#ma-sumo">Sumo</a></li><li><a href="#ma-strength">Strength &amp; Conditioning</a></li></ul></li>
-<li><a href="#forging">Sword Forging</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 <ul class="nav-links" data-for="engineer">
-<li class="has-sub"><a href="#education">Background<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#edu-umich">University of Michigan</a></li><li><a href="#edu-uiuc">University of Illinois</a></li><li><a href="#eng-skills">Certifications &amp; Skills</a></li></ul></li>
-<li><a href="#eng-experience">Experience</a></li>
-<li class="has-sub"><a href="#projects">Projects<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#proj-juacep">Nanosatellite Swarm</a></li><li><a href="#proj-ballbot">Ballbot State Estimation</a></li><li><a href="#proj-me445">Robotic Arm</a></li><li><a href="#proj-dfm">Toolbox DFMA</a></li><li><a href="#proj-kicad">LED Flasher PCB</a></li><li class="nav-sub-label">Case Studies</li><li><a href="#proj-dfss">DFSS Black Belt</a></li><li><a href="#proj-syseng">Systems Engineering Take-Home</a></li></ul></li>
+<li class="has-sub"><a href="#education">Background<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li class="nav-sub-label">Education</li><li><a href="#edu-umich">University of Michigan</a></li><li><a href="#edu-uiuc">University of Illinois</a></li><li><a href="#edu-certs">Certifications</a></li><li class="nav-sub-label">Skills</li><li><a href="#eng-skills">Skills</a></li></ul></li>
+<li class="has-sub"><a href="#eng-experience">Experience<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#exp-gm-lead">Power Activation SE · Scrum Lead · GM<span class="nav-yr">Aug 2026 – Present</span></a></li><li><a href="#exp-gm-pase">Power Activation Systems Engineer · GM<span class="nav-yr">Sep 2025 – Aug 2026</span></a></li><li><a href="#exp-juacep">JUACEP Research Scholar · Nagoya<span class="nav-yr">Jun – Aug 2025</span></a></li><li><a href="#exp-gm-track">TRACK Technical Rotations · GM<span class="nav-yr">Jul 2022 – Jun 2025</span></a></li><li><a href="#exp-uiuc">Undergraduate Research Assistant · UIUC<span class="nav-yr">2019 – 2022</span></a></li></ul></li>
+<li class="has-sub"><a href="#projects">Projects<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li class="nav-sub-label">Research</li><li><a href="#proj-juacep">Nanosatellite Swarm</a></li><li><a href="#proj-ballbot">Ballbot State Estimation</a></li><li class="nav-sub-label">Academic Projects</li><li><a href="#proj-me445">Robotic Arm</a></li><li><a href="#proj-dfm">Toolbox DFMA</a></li><li><a href="#proj-kicad">LED Flasher PCB</a></li><li><a href="#proj-isd521">Lab Automation Arm</a></li><li class="nav-sub-label">Case Studies</li><li><a class="nav-long" href="#proj-dfmea">DFMEA for Automotive Vehicle Network Power Management Specifications</a></li><li><a class="nav-long" href="#proj-dfss">Improving SDV2 Power Management Specifications</a></li><li><a class="nav-long" href="#proj-syseng">Requirements &amp; Verification for an Autonomous Tracking System</a></li></ul></li>
 <li class="has-sub"><a href="#consulting">Consulting<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#client-delta">Delta Sports</a></li><li><a href="#client-bhc">Brain Health Central</a></li><li><a href="#client-astech">ASTech</a></li></ul></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -1595,7 +1652,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
     <div class="wrap" style="font-family: BlinkMacSystemFont">
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="hero-eyebrow"><a href="#artist" data-mode-go="artist" class="is-on">Artist</a> · <a href="#warrior" data-mode-go="warrior">Warrior</a> · <a href="#engineer" data-mode-go="engineer">Engineer</a></p>
+          <p class="hero-eyebrow"><a href="#warrior" data-mode-go="warrior">About</a> · <a href="#artist" data-mode-go="artist" class="is-on">Art Services</a> · <a href="#engineer" data-mode-go="engineer">Engineering Services</a></p>
           <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
           <p class="hero-tag">青天閣 Pure Sky Creations</p>
           <p class="hero-statement">Welcome to Pure Sky Creations. My work spans jewelry and metalsmithing, ink painting, calligraphy, seal carving, and origami, and is shaped by both Eastern aesthetic tradition and Western fabrication craft. Each piece is made to be precise in execution and considered in form.</p>
@@ -1622,7 +1679,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
     <div class="wrap">
       <header class="section-head">
         <span class="section-num"><span class="diamond" aria-hidden="true"></span>01 · Pieces</span>
-        <h2 class="section-title">Four practices, <em>one hand.</em></h2>
+        <h2 class="section-title">Many practices, <em>one hand.</em></h2>
       </header>
 
       <div class="pieces-pay">
@@ -1665,17 +1722,17 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/mystic-topaz-pendant.jpg" alt="Mystic Topaz Pendant: blue-green mystic topaz prong-set between silver oak-leaf wings" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/mystic-topaz-pendant.jpg?v=2" alt="Mystic Topaz Pendant, front view: oval mystic topaz prong-set in a sterling silver ring between two brass oak-leaf wings, on a box chain" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/mystic-topaz-pendant.jpg?v=2" data-alt="Mystic Topaz Pendant, front view" aria-label="Front view"><img src="assets/jewelry/mystic-topaz-pendant.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/mystic-topaz-pendant-2.jpg" data-alt="Mystic Topaz Pendant, left side view showing the prong setting and leaf wing" aria-label="Left side view"><img src="assets/jewelry/mystic-topaz-pendant-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/mystic-topaz-pendant-3.jpg" data-alt="Mystic Topaz Pendant, right side view showing the stone profile and leaf wing" aria-label="Right side view"><img src="assets/jewelry/mystic-topaz-pendant-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Mystic Topaz Pendant</h4>
-              <p class="piece-spec">Sterling Silver · Mystic Topaz</p>
-              <p class="piece-desc">A blue-green mystic topaz prong-set between a pair of silver oak-leaf wings.</p>
+              <p class="piece-spec">Sterling Silver &amp; Brass · Mystic Topaz</p>
+              <p class="piece-desc">A blue-green mystic topaz prong-set in sterling silver between a pair of brass oak-leaf wings.</p>
               <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/la-vie-en-amethyste.jpg" alt="La Vie en Améthyste: trillion amethyst with a silver-and-copper rose and leaf vine necklace" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/la-vie-en-amethyste-1.jpg" alt="La Vie en Améthyste, front view: prong-set trillion amethyst at the end of a crossing silver vine with a silver rosebud and two copper leaves, on a box chain" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/la-vie-en-amethyste-1.jpg" data-alt="La Vie en Améthyste, front view" aria-label="Front view"><img src="assets/jewelry/la-vie-en-amethyste-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/la-vie-en-amethyste-2.jpg" data-alt="La Vie en Améthyste, left side view showing the amethyst's prong setting" aria-label="Left side view"><img src="assets/jewelry/la-vie-en-amethyste-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/la-vie-en-amethyste-3.jpg" data-alt="La Vie en Améthyste, right side view showing the silver rosebud and copper leaf" aria-label="Right side view"><img src="assets/jewelry/la-vie-en-amethyste-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">La Vie en Améthyste</h4>
               <p class="piece-spec">Silver &amp; Copper · Amethyst</p>
@@ -1705,7 +1762,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/midnight-sextant.jpg" alt="Midnight Sextant: two labradorite cabochons joined by a silver armature in a dropped pendant" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/midnight-sextant.jpg?v=2" alt="Midnight Sextant, front view: round labradorite cabochon with two raised loops, linked by a silver frame and bar to a second labradorite drop, on a box chain" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/midnight-sextant.jpg?v=2" data-alt="Midnight Sextant, front view" aria-label="Front view"><img src="assets/jewelry/midnight-sextant.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/midnight-sextant-2.jpg" data-alt="Midnight Sextant, left angled view showing the labradorite flash and bezel depth" aria-label="Left angled view"><img src="assets/jewelry/midnight-sextant-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/midnight-sextant-3.jpg" data-alt="Midnight Sextant, right angled view showing the linked frame and drop bar" aria-label="Right angled view"><img src="assets/jewelry/midnight-sextant-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Midnight Sextant</h4>
               <p class="piece-spec">Sterling Silver · Labradorite</p>
@@ -1715,7 +1772,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/sylvan.jpg" alt="Sylvan: oval dendritic-opal pendant resembling a tree against sky, with a silver bird and copper clouds" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/sylvan-1.jpg" alt="Sylvan, front view: a silver bird in flight hangs from an arched bar between two copper clouds, above an oval dendritic-opal pendant showing a branching tree" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/sylvan-1.jpg" data-alt="Sylvan, front view" aria-label="Front view"><img src="assets/jewelry/sylvan-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/sylvan-2.jpg" data-alt="Sylvan, full front view on the stand" aria-label="Full front view on the stand"><img src="assets/jewelry/sylvan-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/sylvan-3.jpg" data-alt="Sylvan, left side view" aria-label="Left side view"><img src="assets/jewelry/sylvan-3.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/sylvan-4.jpg" data-alt="Sylvan, angled view" aria-label="Angled view"><img src="assets/jewelry/sylvan-4.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/sylvan-5.jpg" data-alt="Sylvan, right angled view showing the dendrite branching" aria-label="Right angled view showing the dendrite branching"><img src="assets/jewelry/sylvan-5.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Sylvan</h4>
               <p class="piece-spec">Silver &amp; Copper · Dendritic Opal</p>
@@ -1725,7 +1782,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/jiggly-belly.jpg" alt="Jiggly Belly: a slim silver bar necklace with a perched cat silhouette and draped chain" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/jiggly-belly-1.jpg" alt="Jiggly Belly, front view: a silver cat head and curled tail joined by a curved silver bar, with a box chain draped beneath like a belly" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/jiggly-belly-1.jpg" data-alt="Jiggly Belly, front view" aria-label="Front view"><img src="assets/jewelry/jiggly-belly-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/jiggly-belly-2.jpg" data-alt="Jiggly Belly, front view, closer" aria-label="Front view, closer"><img src="assets/jewelry/jiggly-belly-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/jiggly-belly-3.jpg" data-alt="Jiggly Belly, left angled view showing the cat head" aria-label="Left angled view showing the cat head"><img src="assets/jewelry/jiggly-belly-3.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/jiggly-belly-4.jpg" data-alt="Jiggly Belly, right angled view showing the curled tail" aria-label="Right angled view showing the curled tail"><img src="assets/jewelry/jiggly-belly-4.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Jiggly Belly</h4>
               <p class="piece-spec">Sterling Silver · Cat Motif</p>
@@ -1744,13 +1801,23 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/jewelry/silver-rose-1.jpg" alt="Silver Rose, front view: a small hand-formed silver rosebud on a curving silver stem with two copper leaves, on a box chain" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/silver-rose-1.jpg" data-alt="Silver Rose, front view" aria-label="Front view"><img src="assets/jewelry/silver-rose-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/silver-rose-2.jpg" data-alt="Silver Rose, angled view showing the layered petals" aria-label="Angled view showing the layered petals"><img src="assets/jewelry/silver-rose-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/silver-rose-3.jpg" data-alt="Silver Rose, side view showing the bail and stem" aria-label="Side view showing the bail and stem"><img src="assets/jewelry/silver-rose-3.jpg" alt="" loading="lazy" /></button></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Silver Rose</h4>
+              <p class="piece-spec">Sterling Silver &amp; Copper</p>
+              <p class="piece-desc">A hand-formed silver rosebud on a curving stem, set with two copper leaves.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
         </div>
       </article>
 
       <!-- Practice 1b — Teardrop Kitten Series -->
-      <article class="practice practice--shop">
+      <article class="practice practice--shop" id="teardrop-kittens">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>Teardrop Kitten Series</p>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>ii. Teardrop Kittens</p>
           <h3 class="practice-title">One silhouette, <em>many stones.</em></h3>
           <p class="practice-desc">
             A signature seated-cat pendant, in which an oval head frames a single teardrop
@@ -1759,7 +1826,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
         </div>
         <div class="piece-grid">
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/tk-african-azurite.jpg" alt="Teardrop Kitten in African azurite: silver cat silhouette framing a teal teardrop cabochon" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/tk-african-azurite.jpg?v=2" alt="Teardrop Kitten in African azurite, front view: silver cat with pointed ears and curled tail framing a teal-and-indigo teardrop, on a black cord" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-african-azurite.jpg?v=2" data-alt="Teardrop Kitten in African azurite, front view" aria-label="Front view"><img src="assets/jewelry/tk-african-azurite.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-african-azurite-2.jpg" data-alt="Teardrop Kitten in African azurite, angled view showing the stone's markings and bezel" aria-label="Angled view"><img src="assets/jewelry/tk-african-azurite-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-african-azurite-3.jpg" data-alt="Teardrop Kitten in African azurite, three-quarter view showing the ears and curled tail" aria-label="Three-quarter view"><img src="assets/jewelry/tk-african-azurite-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Teardrop Kitten · African Azurite</h4>
               <p class="piece-spec">Sterling Silver · African Azurite</p>
@@ -1769,7 +1836,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/tk-blue-lace-agate.jpg" alt="Teardrop Kitten in blue lace agate: silver cat silhouette framing a pale banded blue teardrop" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/tk-blue-lace-agate.jpg?v=2" alt="Teardrop Kitten in blue lace agate, front view: silver cat with pointed ears and curled tail framing a pale banded blue teardrop, on a black cord" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-blue-lace-agate.jpg?v=2" data-alt="Teardrop Kitten in blue lace agate, front view" aria-label="Front view"><img src="assets/jewelry/tk-blue-lace-agate.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-blue-lace-agate-2.jpg" data-alt="Teardrop Kitten in blue lace agate, angled view showing the bezel and curled tail" aria-label="Angled view"><img src="assets/jewelry/tk-blue-lace-agate-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-blue-lace-agate-3.jpg" data-alt="Teardrop Kitten in blue lace agate, side view showing the bezel depth and linked head" aria-label="Side view"><img src="assets/jewelry/tk-blue-lace-agate-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Teardrop Kitten · Blue Lace Agate</h4>
               <p class="piece-spec">Sterling Silver · Blue Lace Agate</p>
@@ -1779,7 +1846,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/tk-dendritic-opal.jpg" alt="Teardrop Kitten in dendritic opal: silver cat silhouette framing a black-and-white dendritic teardrop" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/tk-dendritic-opal.jpg?v=2" alt="Teardrop Kitten in dendritic opal, front view: silver cat with pointed ears and curled tail framing a black-and-white dendritic teardrop, on a black cord" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-dendritic-opal.jpg?v=2" data-alt="Teardrop Kitten in dendritic opal, front view" aria-label="Front view"><img src="assets/jewelry/tk-dendritic-opal.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-dendritic-opal-2.jpg" data-alt="Teardrop Kitten in dendritic opal, side view showing the bezel wall and linked head" aria-label="Side view"><img src="assets/jewelry/tk-dendritic-opal-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-dendritic-opal-3.jpg" data-alt="Teardrop Kitten in dendritic opal, angled view showing the ears and curled tail" aria-label="Angled view"><img src="assets/jewelry/tk-dendritic-opal-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Teardrop Kitten · Dendritic Opal</h4>
               <p class="piece-spec">Sterling Silver · Dendritic Opal</p>
@@ -1789,7 +1856,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/tk-labradorite.jpg" alt="Teardrop Kitten in labradorite: silver cat silhouette framing a deep blue-flash teardrop on a silver chain" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/tk-labradorite.jpg?v=2" alt="Teardrop Kitten in labradorite, front view: silver cat with the chain threaded through its ears, framing a blue-flash labradorite teardrop" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-labradorite.jpg?v=2" data-alt="Teardrop Kitten in labradorite, front view" aria-label="Front view"><img src="assets/jewelry/tk-labradorite.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-labradorite-2.jpg" data-alt="Teardrop Kitten in labradorite, angled view showing the stone's flash and bezel" aria-label="Angled view"><img src="assets/jewelry/tk-labradorite-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-labradorite-3.jpg" data-alt="Teardrop Kitten in labradorite, side view showing the bezel wall and tail" aria-label="Side view"><img src="assets/jewelry/tk-labradorite-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Teardrop Kitten · Labradorite</h4>
               <p class="piece-spec">Sterling Silver · Labradorite</p>
@@ -1799,7 +1866,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/tk-red-tiger-eye.jpg" alt="Teardrop Kitten in red tiger eye: silver cat silhouette framing a warm chatoyant red-brown teardrop" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/jewelry/tk-red-tiger-eye.jpg?v=2" alt="Teardrop Kitten in red tiger eye, front view: silver cat with pointed ears and curled tail framing a slender red-brown chatoyant teardrop, on a black cord" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-red-tiger-eye.jpg?v=2" data-alt="Teardrop Kitten in red tiger eye, front view" aria-label="Front view"><img src="assets/jewelry/tk-red-tiger-eye.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-red-tiger-eye-2.jpg" data-alt="Teardrop Kitten in red tiger eye, side view showing the bezel wall and linked head" aria-label="Side view"><img src="assets/jewelry/tk-red-tiger-eye-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-red-tiger-eye-3.jpg" data-alt="Teardrop Kitten in red tiger eye, angled view showing the stone's banding and curled tail" aria-label="Angled view"><img src="assets/jewelry/tk-red-tiger-eye-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Teardrop Kitten · Red Tiger Eye</h4>
               <p class="piece-spec">Sterling Silver · Red Tiger Eye</p>
@@ -1814,7 +1881,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       <!-- Practice 2 — Ink Painting -->
       <article class="practice practice--shop" id="sumi-e">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>ii. Sumi-e Ink Painting</p>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iii. Sumi-e Ink Painting</p>
           <h3 class="practice-title">Original narrative compositions in the East Asian sumi-e tradition.</h3>
           <p class="practice-desc">
             Brush, ink, and selective watercolor on paper and fabric, employing wet and dry
@@ -1859,7 +1926,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       <!-- Practice 3 — Calligraphy -->
       <article class="practice practice--shop" id="shodo">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iii. Shodo Calligraphy</p>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iv. Shodo Calligraphy</p>
           <h3 class="practice-title">Japanese brush calligraphy, completed in a single take as both performance and object.</h3>
           <p class="practice-desc">
             Kanji and Chinese characters rendered in gyosho and related scripts at
@@ -1922,6 +1989,36 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-kame.jpg" alt="Shodo calligraphy of the kanji 亀 (kame, turtle) in bold black brushwork with a red seal, paired with a green origami turtle" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Kame</h4>
+              <p class="piece-spec">亀 · Turtle</p>
+              <p class="piece-desc">The character for turtle, a symbol of longevity, brushed with a sweeping final stroke and joined by a folded green origami turtle.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-hana-yellow.jpg" alt="Shodo calligraphy of the kanji 花 (hana, flower) in black ink with a red seal, paired with a yellow origami flower" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Hana · Yellow</h4>
+              <p class="piece-spec">花 · Flower</p>
+              <p class="piece-desc">The character for flower, its last stroke curling upward like a stem, paired with a folded yellow origami blossom.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-hana-purple.jpg" alt="Shodo calligraphy of the kanji 花 (hana, flower) in black ink with a red seal, paired with a purple origami flower" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Hana · Purple</h4>
+              <p class="piece-spec">花 · Flower</p>
+              <p class="piece-desc">A second rendering of 花, with its own brushwork and a folded purple origami blossom.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card">
             <div class="piece-mat"><img src="assets/pieces/shodo-collection.jpg" alt="A set of framed shodo and ink works displayed together, including 空白, 武道, 義 and 禅" loading="lazy" /></div>
             <div class="piece-body">
               <h4 class="piece-title">Selected Works</h4>
@@ -1937,7 +2034,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       <!-- Origami subsection -->
       <article class="practice practice--shop" id="origami">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iv. Origami</p>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>v. Origami</p>
           <h3 class="practice-title">Folded by <em>hand.</em></h3>
           <p class="practice-desc">A lighter practice of animals, birds, and creatures, each folded from a single sheet. These are studies in patience, undertaken between larger works.</p>
         </div>
@@ -1962,10 +2059,159 @@ a.dojo-chip:hover{border-color:var(--gold)}
   </section>
 
   <!-- ─────────── COMMISSIONS ─────────── -->
-  <section class="section" id="commissions" data-screen-label="03 Commissions">
+  <section class="section" id="events-exhibitions" data-screen-label="03 Events &amp; Exhibitions">
     <div class="wrap">
       <header class="section-head">
-        <span class="section-num"><span class="diamond" aria-hidden="true"></span>02 · Commissions</span>
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>02 · Events &amp; Exhibitions</span>
+        <h2 class="section-title">展示会 · Shared <em>with the public.</em></h2>
+      </header>
+      <p class="exp-intro">Occasions on which the work has been shared with the public, including classes taught, group exhibitions, and gallery showcases alongside other makers.</p>
+      <div class="seki" id="events">
+        
+
+        <article class="exp-item" id="exp-dsc" style="border-top:0;padding-top:0;">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Experience Booth · Hosted</p>
+            <p class="exp-place">Detroit Shipping Company, Detroit, MI</p>
+            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">October 17, 2026</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Calligraphy Experience at Detroit Shipping Company</h3>
+            <p class="exp-desc">A small calligraphy experience booth, hosted beneath the Pure Sky Creations banner.</p>
+            <div class="cb-grid dsc-grid">
+              <figure class="cb-hero"><img src="assets/experiences/dsc-06309.jpg" width="1800" height="1200" alt="Skyler guiding two guests at the calligraphy booth beneath the Pure Sky Creations banner, a 勝 board and an ensō on the table" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/dsc-06348.jpg" width="1800" height="1200" alt="Skyler standing at the booth before the 青天閣 banner, a 空白 board in the foreground" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/dsc-06365.jpg" width="1800" height="1200" alt="A group of guests gathered around the table, brushing characters on paper laid over newspaper" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/dsc-06368.jpg" width="1800" height="1200" alt="A guest in a pink jacket giving a thumbs up beside her finished brushwork" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/dsc-06382.jpg" width="1800" height="1200" alt="Two guests laughing over an ink painting of a crab on brown paper" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/dsc-06307.jpg" width="1800" height="1200" alt="Two guests seated with their brushed characters spread across the table" loading="lazy" /></figure>
+              <figure><img src="assets/experiences/dsc-06362.jpg" width="1800" height="1200" alt="Two guests at work along the long table, a 楽 board on a stand in the foreground" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+
+        <article class="exp-item" id="exp-michigan-central">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Workshop · Taught</p>
+            <p class="exp-place">The Station at Michigan Central, Detroit, MI</p>
+            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">August 23, 2026</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">An Introduction to Shodo at Michigan Central</h3>
+            <p class="exp-desc">I had the honor of teaching an introductory shodo class in the great hall of Detroit's restored 1913 train station. Each student chose a word of personal meaning, such as 花 (flower), 安 (peace), 勝 (victory), 抹茶 (matcha), or 空白 (blank space), and brushed it by hand. The day's work was then laid out on the table for all to see.</p>
+            <div class="mc-feature">
+              <figure class="mc-video"><video src="assets/events/mc-calligraphy-class.mp4" controls muted loop playsinline preload="metadata" aria-label="Video of the calligraphy class at Michigan Central Station"></video></figure>
+              <div class="mc-photos">
+                <figure class="wide"><img src="assets/events/mc-group-2.jpg" width="1800" height="1113" alt="The class holding up their finished calligraphy in front of the Station sign: Est 1913, Michigan Central, Detroit MI" loading="lazy" /></figure>
+                <figure><img src="assets/events/mc-class-1.jpg" width="1800" height="1200" alt="Students seated along a long table in the station's hall, brushing characters on white paper beside ink stones" loading="lazy" /></figure>
+                <figure><img src="assets/events/mc-class-2.jpg" width="1800" height="1200" alt="Visitors gathered around a table covered in the class's finished calligraphy sheets" loading="lazy" /></figure>
+                <figure><img src="assets/events/mc-group-1.jpg" width="1800" height="1031" alt="Students smiling with their brushed characters (水晶, 美国, 妈妈, 安, 花, 抹茶, 勝, 吉), with 空白 held overhead" loading="lazy" /></figure>
+                <figure><img src="assets/events/mc-station.jpg" width="1800" height="1200" alt="Exterior of Michigan Central Station, the Beaux-Arts tower in Detroit's Corktown" loading="lazy" /></figure>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="exp-item" id="exp-chinatown">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Artist Stall · Invited</p>
+            <p class="exp-place">Detroit Chinatown Vision Committee · Cass Ave &amp; Peterboro St, Detroit, MI</p>
+            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">July 25, 2026</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">2nd Annual Detroit Chinatown Block Party</h3>
+            <p class="exp-desc">I was graciously invited to host a stall to present and offer my work. On display were sterling silver jewelry, origami crane and butterfly earrings, and signed calligraphy prints of 福, 龜, 永, 勝, 花, and 空白. Hanko seals were also carved on commission at the table.</p>
+            <div class="cb-grid">
+              <figure class="cb-hero"><img src="assets/events/cb-stall.jpg" width="1800" height="1200" alt="Skyler seated behind the Pure Sky Creations stall under a blue canopy, calligraphy boards and boxed jewelry across the table" loading="lazy" /></figure>
+              <figure class="cb-flyer"><img src="assets/events/cb-flyer.jpg" width="816" height="1056" alt="Event flyer: The Second Annual Detroit Chinatown Block Party, Saturday July 25 2026, 12–8pm, Cass Ave &amp; Peterboro St" loading="lazy" /></figure>
+              <figure><img src="assets/events/cb-table-3.jpg" width="1800" height="1200" alt="福 and 龜 calligraphy boards with an origami turtle, beside masu box earrings and silver kitten pendants" loading="lazy" /></figure>
+              <figure><img src="assets/events/cb-table-2.jpg" width="1800" height="1200" alt="永, 勝 and 花 prints above origami butterfly necklaces, kitten pendants and silver necklaces in a glass case" loading="lazy" /></figure>
+              <figure><img src="assets/events/cb-table-1.jpg" width="1800" height="1200" alt="空白, 武道 and 禅 ensō works behind origami crane and butterfly earrings and a commissioned-seals sign" loading="lazy" /></figure>
+              <figure><img src="assets/events/cb-cranes.jpg" width="1080" height="720" alt="Close-up of red and gold origami crane earrings on a white jewelry box" loading="lazy" /></figure>
+              <figure><img src="assets/events/cb-flower.jpg" width="1080" height="720" alt="A yellow origami lily resting on the 花 calligraphy print" loading="lazy" /></figure>
+              <figure><img src="assets/events/cb-seal.jpg" width="1080" height="720" alt="Hands carving a hanko name seal in a stone held in a carving vise" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+
+        <article class="exp-item" id="exp-bbac">
+          <div class="exp-meta">
+            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Group Exhibition</p>
+            <p class="exp-place">Birmingham Bloomfield Art Center, Dr. Myron &amp; Joyce LaBan Commons Gallery</p>
+            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">May 8 – June 4, 2026</p>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Students of Nobuko Yamasaki &amp; Kyoko Fujii</h3>
+            <p class="exp-desc">A student showcase of Japanese calligraphy and ink work at the BBAC's Commons Gallery. I was honored to have my brushing of the <em>Heike Monogatari</em> opening verse, 祇園精舎の鐘の声…, hung among the class's pieces. It is the tall white scroll near the gallery's far wall.</p>
+            <div class="exp-shots">
+              <figure><img src="assets/events/bbac-gallery-wall.jpg" alt="The Commons Gallery wall hung with framed shodo and ink works, the tall Heike Monogatari scroll near the right" loading="lazy" /></figure>
+              <figure><video src="assets/events/bbac-gallery-pan.mp4" controls muted loop playsinline preload="metadata" aria-label="Slow pan across the gallery wall of calligraphy works"></video></figure>
+              <figure><img src="assets/events/bbac-gallery-sign.jpg" alt="Gallery signage: Dr. Myron & Joyce LaBan Commons Gallery, Students of Nobuko Yamasaki & Kyoko Fujii, May 8 – June 4 2026, Birmingham Bloomfield Art Center" loading="lazy" /></figure>
+            </div>
+          </div>
+        </article>
+      </div>
+
+        </div>
+  </section>
+
+  <section class="section" id="photography" data-screen-label="04 Photography">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>03 · Photography</span>
+        <h2 class="section-title">Light, <em>held still.</em></h2>
+      </header>
+      <p class="exp-intro">The same eye for composition that guides the brush and the file, turned toward places, people, and objects. Available for portrait, product, and travel commissions.</p>
+      <div class="seki" id="photo-places">
+        <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>風景 · Places</p>
+        <div class="ph-places">
+          <figure class="ph"><img src="assets/photography/dsc00550.jpg" alt="The Acropolis propylaea and Temple of Athena Nike floodlit against a black night sky, Athens" loading="lazy" /><figcaption>Acropolis by night · Athens</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc02376.jpg" alt="White cliffside villas above a deep blue caldera dotted with small boats, Santorini" loading="lazy" /><figcaption>Caldera · Santorini</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc01735.jpg" alt="A towering sea-carved rock arch over glittering turquoise water, two swimmers in red life vests on a ledge" loading="lazy" /><figcaption>Kleftiko · Milos</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04733.jpg" alt="Pink and violet streaked clouds at dusk mirrored in a still lake lined with silhouetted trees and houses" loading="lazy" /><figcaption>Lakeside dusk · Michigan</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc01169.jpg" alt="A family standing on a sandstone ledge above the white volcanic canyons of Sarakiniko, the Aegean behind" loading="lazy" /><figcaption>Sarakiniko · Milos</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc02597.jpg" alt="Late sun over a long curving beach, wind-whipped surf rolling in under a clear blue sky" loading="lazy" /><figcaption>Aegean shoreline</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04117.jpg" alt="City lights spreading across the dark ground seen from an airplane window at night" loading="lazy" /><figcaption>City lights from above</figcaption></figure>
+        </div>
+      </div>
+      <div class="seki" id="photo-portraits">
+        <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>肖像 · Portraits</p>
+        <div class="ph-portraits">
+          <figure class="ph"><img src="assets/photography/dsc05084.jpg" alt="A woman kneeling on a shaded forest path beneath a canopy of green leaves, a river glinting behind" loading="lazy" /><figcaption>Forest path</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05036.jpg" alt="Portrait of a man in tinted glasses and an olive tee beside a sunlit river" loading="lazy" /><figcaption>Riverside</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05151.jpg" alt="A woman in glasses reaching toward sunlit leaves and red berries in dark woodland" loading="lazy" /><figcaption>In the undergrowth</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05206.jpg" alt="A woman shading her eyes on a pebbled riverbank under tall trees" loading="lazy" /><figcaption>Riverbank</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05200.jpg" alt="A man crouching thoughtfully on a gravel riverbank beneath an arch of trees" loading="lazy" /><figcaption>Under the canopy</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05212.jpg" alt="A woman seen from behind, kneeling at the water's edge with a large scrunchie in her hair" loading="lazy" /><figcaption>At the water's edge</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04751.jpg" alt="A man in black seated on a brick wall at dusk holding a red cup, tall pines behind" loading="lazy" /><figcaption>Blue hour</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04935.jpg" alt="A figure in near-total darkness, the glowing ember at his fingertips the only light" loading="lazy" /><figcaption>Ember</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05553.jpg" alt="A figure in an olive shirt leaning against a dark wall beneath a harsh overhead light, city towers glowing behind" loading="lazy" /><figcaption>Underpass light</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05559.jpg" alt="A woman in a striped sweater draped over a bearded man in plaid at a riverfront railing, city lights across the water" loading="lazy" /><figcaption>Riverfront, after dark</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05566.jpg" alt="A figure seated on granite steps at night, face tilted up into a single pool of light beside a steel handrail" loading="lazy" /><figcaption>Looking up</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05583.jpg" alt="A figure seen from behind, sitting on the riverwalk facing a lit skyline across the water, a long shadow cast forward" loading="lazy" /><figcaption>Across the river</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05006.jpg" alt="A man in sunglasses holding a jug of cider before the Yates Cider Mill sign, pumpkins at his feet" loading="lazy" /><figcaption>Yates Cider Mill · Rochester Hills</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04532.jpg" alt="A tabby cat perched atop a dark green cat tree, glaring down through half-closed eyes" loading="lazy" /><figcaption>On high</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04549.jpg" alt="A wide-eyed tabby cat curled on a black office chair, peering out beneath the armrest" loading="lazy" /><figcaption>The chair is taken</figcaption></figure>
+        </div>
+      </div>
+      <div class="seki" id="photo-product">
+        <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>静物 · Product</p>
+        <div class="ph-product">
+          <figure class="ph"><img src="assets/photography/dsc03674.jpg" alt="Three bottles of Authentic Cretan extra virgin olive oil glowing gold in backlight on a wooden table" loading="lazy" /><figcaption>Authentic Cretan olive oil</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc04979.jpg" alt="A jug of Yates apple cider beside a crumb-topped apple pie and a sugared cider donut on a wooden picnic table" loading="lazy" /><figcaption>Yates Cider Mill · Cider &amp; pie</figcaption></figure>
+          <div class="ph-product-copy">
+            <h3 class="exp-title">Objects in their best light</h3>
+            <p class="exp-desc">Natural light, careful staging, and attention to material, whether glass, metal, stone, or cloth. Suited to makers, small brands, and listings that need the product to speak for itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="commissions" data-screen-label="05 Commissions">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>04 · Commissions</span>
         <h2 class="section-title">Made to <em>order.</em></h2>
       </header>
       <p class="exp-intro">Bespoke pieces are created in close consultation with the person who will carry them, beginning with a single stone or name and ending in a finished object. A selection of past commissions is shown below.</p>
@@ -2071,10 +2317,11 @@ a.dojo-chip:hover{border-color:var(--gold)}
   </section>
 
   <!-- ─────────── EXPERIENCES ─────────── -->
-  <section class="section" id="experiences" data-screen-label="04 Experiences">
+
+  <section class="section" id="experiences" data-screen-label="06 Experiences">
     <div class="wrap">
       <header class="section-head">
-        <span class="section-num"><span class="diamond" aria-hidden="true"></span>03 · Experiences</span>
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>05 · Experiences</span>
         <h2 class="section-title">"What joy to share in <em>creations with others</em>…"</h2>
       </header>
       <p class="exp-intro">Time spent learning beside other makers at the forge, in artisans' studios, and under the guidance of generous teachers. These collaborations and lessons continue to shape the work.</p>
@@ -2133,224 +2380,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       </div>
       </div>
 
-      <!-- Events & Exhibitions feature -->
-      <div class="seki" id="events">
-        <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>展示会 · Events &amp; Exhibitions</p>
-        <p class="seki-intro">Occasions on which the work has been shared with the public, including classes taught, group exhibitions, and gallery showcases alongside other makers.</p>
-
-        <article class="exp-item" id="exp-michigan-central" style="border-top:0;padding-top:0;">
-          <div class="exp-meta">
-            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Workshop · Taught</p>
-            <p class="exp-place">The Station at Michigan Central, Detroit, MI</p>
-            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">August 23, 2026</p>
-          </div>
-          <div class="exp-body">
-            <h3 class="exp-title">An Introduction to Shodo at Michigan Central</h3>
-            <p class="exp-desc">I had the honor of teaching an introductory shodo class in the great hall of Detroit's restored 1913 train station. Each student chose a word of personal meaning, such as 花 (flower), 安 (peace), 勝 (victory), 抹茶 (matcha), or 空白 (blank space), and brushed it by hand. The day's work was then laid out on the table for all to see.</p>
-            <div class="mc-feature">
-              <figure class="mc-video"><video src="assets/events/mc-calligraphy-class.mp4" controls muted loop playsinline preload="metadata" aria-label="Video of the calligraphy class at Michigan Central Station"></video></figure>
-              <div class="mc-photos">
-                <figure class="wide"><img src="assets/events/mc-group-2.jpg" width="1800" height="1113" alt="The class holding up their finished calligraphy in front of the Station sign: Est 1913, Michigan Central, Detroit MI" loading="lazy" /></figure>
-                <figure><img src="assets/events/mc-class-1.jpg" width="1800" height="1200" alt="Students seated along a long table in the station's hall, brushing characters on white paper beside ink stones" loading="lazy" /></figure>
-                <figure><img src="assets/events/mc-class-2.jpg" width="1800" height="1200" alt="Visitors gathered around a table covered in the class's finished calligraphy sheets" loading="lazy" /></figure>
-                <figure><img src="assets/events/mc-group-1.jpg" width="1800" height="1031" alt="Students smiling with their brushed characters (水晶, 美国, 妈妈, 安, 花, 抹茶, 勝, 吉), with 空白 held overhead" loading="lazy" /></figure>
-                <figure><img src="assets/events/mc-station.jpg" width="1800" height="1200" alt="Exterior of Michigan Central Station, the Beaux-Arts tower in Detroit's Corktown" loading="lazy" /></figure>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="exp-item" id="exp-chinatown">
-          <div class="exp-meta">
-            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Artist Stall · Invited</p>
-            <p class="exp-place">Detroit Chinatown Vision Committee · Cass Ave &amp; Peterboro St, Detroit, MI</p>
-            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">July 25, 2026</p>
-          </div>
-          <div class="exp-body">
-            <h3 class="exp-title">2nd Annual Detroit Chinatown Block Party</h3>
-            <p class="exp-desc">I was graciously invited to host a stall to present and offer my work. On display were sterling silver jewelry, origami crane and butterfly earrings, and signed calligraphy prints of 福, 龜, 永, 勝, 花, and 空白. Hanko seals were also carved on commission at the table.</p>
-            <div class="cb-grid">
-              <figure class="cb-hero"><img src="assets/events/cb-stall.jpg" width="1800" height="1200" alt="Skyler seated behind the Pure Sky Creations stall under a blue canopy, calligraphy boards and boxed jewelry across the table" loading="lazy" /></figure>
-              <figure class="cb-flyer"><img src="assets/events/cb-flyer.jpg" width="816" height="1056" alt="Event flyer: The Second Annual Detroit Chinatown Block Party, Saturday July 25 2026, 12–8pm, Cass Ave &amp; Peterboro St" loading="lazy" /></figure>
-              <figure><img src="assets/events/cb-table-3.jpg" width="1800" height="1200" alt="福 and 龜 calligraphy boards with an origami turtle, beside masu box earrings and silver kitten pendants" loading="lazy" /></figure>
-              <figure><img src="assets/events/cb-table-2.jpg" width="1800" height="1200" alt="永, 勝 and 花 prints above origami butterfly necklaces, kitten pendants and silver necklaces in a glass case" loading="lazy" /></figure>
-              <figure><img src="assets/events/cb-table-1.jpg" width="1800" height="1200" alt="空白, 武道 and 禅 ensō works behind origami crane and butterfly earrings and a commissioned-seals sign" loading="lazy" /></figure>
-              <figure><img src="assets/events/cb-cranes.jpg" width="1080" height="720" alt="Close-up of red and gold origami crane earrings on a white jewelry box" loading="lazy" /></figure>
-              <figure><img src="assets/events/cb-flower.jpg" width="1080" height="720" alt="A yellow origami lily resting on the 花 calligraphy print" loading="lazy" /></figure>
-              <figure><img src="assets/events/cb-seal.jpg" width="1080" height="720" alt="Hands carving a hanko name seal in a stone held in a carving vise" loading="lazy" /></figure>
-            </div>
-          </div>
-        </article>
-
-        <article class="exp-item" id="exp-bbac">
-          <div class="exp-meta">
-            <p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Group Exhibition</p>
-            <p class="exp-place">Birmingham Bloomfield Art Center, Dr. Myron &amp; Joyce LaBan Commons Gallery</p>
-            <p class="exp-place" style="margin-top:9px;color:var(--gold-ink);">May 8 – June 4, 2026</p>
-          </div>
-          <div class="exp-body">
-            <h3 class="exp-title">Students of Nobuko Yamasaki &amp; Kyoko Fujii</h3>
-            <p class="exp-desc">A student showcase of Japanese calligraphy and ink work at the BBAC's Commons Gallery. I was honored to have my brushing of the <em>Heike Monogatari</em> opening verse, 祇園精舎の鐘の声…, hung among the class's pieces. It is the tall white scroll near the gallery's far wall.</p>
-            <div class="exp-shots">
-              <figure><img src="assets/events/bbac-gallery-wall.jpg" alt="The Commons Gallery wall hung with framed shodo and ink works, the tall Heike Monogatari scroll near the right" loading="lazy" /></figure>
-              <figure><video src="assets/events/bbac-gallery-pan.mp4" controls muted loop playsinline preload="metadata" aria-label="Slow pan across the gallery wall of calligraphy works"></video></figure>
-              <figure><img src="assets/events/bbac-gallery-sign.jpg" alt="Gallery signage: Dr. Myron & Joyce LaBan Commons Gallery, Students of Nobuko Yamasaki & Kyoko Fujii, May 8 – June 4 2026, Birmingham Bloomfield Art Center" loading="lazy" /></figure>
-            </div>
-          </div>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─────────── ABOUT ─────────── -->
-  <section class="section" id="about" data-screen-label="06 About">
-    <div class="wrap">
-      <header class="section-head">
-        <span class="section-num"><span class="diamond" aria-hidden="true"></span>04 · About</span>
-        <h2 class="section-title">Created with purity of mind, executed with care.</h2>
-      </header>
-
-      <div class="about-body">
-        <dl class="about-facts">
-          <div>
-            <dt>Education</dt>
-            <dd style="font-family: BlinkMacSystemFont">University of Illinois<br />University of Michigan</dd>
-          </div>
-          <div>
-            <dt>Disciplines</dt>
-            <dd style="font-family: BlinkMacSystemFont">Jewelry &amp; Metalsmithing · Sumi-e · Shodo · Hanko · Origami</dd>
-          </div>
-          <div>
-            <dt>Languages</dt>
-            <dd style="font-family: BlinkMacSystemFont">English · Cantonese · Mandarin · Vietnamese · Japanese</dd>
-          </div>
-        </dl>
-
-        <div style="width: 750px">
-          <p>Pure Sky Creations was established on 1/10/2025 as a home for my creative practice. It has been an unexpected journey, one of exploring different mediums and discovering creative energies I had not known I possessed. 
-
-
-<span style="color:#21252d">Born in California and raised in Asia, I developed an aesthetic sense that crosses borders and cultures,</span> and Pure Sky Creations is my means of expressing it.
- 
-Thank you for taking the time to view my work. </p>
-          <p>
-            <span class="softer">Born in California and raised in Asia, I developed an aesthetic sense that crosses borders and cultures. </span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-<div class="panel" data-panel="warrior">
-  <section class="hero" data-screen-label="01 Warrior Hero">
-    <div class="wrap"><div class="hero-grid">
-      <div class="hero-copy">
-        <p class="hero-eyebrow"><a href="#artist" data-mode-go="artist">Artist</a> · <a href="#warrior" data-mode-go="warrior" class="is-on">Warrior</a> · <a href="#engineer" data-mode-go="engineer">Engineer</a></p>
-        <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
-        <p class="hero-tag">武 · The Martial Way</p>
-        <p class="hero-statement">A parallel practice to the work made by hand, trained with the same attention to form, patience, and intention. The following documents time in the dojo, on the training floor, and at the forge in Seki.</p>
-        <dl class="hero-meta"><div><dt>Disciplines</dt><dd>Kendo · Iaido · Kyūdō · Judo · Brazilian Jiu-Jitsu · Kenpō · Sumo</dd></div><div><dt>Blade Forged</dt><dd>龍牙 Tatsukiba · Ōdachi · Seki</dd></div></dl>
-      </div>
-      <div class="hero-emblem"><img src="assets/logo-warrior.png" alt="Pure Sky Creations: black dragon and gem emblem with the characters 青天閣 in red" /></div>
-    </div></div>
-  </section>
-
-  <!-- ─────────── MARTIAL ARTS ─────────── -->
-  <section class="section" id="martial-arts" data-screen-label="02 Warrior Martial Arts">
-    <div class="wrap">
-      <header class="section-head">
-        <span class="section-num"><span class="diamond" aria-hidden="true"></span>01 · Martial Arts</span>
-        <h2 class="section-title">The discipline <em>of the body.</em></h2>
-      </header>
-      <p class="dojo-lead"><span class="jp">Bunbu Ryōdō · 文武両道 · "Văn võ song toàn"</span>: <em>the harmonious balance of the pen and the sword.</em></p>
-      <p class="dojo-sub">A Japanese philosophical concept: the same discipline that guides the brush guides the body. A parallel practice, trained with the same attention to form, patience, and intention as the work made by hand.</p>
-
-      <nav class="dojo-disciplines" id="ma-disciplines" aria-label="Disciplines trained"><a class="dojo-chip" href="#ma-kendo">Kendo <span class="jp">剣道</span></a><a class="dojo-chip" href="#ma-iaido">Iaido <span class="jp">居合道</span></a><a class="dojo-chip" href="#ma-bjj">Brazilian Jiu-Jitsu <span class="jp">柔術</span></a><a class="dojo-chip" href="#ma-judo">Judo <span class="jp">柔道</span></a><a class="dojo-chip" href="#ma-kyudo">Kyūdō <span class="jp">弓道</span></a><a class="dojo-chip" href="#ma-kenpo">Kenpō <span class="jp">拳法</span></a><a class="dojo-chip" href="#ma-sumo">Sumo <span class="jp">相撲</span></a><a class="dojo-chip" href="#ma-strength">Strength &amp; Conditioning</a></nav>
-      <div class="disc-list" id="ma-gallery">
-        <article class="disc" id="ma-kendo">
-          <div class="disc-head">
-            <p class="disc-jp">剣道</p>
-            <h3 class="disc-name">Kendo</h3>
-            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>Shodan · 初段</p>
-            <p class="disc-desc">The way of the sword, trained in bogu armor with the bamboo shinai. Former President of the Illini Kendo Club.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/kendo-1.jpg" width="1440" height="1800" alt="Skyler in a kendo competition bout, bogu armor, shinai crossed at close quarters" loading="lazy" /></figure><figure><img src="assets/martial/kendo-2.jpg" width="750" height="834" alt="Two kendoka in bogu armor celebrating after training" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-iaido">
-          <div class="disc-head">
-            <p class="disc-jp">居合道</p>
-            <h3 class="disc-name">Iaido</h3>
-            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>5-kyu · 五級</p>
-            <p class="disc-desc">The art of drawing, cutting, and resheathing the sword in a single, controlled form.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/iaido-1.jpg" width="1836" height="3264" alt="Iaido sword form performed in a dojo, blade drawn at the ready" loading="lazy" /></figure><figure><img src="assets/martial/iaido-2.jpg" width="2048" height="1151" alt="Iaido practitioner with an elder sensei holding katana in a dojo" loading="lazy" /></figure><figure><img src="assets/martial/iaido-3.jpg" width="1080" height="1920" alt="Iaido form drawing the blade across the body in a wood-paneled room" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-bjj">
-          <div class="disc-head">
-            <p class="disc-jp">柔術</p>
-            <h3 class="disc-name">Brazilian Jiu-Jitsu</h3>
-            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>Blue Belt</p>
-            <p class="disc-desc">Gi grappling built on leverage, positional control, and submissions.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/bjj-1.jpg" width="2268" height="4032" alt="Three Brazilian Jiu-Jitsu practitioners in gi with colored belts before a painted portrait" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-judo">
-          <div class="disc-head">
-            <p class="disc-jp">柔道</p>
-            <h3 class="disc-name">Judo</h3>
-            
-            <p class="disc-desc">The gentle way: throws, pins, and balance, trained on the tatami.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/judo-1.jpg" width="1080" height="811" alt="Judo club group photo on the tatami beneath calligraphy" loading="lazy" /></figure><figure><img src="assets/martial/judo-2.jpg" width="2268" height="4032" alt="Judo practitioner with an elder sensei beneath framed calligraphy and portraits" loading="lazy" /></figure><figure><img src="assets/martial/judo-3.jpg" width="2160" height="3840" alt="Judo dojo group on red and green tatami giving peace signs" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-kyudo">
-          <div class="disc-head">
-            <p class="disc-jp">弓道</p>
-            <h3 class="disc-name">Kyūdō</h3>
-            
-            <p class="disc-desc">The way of the bow, practiced with the traditional Japanese longbow.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/kyudo-1.jpg" width="2048" height="1536" alt="Kyudo group in white keikogi and black hakama holding longbows before a purple banner" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-kenpo">
-          <div class="disc-head">
-            <p class="disc-jp">拳法</p>
-            <h3 class="disc-name">Kenpō</h3>
-            
-            <p class="disc-desc">Striking and self-defense, drilled in formation.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/kempo-1.jpg" width="4032" height="2268" alt="Kenpo group in black gi with sashes lined up in formation on the mat" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-sumo">
-          <div class="disc-head">
-            <p class="disc-jp">相撲</p>
-            <h3 class="disc-name">Sumo</h3>
-            
-            <p class="disc-desc">Training in the keiko ring, in mawashi.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/sumo-1.jpg" width="4032" height="2268" alt="Sumo training group flexing in mawashi inside a sand keiko ring" loading="lazy" /></figure></div>
-        </article>
-        <article class="disc" id="ma-strength">
-          <div class="disc-head">
-            
-            <h3 class="disc-name">Strength &amp; Conditioning</h3>
-            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>Cross-training</p>
-            <p class="disc-desc">Strength, core, and bouldering work that supports every other discipline.</p>
-          </div>
-          <div class="disc-shots"><figure><img src="assets/martial/strength-1.jpg" width="1080" height="1920" alt="Barbell back squat in a Hammer Strength rack at the gym" loading="lazy" /></figure><figure><img src="assets/martial/strength-2.jpg" width="1080" height="1920" alt="Hanging leg raise on a vertical knee-raise station" loading="lazy" /></figure><figure><img src="assets/martial/climbing-1.jpg" width="2268" height="4032" alt="Bouldering on an indoor climbing wall, mid-route" loading="lazy" /></figure></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="forging" data-screen-label="03 Warrior Sword Forging">
-    <div class="wrap">
-      <header class="section-head">
-        <span class="section-num"><span class="diamond" aria-hidden="true"></span>02 · Sword Forging</span>
-        <h2 class="section-title">From iron sand <em>to finished edge.</em></h2>
-      </header>
+      <div id="forging">
       <!-- Seki Ōdachi feature -->
       <div class="seki" id="seki">
         <p class="seki-jp"><span class="diamond" aria-hidden="true"></span>大太刀 · Ōdachi · Seki</p>
@@ -2439,13 +2469,145 @@ Thank you for taking the time to view my work. </p>
         </div>
       </div>
     </div>
+</div>
   </section>
+
+  <!-- ─────────── PHOTOGRAPHY ─────────── -->
+
+  <!-- ─────────── ABOUT ─────────── -->
+
+</div>
+<div class="panel" data-panel="warrior">
+  <section class="hero" data-screen-label="01 About Hero">
+    <div class="wrap"><div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow"><a href="#warrior" data-mode-go="warrior" class="is-on">About</a> · <a href="#artist" data-mode-go="artist">Art Services</a> · <a href="#engineer" data-mode-go="engineer">Engineering Services</a></p>
+        <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
+        <p class="hero-tag">青天閣 · Pure Sky Creations</p>
+        <p class="hero-statement">Born in California and raised in Asia, I work across three disciplines: making by hand, engineering systems, and training in the martial way. Each is practiced with the same attention to form, patience, and intention.</p>
+        <dl class="hero-meta"><div><dt>Art Services</dt><dd><a href="#artist" data-mode-go="artist">Metalsmithing · Ink &amp; Brush · Photography →</a></dd></div><div><dt>Engineering Services</dt><dd><a href="#engineer" data-mode-go="engineer">Systems Engineering · Mechatronics →</a></dd></div></dl>
+      </div>
+      <figure class="bio-portrait"><img src="assets/portrait-skyler.jpg" alt="Skyler Đỗ in a dark wool coat and scarf, leaning on the railing of a stone stairway at night" /></figure>
+    </div></div>
+  </section>
+
+  <section class="section" id="bio" data-screen-label="02 Bio">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>01 · Bio</span>
+        <h2 class="section-title">Created with purity of mind, executed with care.</h2>
+      </header>
+      <div class="about-body">
+        <dl class="about-facts">
+          <div><dt>Art</dt><dd>Metalsmithing · Ink &amp; Brush · Seal Carving · Paper Folding · Photography</dd></div>
+          <div><dt>Engineering</dt><dd>Systems Engineering · Mechatronics · Vehicle Systems</dd></div>
+          <div><dt>Martial Arts</dt><dd>Sword · Grappling · Archery · Striking</dd></div>
+          <div><dt>Education</dt><dd>University of Michigan · University of Illinois</dd></div>
+          <div><dt>Languages</dt><dd>English · Cantonese · Mandarin · Vietnamese · Japanese</dd></div>
+        </dl>
+        <div style="max-width: 750px; min-width: 0">
+          <p>Pure Sky Creations was established on 1/10/2025 as a home for my creative practice. It has been an unexpected journey, one of exploring different mediums and discovering creative energies I had not known I possessed.</p>
+          <p>Born in California and raised in Asia, I developed an aesthetic sense that crosses borders and cultures, and Pure Sky Creations is my means of expressing it.</p>
+          <p>Thank you for taking the time to view my work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── MARTIAL ARTS ─────────── -->
+  <section class="section" id="martial-arts" data-screen-label="03 Martial Arts">
+    <div class="wrap">
+      <header class="section-head">
+        <span class="section-num"><span class="diamond" aria-hidden="true"></span>02 · Martial Arts</span>
+        <h2 class="section-title">The discipline <em>of the body.</em></h2>
+      </header>
+      <p class="dojo-lead"><span class="jp">Bunbu Ryōdō · 文武両道 · "Văn võ song toàn"</span>: <em>the harmonious balance of the pen and the sword.</em></p>
+      <p class="dojo-sub">A Japanese philosophical concept: the same discipline that guides the brush guides the body. A parallel practice, trained with the same attention to form, patience, and intention as the work made by hand.</p>
+
+      <nav class="dojo-disciplines" id="ma-disciplines" aria-label="Disciplines trained"><a class="dojo-chip" href="#ma-kendo">Kendo <span class="jp">剣道</span></a><a class="dojo-chip" href="#ma-iaido">Iaido <span class="jp">居合道</span></a><a class="dojo-chip" href="#ma-bjj">Brazilian Jiu-Jitsu <span class="jp">柔術</span></a><a class="dojo-chip" href="#ma-judo">Judo <span class="jp">柔道</span></a><a class="dojo-chip" href="#ma-kyudo">Kyūdō <span class="jp">弓道</span></a><a class="dojo-chip" href="#ma-kenpo">Kenpō <span class="jp">拳法</span></a><a class="dojo-chip" href="#ma-sumo">Sumo <span class="jp">相撲</span></a><a class="dojo-chip" href="#ma-strength">Strength &amp; Conditioning</a></nav>
+      <div class="disc-list" id="ma-gallery">
+        <article class="disc" id="ma-kendo">
+          <div class="disc-head">
+            <p class="disc-jp">剣道</p>
+            <h3 class="disc-name">Kendo</h3>
+            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>Shodan · 初段</p>
+            <p class="disc-desc">The way of the sword, trained in bogu armor with the bamboo shinai. Former President of the Illini Kendo Club.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/kendo-1.jpg" width="1440" height="1800" alt="Skyler in a kendo competition bout, bogu armor, shinai crossed at close quarters" loading="lazy" /></figure><figure><img src="assets/martial/kendo-2.jpg" width="750" height="834" alt="Two kendoka in bogu armor celebrating after training" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-iaido">
+          <div class="disc-head">
+            <p class="disc-jp">居合道</p>
+            <h3 class="disc-name">Iaido</h3>
+            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>5-kyu · 五級</p>
+            <p class="disc-desc">The art of drawing, cutting, and resheathing the sword in a single, controlled form.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/iaido-1.jpg" width="1836" height="3264" alt="Iaido sword form performed in a dojo, blade drawn at the ready" loading="lazy" /></figure><figure><img src="assets/martial/iaido-2.jpg" width="2048" height="1151" alt="Iaido practitioner with an elder sensei holding katana in a dojo" loading="lazy" /></figure><figure><img src="assets/martial/iaido-3.jpg" width="1080" height="1920" alt="Iaido form drawing the blade across the body in a wood-paneled room" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-bjj">
+          <div class="disc-head">
+            <p class="disc-jp">柔術</p>
+            <h3 class="disc-name">Brazilian Jiu-Jitsu</h3>
+            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>Blue Belt</p>
+            <p class="disc-desc">Gi grappling built on leverage, positional control, and submissions.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/bjj-1.jpg" width="2268" height="4032" alt="Three Brazilian Jiu-Jitsu practitioners in gi with colored belts before a painted portrait" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-judo">
+          <div class="disc-head">
+            <p class="disc-jp">柔道</p>
+            <h3 class="disc-name">Judo</h3>
+            
+            <p class="disc-desc">The gentle way: throws, pins, and balance, trained on the tatami.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/judo-1.jpg" width="1080" height="811" alt="Judo club group photo on the tatami beneath calligraphy" loading="lazy" /></figure><figure><img src="assets/martial/judo-2.jpg" width="2268" height="4032" alt="Judo practitioner with an elder sensei beneath framed calligraphy and portraits" loading="lazy" /></figure><figure><img src="assets/martial/judo-3.jpg" width="2160" height="3840" alt="Judo dojo group on red and green tatami giving peace signs" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-kyudo">
+          <div class="disc-head">
+            <p class="disc-jp">弓道</p>
+            <h3 class="disc-name">Kyūdō</h3>
+            
+            <p class="disc-desc">The way of the bow, practiced with the traditional Japanese longbow.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/kyudo-1.jpg" width="2048" height="1536" alt="Kyudo group in white keikogi and black hakama holding longbows before a purple banner" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-kenpo">
+          <div class="disc-head">
+            <p class="disc-jp">拳法</p>
+            <h3 class="disc-name">Kenpō</h3>
+            
+            <p class="disc-desc">Striking and self-defense, drilled in formation.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/kempo-1.jpg" width="4032" height="2268" alt="Kenpo group in black gi with sashes lined up in formation on the mat" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-sumo">
+          <div class="disc-head">
+            <p class="disc-jp">相撲</p>
+            <h3 class="disc-name">Sumo</h3>
+            
+            <p class="disc-desc">Training in the keiko ring, in mawashi.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/sumo-1.jpg" width="4032" height="2268" alt="Sumo training group flexing in mawashi inside a sand keiko ring" loading="lazy" /></figure></div>
+        </article>
+        <article class="disc" id="ma-strength">
+          <div class="disc-head">
+            
+            <h3 class="disc-name">Strength &amp; Conditioning</h3>
+            <p class="disc-rank"><span class="diamond" aria-hidden="true"></span>Cross-training</p>
+            <p class="disc-desc">Strength, core, and bouldering work that supports every other discipline.</p>
+          </div>
+          <div class="disc-shots"><figure><img src="assets/martial/strength-1.jpg" width="1080" height="1920" alt="Barbell back squat in a Hammer Strength rack at the gym" loading="lazy" /></figure><figure><img src="assets/martial/strength-2.jpg" width="1080" height="1920" alt="Hanging leg raise on a vertical knee-raise station" loading="lazy" /></figure><figure><img src="assets/martial/climbing-1.jpg" width="2268" height="4032" alt="Bouldering on an indoor climbing wall, mid-route" loading="lazy" /></figure></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
 </div>
 <div class="panel" data-panel="engineer">
   <section class="hero" data-screen-label="01 Engineer Hero">
     <div class="wrap"><div class="hero-grid">
       <div class="hero-copy">
-        <p class="hero-eyebrow"><a href="#artist" data-mode-go="artist">Artist</a> · <a href="#warrior" data-mode-go="warrior">Warrior</a> · <a href="#engineer" data-mode-go="engineer" class="is-on">Engineer</a></p>
+        <p class="hero-eyebrow"><a href="#warrior" data-mode-go="warrior">About</a> · <a href="#artist" data-mode-go="artist">Art Services</a> · <a href="#engineer" data-mode-go="engineer" class="is-on">Engineering Services</a></p>
         <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
         <p class="hero-tag">Software Defined Vehicle<br />Low Voltage Mechatronics Infrastructure<br />Power Activation Systems Engineer</p>
         <p class="hero-statement">Execution and quality focused mechatronics engineer with experience across architecture, design, integration, and validation.</p>
@@ -2463,19 +2625,14 @@ Thank you for taking the time to view my work. </p>
         <article class="edu" id="edu-umich"><div class="edu-top"><span class="cred-abbr">UMich</span><span class="edu-date">August 2026</span></div><h3 class="edu-school">University of Michigan</h3><p class="edu-place">Ann Arbor, Michigan</p><div class="edu-degree"><span class="edu-deg">M.Eng.</span><span class="edu-field">Systems Engineering &amp; Design</span></div><dl class="edu-rows"><div><dt>Concentration</dt><dd>System Architecting and Design</dd></div></dl><p class="case-h edu-cw">Selected coursework</p><ul class="proj-tags"><li>ISD 520 · Introduction to Systems Engineering</li><li>ISD 521 · Developing &amp; Verifying Requirements</li><li>ISD 528 · Design for Manufacturing</li></ul></article>
         <article class="edu" id="edu-uiuc"><div class="edu-top"><span class="cred-abbr">UIUC</span><span class="edu-date">May 2022</span></div><h3 class="edu-school">University of Illinois Urbana-Champaign</h3><p class="edu-place">Urbana-Champaign, Illinois</p><div class="edu-degree"><span class="edu-deg">B.S.</span><span class="edu-field">Systems Engineering &amp; Design</span></div><dl class="edu-rows"><div><dt>Concentration</dt><dd>Mechatronic System Design</dd></div><div><dt>Minor</dt><dd>Electrical &amp; Computer Engineering</dd></div></dl><p class="case-h edu-cw">Selected coursework</p><ul class="proj-tags"><li>SE 422 · Robot Dynamics &amp; Control</li><li>SE 423 · Mechatronics</li><li>SE 424 · State Space Design for Control</li><li>SE 498 · Autonomous Vehicle Systems</li><li>SE 410 · Component Design</li></ul></article>
       </div>
+      <h3 class="case-h edu-cert-h" id="edu-certs">Certifications</h3>
+      <ul class="cert-list"><li><span class="cred-abbr">ASEP</span><div><p class="cert-name">Associate Systems Engineering Professional</p><p class="cert-meta">INCOSE · Academic pathway via ISD 520 &amp; ISD 521 (A in both)</p></div></li><li><span class="cred-abbr">DFSS · BB</span><div><p class="cert-name">Design for Six Sigma · Black Belt</p><p class="cert-meta">General Motors · Improving SDV2 Power Management Specifications. <a class="eng-inline" href="#proj-dfss">See project ↓</a></p></div></li><li><span class="cred-abbr">DFSS · GB</span><div><p class="cert-name">Design for Six Sigma · Green Belt</p><p class="cert-meta">General Motors · Olympian Dynamic Data Dissemination</p></div></li><li><span class="cred-abbr">AI</span><div><p class="cert-name">AI for Engineers</p><p class="cert-meta">University of Michigan · 8-module applied AI/ML certificate in Python</p></div></li></ul>
     </div>
   </section>
 
   <section class="section" id="eng-skills" data-screen-label="03 Engineer Credentials">
     <div class="wrap">
-      <header class="section-head"><span class="section-num"><span class="diamond" aria-hidden="true"></span>02 · Certifications &amp; Skills</span></header>
-      <div class="cred-grid">
-        <article class="cred"><div class="cred-top"><span class="cred-abbr">ASEP</span><span class="cred-issuer">INCOSE · International Council on Systems Engineering</span></div><h3 class="cred-name">Associate Systems Engineering Professional</h3><ul class="eng-points"><li>Earned through the INCOSE-recognized academic pathway, with an A in both ISD 520 and ISD 521 at the University of Michigan.</li><li><strong>ISD 520 · Introduction to Systems Engineering:</strong> stakeholder analysis, requirements decomposition, design reviews, verification planning, model-based systems engineering, and the INCOSE SE Handbook framework.</li><li><strong>ISD 521 · Developing and Verifying Requirements:</strong> factor analysis, conjoint and logit regression for stakeholder value, ROC-based test selection, Monte Carlo simulation for programmatic risk, and design of experiments.</li></ul></article>
-        <article class="cred"><div class="cred-top"><span class="cred-abbr">DFSS · BB</span><span class="cred-issuer">General Motors</span></div><h3 class="cred-name">Design for Six Sigma · Black Belt</h3><ul class="eng-points"><li><strong>Project:</strong> Improving SDV2 Power Management Specifications.</li><li>Raised specification traceability from 5.64 to 7.29 and precision to 7.57 out of 10, measured by before and after Voice of Customer surveys.</li><li>The resulting split specification architecture is now the team standard. <a class="eng-inline" href="#proj-dfss">See project ↑</a></li></ul></article>
-        <article class="cred"><div class="cred-top"><span class="cred-abbr">DFSS · GB</span><span class="cred-issuer">General Motors</span></div><h3 class="cred-name">Design for Six Sigma · Green Belt</h3><ul class="eng-points"><li><strong>Project:</strong> Olympian Dynamic Data Dissemination.</li><li>Identified that GM’s Olympian vehicle complexity platform relied on static, manually maintained datasets with no self-service access for Advanced Controls Managers, Clone Architects, and the Complexity Optimization Group.</li><li>A stakeholder survey measured timeliness satisfaction at 6.94 / 10 and demand for a new tool at 8.72 / 10. I recommended an integrated VCAM, Power BI, and PCAT solution with automated hardware-to-clone linkage and self-service analysis.</li></ul></article>
-        <article class="cred"><div class="cred-top"><span class="cred-abbr">AI</span><span class="cred-issuer">University of Michigan · Engineering Professional Education</span></div><h3 class="cred-name">AI for Engineers</h3><ul class="eng-points"><li>Completed an 8-module applied AI/ML certificate, training models in Python across supervised, unsupervised, and reinforcement learning.</li><li>Case studies spanned automotive, aerospace, manufacturing, and energy.</li><li>Covered generative design, evolutionary algorithms, and topology optimization, plus transfer learning and domain adaptation for autonomous systems and predictive maintenance.</li></ul></article>
-      </div>
-      <h3 class="case-h eng-skill-h">Skills</h3>
+      <header class="section-head"><span class="section-num"><span class="diamond" aria-hidden="true"></span>02 · Skills</span></header>
       <div class="eng-skills-wrap">
         <dl class="skill-list">
           <div><dt>AI &amp; Automation</dt><dd>MCP Integration · VS Code Copilot Agents · Gated Workflows · Python Pipelines</dd></div>
@@ -2492,12 +2649,13 @@ Thank you for taking the time to view my work. </p>
   <section class="section" id="eng-experience" data-screen-label="04 Engineer Experience">
     <div class="wrap">
       <header class="section-head"><span class="section-num"><span class="diamond" aria-hidden="true"></span>03 · Experience</span><h2 class="section-title">Architecture, automation, <em>and the systems between.</em></h2></header>
-      <div class="exp-list">
-<article class="exp-item"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>General Motors</p><p class="exp-place">Low Voltage Mechatronics Infrastructure, Power</p><p class="exp-place eng-date">Aug 2026 – Present</p></div><div class="exp-body"><h3 class="exp-title">Activation Systems Engineer · Kanban Scrum Lead</h3><ul class="eng-points"><li>Lead the LVI kanban team through backlog refinement and PI planning under SAFe/Agile, while continuing to deliver power architecture specifications.</li><li>Originated <strong>Project Panopticon</strong>, an AI-assisted triage system for nightly test failures across roughly 100 scenarios and 20 to 30 controller builds per night. Daily standups now run from a pre-ranked priority list instead of an hour of manual triage.</li><li>Designed and delivered the Deviations module end-to-end, with Jira integration that auto-generates approval tickets. It shipped as a zero-migration, zero-data-loss upgrade.</li></ul></div></article>
-<article class="exp-item"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>General Motors</p><p class="exp-place">Low Voltage Mechatronics Infrastructure, Power</p><p class="exp-place eng-date">Sep 2025 – Aug 2026</p></div><div class="exp-body"><h3 class="exp-title">Activation Systems Engineer</h3><ul class="eng-points"><li>Own three power management architecture specifications (SDV-8280, SDV-8280A, GB-5280) for the GM SDV2 and VIP electrical architectures.</li><li>Built a 70-script, 4-gate Python automation platform replacing a manual Excel workflow, covering Jira triage, spec validation, wake mask computation, and downstream ticket creation.</li><li>Architected a markdown-first, git-versioned specification system with diff-based review, and deployed a 6-agent AI specialist system covering the full change-management workflow.</li></ul></div></article>
-<article class="exp-item"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Nagoya University</p><p class="exp-place">JUACEP Research Scholar · Japan</p><p class="exp-place eng-date">Jun – Aug 2025</p></div><div class="exp-body"><h3 class="exp-title">Cube Nanosatellite Swarm Simulation</h3><ul class="eng-points"><li><strong>Context:</strong> Worked across two Nagoya University labs, Professor Sunada's aerospace lab and Professor Inamori's space systems lab, on MAGNARO II. MAGNARO II is a 10 cm cubed nanosatellite pair scheduled for a 2028 JAXA launch.</li><li><strong>Problem:</strong> The satellite's swarm formation capability needed validation, without disrupting ongoing hardware-in-the-loop testing and with no drones or spare flight units available.</li><li><strong>Delivered:</strong> A dual-path validation strategy and system context diagram, plus a working 3-drone swarm simulation with keyboard teleoperation and gimbal payload control. I also delivered a roadmap for formation control, on-satellite integration, and magnetorquer-to-drone-orientation modeling. <a class="eng-inline" href="#proj-juacep">See project ↓</a></li></ul></div></article>
-<article class="exp-item"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>General Motors</p><p class="exp-place">TRACK · Technical Rotation and Career Knowledge</p><p class="exp-place eng-date">Jul 2022 – Jun 2025</p></div><div class="exp-body"><h3 class="exp-title">Three rotations across the vehicle lifecycle</h3><div class="eng-roles"><div class="eng-role"><h4 class="eng-role-t">SDV Architecture Engineer</h4><ul class="eng-points"><li>Owned requirements for the Partial Network power management strategy of the VIP/SDV2 electrical architecture.</li><li>Wrote requirements and led workgroups for diagnostic and software platform system specifications, and developed test cases for faster feedback in agile iterations.</li><li>Architected the transition of power management software infrastructure across vehicle architecture generations, and evaluated new concepts through analysis or prototyping before deployment.</li><li>Maintained working knowledge of Diagnostic and AUTOSAR standards, and collaborated cross-functionally on activation and deactivation criteria.</li></ul></div><div class="eng-role"><h4 class="eng-role-t">Hardware Platform Architect Engineer</h4><ul class="eng-points"><li>Supported the team-wide goal of managing vehicle fleet and portfolio complexity, reducing variation and engineering integration overhead.</li><li>Worked with engineering, marketing, and finance stakeholders on complexity reduction initiatives, including specific component-level efforts to streamline vehicle development.</li><li>Promoted systems-level thinking in support of GM's shift toward becoming an automotive technology company.</li></ul></div><div class="eng-role"><h4 class="eng-role-t">Controls Integration Engineer</h4><ul class="eng-points"><li>Owned vehicle software integration across 15 mid-size crossover programs on the software release schedule.</li><li>Flashed VESCOM archives to development and production vehicles, and prepared vehicles for FSIE DVUL safety testing.</li><li>Completed release documentation, including release notes, flash instructions, validation ID files, and hardware part numbers.</li><li>Supported root cause analysis at the test property and tracked issues with the controls manager and domain leads through every development milestone.</li></ul></div></div></div></article>
-<article class="exp-item"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>University of Illinois</p><p class="exp-place">Urbana-Champaign</p><p class="exp-place eng-date">2019 – 2022</p></div><div class="exp-body"><h3 class="exp-title">Research &amp; Collegiate Teams</h3><ul class="eng-points"><li><strong>AUSVL:</strong> implemented the Dynamic Window Algorithm for off-road local path planning on ROS Jackal simulations.</li><li><strong>HDCL / ISUR:</strong> optical flow state estimation for a ballbot. <a class="eng-inline" href="#proj-ballbot">See project ↓</a></li><li><strong>Illini EV Concept (Shell Eco-Marathon):</strong> Vice President and Mechanical Lead for steering, brakes, suspension, drivetrain, and rollcage; Composites Lead for carbon fiber body panels.</li></ul></div></article>
+      <div class="exp-order" role="group" aria-label="Sort experience"><span class="exp-order-l">Order</span><button type="button" class="exp-order-b is-on" data-order="new" aria-pressed="true">Newest first</button><button type="button" class="exp-order-b" data-order="old" aria-pressed="false">Oldest first</button></div>
+      <div class="exp-list" id="eng-exp-list">
+<article class="exp-item" id="exp-gm-lead"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>General Motors</p><p class="exp-place">Low Voltage Mechatronics Infrastructure</p><p class="exp-place eng-date">Aug 2026 – Present</p></div><div class="exp-body"><h3 class="exp-title">Power Activation Systems Engineer · Kanban Scrum Lead</h3><ul class="eng-points"><li>Lead the LVI kanban team through backlog refinement and PI planning under SAFe/Agile, while continuing to deliver power architecture specifications.</li><li>Originated <strong>Project Panopticon</strong>, an AI-assisted triage system for nightly test failures across roughly 100 scenarios and 20 to 30 controller builds per night. Daily standups now run from a pre-ranked priority list instead of an hour of manual triage.</li><li>Designed and delivered the Deviations module end-to-end, with Jira integration that auto-generates approval tickets. It shipped as a zero-migration, zero-data-loss upgrade.</li></ul></div></article>
+<article class="exp-item" id="exp-gm-pase"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>General Motors</p><p class="exp-place">Low Voltage Mechatronics Infrastructure</p><p class="exp-place eng-date">Sep 2025 – Aug 2026</p></div><div class="exp-body"><h3 class="exp-title">Power Activation Systems Engineer</h3><ul class="eng-points"><li>Own three power management architecture specifications (SDV-8280, SDV-8280A, GB-5280) for the GM SDV2 and VIP electrical architectures.</li><li>Built a 70-script, 4-gate Python automation platform replacing a manual Excel workflow, covering Jira triage, spec validation, wake mask computation, and downstream ticket creation.</li><li>Architected a markdown-first, git-versioned specification system with diff-based review, and deployed a 6-agent AI specialist system covering the full change-management workflow.</li></ul></div></article>
+<article class="exp-item" id="exp-juacep"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Nagoya University</p><p class="exp-place">JUACEP Research Scholar · Japan</p><p class="exp-place eng-date">Jun – Aug 2025</p></div><div class="exp-body"><h3 class="exp-title">Cube Nanosatellite Swarm Simulation</h3><ul class="eng-points"><li><strong>Context:</strong> Worked across two Nagoya University labs, Professor Sunada's aerospace lab and Professor Inamori's space systems lab, on MAGNARO II. MAGNARO II is a 10 cm cubed nanosatellite pair scheduled for a 2028 JAXA launch.</li><li><strong>Problem:</strong> The satellite's swarm formation capability needed validation, without disrupting ongoing hardware-in-the-loop testing and with no drones or spare flight units available.</li><li><strong>Delivered:</strong> A dual-path validation strategy and system context diagram, plus a working 3-drone swarm simulation with keyboard teleoperation and gimbal payload control. I also delivered a roadmap for formation control, on-satellite integration, and magnetorquer-to-drone-orientation modeling. <a class="eng-inline" href="#proj-juacep">See project ↓</a></li></ul></div></article>
+<article class="exp-item" id="exp-gm-track"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>General Motors</p><p class="exp-place">TRACK · Technical Rotation and Career Knowledge</p><p class="exp-place eng-date">Jul 2022 – Jun 2025</p></div><div class="exp-body"><h3 class="exp-title">Early career technical rotations throughout General Motors</h3><div class="eng-roles"><div class="eng-role"><h4 class="eng-role-t">SDV Architecture Engineer</h4><ul class="eng-points"><li>Owned requirements for the Partial Network power management strategy of the VIP/SDV2 electrical architecture.</li><li>Wrote requirements and led workgroups for diagnostic and software platform system specifications, and developed test cases for faster feedback in agile iterations.</li><li>Architected the transition of power management software infrastructure across vehicle architecture generations, and evaluated new concepts through analysis or prototyping before deployment.</li><li>Maintained working knowledge of Diagnostic and AUTOSAR standards, and collaborated cross-functionally on activation and deactivation criteria.</li></ul></div><div class="eng-role"><h4 class="eng-role-t">Hardware Platform Architect Engineer</h4><ul class="eng-points"><li>Supported the team-wide goal of managing vehicle fleet and portfolio complexity, reducing variation and engineering integration overhead.</li><li>Worked with engineering, marketing, and finance stakeholders on complexity reduction initiatives, including specific component-level efforts to streamline vehicle development.</li><li>Promoted systems-level thinking in support of GM's shift toward becoming an automotive technology company.</li></ul></div><div class="eng-role"><h4 class="eng-role-t">Controls Integration Engineer</h4><ul class="eng-points"><li>Owned vehicle software integration across 15 mid-size crossover programs on the software release schedule.</li><li>Flashed VESCOM archives to development and production vehicles, and prepared vehicles for FSIE DVUL safety testing.</li><li>Completed release documentation, including release notes, flash instructions, validation ID files, and hardware part numbers.</li><li>Supported root cause analysis at the test property and tracked issues with the controls manager and domain leads through every development milestone.</li></ul></div></div></div></article>
+<article class="exp-item" id="exp-uiuc"><div class="exp-meta"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>University of Illinois</p><p class="exp-place">Urbana-Champaign</p><p class="exp-place eng-date">2019 – 2022</p></div><div class="exp-body"><h3 class="exp-title">Undergraduate Research Assistant</h3><ul class="eng-points"><li><strong>AUVSL (Autonomous and Unmanned Vehicle Systems Laboratory):</strong> implemented the Dynamic Window Algorithm for off-road local path planning on ROS Jackal simulations, sampling feasible velocity commands within the robot’s dynamic limits and scoring them for heading, clearance, and speed to navigate uneven terrain.</li><li><strong>HDCL / ISUR (Human Dynamics and Controls Lab):</strong> evaluated optical flow sensors as a direct alternative to motor encoders for measuring ball speed on PURE, a ballbot mobility device. Characterized two off-the-shelf sensors on a bench-top testbed I designed with a laser-cut wheel and absolute encoder ground truth, testing 0.2 – 1 m/s at 50 – 1000 Hz and selecting the PMW-3360 at 100 Hz. Presented at the ISUR symposium with support from ISUR and Siemens. <a class="eng-inline" href="#proj-ballbot">See project ↓</a></li></ul></div></article>
       </div>
     </div>
   </section>
@@ -2505,14 +2663,37 @@ Thank you for taking the time to view my work. </p>
   <section class="section" id="projects" data-screen-label="05 Engineer Projects">
     <div class="wrap">
       <header class="section-head"><span class="section-num"><span class="diamond" aria-hidden="true"></span>04 · Projects</span><h2 class="section-title">Selected <em>projects.</em></h2></header>
+      <h3 class="process-title proj-group-h" id="proj-research">Research</h3>
       <div class="proj-list">
-<article class="proj" id="proj-juacep"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/juacep-cubesats.jpg" width="1600" height="1200" alt="MAGNARO II cube nanosatellite units, docked and separated, on a lab bench" loading="lazy" /></figure><figure class=""><img src="assets/engineering/juacep-swarm-sim.jpg" width="1600" height="907" alt="Three simulated drones flying together in Gazebo" loading="lazy" /></figure><figure class=""><img src="assets/engineering/juacep-dual-validation.jpg" width="1025" height="633" alt="Dual validation diagram linking a HILS testing PC, a drone testing PC, and the cubesat" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Nagoya University · JUACEP · 2025</p><h3 class="proj-title">Cube Nanosatellite Positional Functionality Using Drone Swarm Simulation</h3><p class="proj-desc">A collaboration between Nagoya University's aerospace and space systems labs to validate the swarm formation capability of the MAGNARO II, a 10 cm cubed nanosatellite. To avoid disrupting ongoing hardware-in-the-loop testing, I designed an independent drone-based validation path, selected the toolchain, and built a multi-drone simulation environment.</p><dl class="proj-stats"><div><dt>Result</dt><dd>3-drone simultaneous simulation</dd></div><div><dt>Also</dt><dd>Gimbal control for payload positioning</dd></div></dl><ul class="proj-tags"><li>ROS2</li><li>PX4</li><li>Gazebo</li><li>XRCE-DDS</li><li>QGroundControl</li><li>Micro ROS</li></ul><div class="proj-links"><a class="proj-link" href="assets/engineering/docs/SkylerDo_JUACEP_Report.pdf" target="_blank" rel="noopener">Read the report (PDF)<span aria-hidden="true">↗</span></a></div></div></article>
+<article class="proj" id="proj-juacep"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/juacep-cubesats.jpg" width="1600" height="1200" alt="MAGNARO II cube nanosatellite units, docked and separated, on a lab bench" loading="lazy" /></figure><figure class=""><img src="assets/engineering/juacep-swarm-sim.jpg" width="1600" height="907" alt="Three simulated drones flying together in Gazebo" loading="lazy" /></figure><figure class=""><img src="assets/engineering/juacep-dual-validation.jpg" width="1025" height="633" alt="Dual validation diagram linking a HILS testing PC, a drone testing PC, and the cubesat" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Nagoya University · JUACEP · 2025</p><h3 class="proj-title">Cube Nanosatellite Positional Functionality Using Drone Swarm Simulation</h3><p class="proj-desc">A collaboration between Nagoya University's aerospace and space systems labs to validate the swarm formation capability of the MAGNARO II, a 10 cm cubed nanosatellite. To avoid disrupting ongoing hardware-in-the-loop testing, I designed an independent drone-based validation path, selected the toolchain, and built a multi-drone simulation environment.</p><dl class="proj-stats"><div><dt>Result</dt><dd>3-drone simultaneous simulation</dd></div><div><dt>Also</dt><dd>Gimbal control for payload positioning</dd></div></dl><ul class="proj-tags"><li>ROS2</li><li>PX4</li><li>Gazebo</li><li>XRCE-DDS</li><li>QGroundControl</li><li>Micro ROS</li></ul><div class="proj-links"><a class="proj-link" href="assets/engineering/docs/SkylerDo_JUACEP_Report.pdf" data-doc-view>Read the report (PDF)<span aria-hidden="true">↗</span></a></div></div></article>
 <article class="proj proj--flip" id="proj-ballbot"><div class="proj-media"><div class="proj-grid"><figure class="wide solo"><img src="assets/engineering/ballbot-poster.jpg" width="2000" height="1333" alt="ISUR research poster: Accurate Full State Estimation of a Ballbot using Optical Flow Sensors" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>University of Illinois · ISUR · HDCL</p><h3 class="proj-title">Accurate Full State Estimation of a Ballbot Using Optical Flow Sensors</h3><p class="proj-desc">Optical flow sensors were investigated as a direct alternative to motor encoders for measuring ball speed on PURE, a ballbot mobility device developed in the Human Dynamics and Controls Lab. I characterized two off-the-shelf sensors, then designed and iterated a bench-top testbed with a laser-cut wheel and an absolute encoder as ground truth. Findings were presented at the ISUR symposium, with support from ISUR and Siemens.</p><dl class="proj-stats"><div><dt>Tested</dt><dd>0.2 – 1 m/s at 50 – 1000 Hz</dd></div><div><dt>Selected</dt><dd>PMW-3360 at 100 Hz</dd></div></dl><ul class="proj-tags"><li>Arduino</li><li>Python</li><li>CAD</li><li>Sensor Fusion</li><li>Testbed Design</li></ul></div></article>
-<article class="proj" id="proj-me445"><div class="proj-media"><div class="proj-grid"><figure class="wide solo"><video src="assets/engineering/me445-final-project.mp4" poster="assets/engineering/me445-poster.jpg" controls muted loop playsinline preload="none" aria-label="Video of the robotic arm final project"></video></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>ME 445 · Final Project</p><h3 class="proj-title">Robotic Arm Pick-and-Place</h3><p class="proj-desc">Final project for ME 445. A tabletop robotic arm is programmed to pick up a part, carry it across the work cell, and set it on a scale for measurement.</p><ul class="proj-tags"><li>Robot Programming</li><li>Motion Planning</li></ul></div></article>
-<article class="proj proj--flip" id="proj-dfm"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/dfm-exploded.jpg" width="1600" height="993" alt="Exploded CAD view of the multi-tier toolbox, trays fanned open" loading="lazy" /></figure><figure class=""><img src="assets/engineering/dfm-closed.jpg" width="1358" height="1068" alt="CAD render of the toolbox closed" loading="lazy" /></figure><figure class=""><img src="assets/engineering/dfm-tray.jpg" width="618" height="583" alt="CAD render of a compartment tray" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>University of Michigan · ISD 528 · Team 17</p><h3 class="proj-title">Multi-Tier Collapsible Toolbox: Design for Manufacturing &amp; Assembly</h3><p class="proj-desc">A product family redesign of a multi-tiered, collapsible toolbox for tradespeople, with a secondary variant for crafters. The team applied FAST and FCMM analysis, product family design, and design for manual and automated assembly. The team then selected folded aluminum sheet metal as the manufacturing process for a target volume of 168,000 units per year.</p><dl class="proj-stats"><div><dt>Volume</dt><dd>168,000 units / year</dd></div><div><dt>Process</dt><dd>Folded aluminum sheet</dd></div></dl><ul class="proj-tags"><li>DFMA</li><li>Product Family Design</li><li>FAST / FCMM</li><li>CAD</li></ul><div class="proj-links"><a class="proj-link" href="assets/engineering/docs/ISD528_DFM_Presentation.pptx" target="_blank" rel="noopener">View the presentation (PPTX)<span aria-hidden="true">↗</span></a></div></div></article>
-<article class="proj" id="proj-kicad"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/kicad-pcb.jpg" width="1800" height="872" alt="KiCad 3D board view and routed PCB layout of the LED flasher" loading="lazy" /></figure><figure class="wide"><img src="assets/engineering/kicad-schematic.jpg" width="1800" height="932" alt="KiCad schematic of the two-transistor astable multivibrator" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>PCB Design · KiCad</p><h3 class="proj-title">Two-Transistor LED Flasher</h3><p class="proj-desc">An astable multivibrator circuit, taken from schematic capture through PCB layout in KiCad. A pair of 2N3904 transistors and 220 µF timing capacitors alternately flash two LEDs.</p><ul class="proj-tags"><li>KiCad</li><li>Schematic Capture</li><li>PCB Layout</li></ul></div></article>
       </div>
+      <h3 class="process-title proj-group-h" id="proj-academic">Academic Projects</h3>
+      <div class="proj-list">
+<article class="proj" id="proj-me445"><div class="proj-media"><div class="proj-grid"><figure class="wide solo"><video src="assets/engineering/me445-final-project.mp4" poster="assets/engineering/me445-poster.jpg" controls muted loop playsinline preload="none" aria-label="Video of the robotic arm final project"></video></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>ME 445 · Robot Dynamics and Control</p><h3 class="proj-title">Robotic Arm Control Algorithms</h3><p class="proj-desc">Final project for ME 445. A tabletop robotic arm is programmed to pick up a part, carry it across the work cell, and set it on a scale for measurement.</p><ul class="proj-tags"><li>Robot Programming</li><li>Motion Planning</li></ul></div></article>
+<article class="proj proj--flip" id="proj-dfm"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/dfm-exploded.jpg" width="1600" height="993" alt="Exploded CAD view of the multi-tier toolbox, trays fanned open" loading="lazy" /></figure><figure class=""><img src="assets/engineering/dfm-closed.jpg" width="1358" height="1068" alt="CAD render of the toolbox closed" loading="lazy" /></figure><figure class=""><img src="assets/engineering/dfm-tray.jpg" width="618" height="583" alt="CAD render of a compartment tray" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>ISD 528 · Design for Manufacturability · Team 17</p><h3 class="proj-title">Multi-Tier Collapsible Toolbox: Design for Manufacturing &amp; Assembly</h3><p class="proj-desc">A product family redesign of a multi-tiered, collapsible toolbox for tradespeople, with a secondary variant for crafters. The team applied FAST and FCMM analysis, product family design, and design for manual and automated assembly. The team then selected folded aluminum sheet metal as the manufacturing process for a target volume of 168,000 units per year.</p><dl class="proj-stats"><div><dt>Volume</dt><dd>168,000 units / year</dd></div><div><dt>Process</dt><dd>Folded aluminum sheet</dd></div></dl><ul class="proj-tags"><li>DFMA</li><li>Product Family Design</li><li>FAST / FCMM</li><li>CAD</li></ul><div class="proj-links"><a class="proj-link" href="assets/engineering/docs/ISD528_DFM_Presentation.pptx" data-doc-view data-pdf="assets/engineering/docs/ISD528_DFM_Presentation.pdf">View the presentation (PPTX)<span aria-hidden="true">↗</span></a></div></div></article>
+<article class="proj" id="proj-kicad"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/kicad-pcb.jpg" width="1800" height="872" alt="KiCad 3D board view and routed PCB layout of the LED flasher" loading="lazy" /></figure><figure class="wide"><img src="assets/engineering/kicad-schematic.jpg" width="1800" height="932" alt="KiCad schematic of the two-transistor astable multivibrator" loading="lazy" /></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Coursera Project · PCB Design · KiCad</p><h3 class="proj-title">Two-Transistor LED Flasher</h3><p class="proj-desc">An astable multivibrator circuit, taken from schematic capture through PCB layout in KiCad. A pair of 2N3904 transistors and 220 µF timing capacitors alternately flash two LEDs.</p><ul class="proj-tags"><li>KiCad</li><li>Schematic Capture</li><li>PCB Layout</li></ul></div></article>
+<article class="proj proj--flip" id="proj-isd521"><div class="proj-media"><div class="proj-grid"><figure class="wide"><img src="assets/engineering/isd521-concept.jpg" width="1024" height="1024" alt="AI-generated concept illustration of a benchtop robotic arm with a pipetting end effector over a sample plate" loading="lazy" /><figcaption>AI-generated concept illustration of the selected architecture, for visualization only.</figcaption></figure><figure class="wide"><img src="assets/engineering/isd521-req-matrix.jpg" width="888" height="632" alt="Requirements traceability matrix mapping 23 system requirements to stakeholder needs" loading="lazy" /><figcaption>Traceability matrix: every system requirement is derived from at least one stakeholder need.</figcaption></figure></div></div><div class="proj-body"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>ISD 521 · Development &amp; Verification of System Design Requirements · Team of 4</p><h3 class="proj-title">Lab Automation Robotic Arm: A System Concept</h3><p class="proj-desc">A system concept, not a built system, for automating repetitive pipetting and sample handling in a genetics research lab. The team took the design from stakeholder needs through requirements, architecture selection, and verification planning. Each decision traces back to the stakeholder.</p><ul class="eng-points" style="margin-top:22px"><li><strong>Stakeholder analysis.</strong> Built a persona, a senior research scientist, and captured her pain points: human error, physical strain, lost staff hours, and budget pressure.</li><li><strong>Needs → requirements.</strong> Grouped her needs into six top-level categories, then decomposed them into 23 system requirements with quantified targets such as ±0.1 mm placement accuracy and a noise limit of 60 dB or less.</li><li><strong>Measures of effectiveness.</strong> Paired each need with a measurable MOE and a justification, including staff hours saved, errors per 100 tasks, sound level, and system weight.</li><li><strong>Trade study.</strong> Compared five architectures: a liquid-handling workstation, a pneumatic pick-and-place system, a high-throughput screening system, manual labor, and a robotic arm. Only the arm covered both required functions, pick-and-place and pipetting, at low cost and complexity.</li><li><strong>Subsystem partitioning.</strong> Divided the arm into power management, manipulator, embedded controller, and physical structure subsystems, each with a clear responsibility and clear interfaces.</li><li><strong>Verification planning.</strong> Planned to verify functional requirements through prototypes and simulation, and non-functional requirements through subsystem analysis. For example, summed the estimated noise of each subsystem to confirm the total stays under 60 dB.</li></ul><ul class="proj-tags"><li>Stakeholder Analysis</li><li>Requirements Decomposition</li><li>MOEs</li><li>Trade Study</li><li>Traceability Matrix</li><li>Verification Planning</li></ul><div class="proj-links"><a class="proj-link" href="assets/engineering/docs/ISD521_Robotic_Arm_Presentation.pptx" data-doc-view data-pdf="assets/engineering/docs/ISD521_Robotic_Arm_Presentation.pdf">View the presentation (PPTX)<span aria-hidden="true">↗</span></a></div></div></article>
+      </div>
+      <h3 class="process-title proj-group-h" id="proj-cases">Case Studies</h3>
       <div class="case-list">
+        <article class="case" id="proj-dfmea">
+          <header class="case-head"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Capstone · ISD 503 · University of Michigan × General Motors</p><h3 class="proj-title">DFMEA for Automotive Vehicle Network Power Management Specifications</h3><p class="case-lede">Power management specifications define how dozens of ECUs wake and sleep across shared vehicle networks. A single defect, such as a missing activator role or a wrong wake-mask bit, could pass unnoticed into ECU configuration, firmware, and test plans until hardware-in-the-loop testing, where it is costly to fix. Leading the DFMEA, I applied the AIAG-VDA 2019 method to find where these defects start and moved their detection to the point where the specification is written.</p></header>
+          <div class="case-grid">
+            <div class="case-block"><h4 class="case-h">01 · DFMEA</h4><ul class="eng-points"><li>Ran the seven-step AIAG-VDA process, calibrated to the company's Software DFMEA guidelines and reviewed by senior power management and safety engineers.</li><li>Broke specification content into four categories: ECU roles, NM PDU bit assignments, wake masks, and activation criteria.</li><li>Identified and rated <strong>14 failure modes</strong>, <strong>6 of them HIGH</strong> priority by RPN.</li></ul></div>
+            <div class="case-block"><h4 class="case-h">02 · Detect at Authoring</h4><ul class="eng-points"><li>Built <strong>six automated pre-commit validators</strong>, one for each HIGH failure mode. A change that breaks a rule cannot be merged.</li><li>The checks cut each mode's RPN by <strong>50–67%</strong>. They went live in June 2026 and have already caught defects in routine updates.</li></ul></div>
+            <div class="case-block"><h4 class="case-h">03 · Cross-Validate</h4><ul class="eng-points"><li>Compared the specification against the deployed AUTOSAR ARXML configuration files and flagged ECU-network pairs where spec changes had not reached the build.</li><li>A new wake-mask validator checked 157 ECUs and found 2 with missing bits. Both were corrected, and the validator then passed on all 157.</li></ul></div>
+            <div class="case-block"><h4 class="case-h">04 · Trace End to End</h4><ul class="eng-points"><li>Building a traceability index that links each requirement to its responsible system function, its software interface, and the test that validates it.</li><li>Requirements with no implementation reference are flagged as implementation debt, and those with no test are flagged as coverage gaps.</li></ul></div>
+          </div>
+          <div class="case-metrics" role="table" aria-label="Project outcomes before and after">
+            <div class="cm-row cm-head" role="row"><span role="columnheader">Measure</span><span role="columnheader">Before</span><span role="columnheader">After</span></div>
+            <div class="cm-row" role="row"><span role="cell">HIGH-priority failure modes with automated detection</span><span role="cell">0</span><span role="cell"><strong>6 / 6</strong></span></div>
+            <div class="cm-row" role="row"><span role="cell">RPN of covered failure modes</span><span role="cell">Baseline</span><span role="cell"><strong>−50–67%</strong></span></div>
+            <div class="cm-row" role="row"><span role="cell">ECU wake masks consistent with role assignments</span><span role="cell">155 / 157</span><span role="cell"><strong>157 / 157</strong></span></div>
+            <div class="cm-row" role="row"><span role="cell">Estimated cost avoided per defect caught at authoring</span><span role="cell">—</span><span role="cell"><strong>$2.8–5.7K</strong></span></div>
+          </div>
+          <ul class="proj-tags" style="margin-top:24px"><li>AIAG-VDA DFMEA</li><li>Risk Priority Number</li><li>AUTOSAR NM</li><li>ARXML</li><li>Python Validators</li><li>Requirements Traceability</li><li>Change Management</li></ul>
+        </article>
         <article class="case" id="proj-dfss">
           <header class="case-head"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Design for Six Sigma · Black Belt · General Motors</p><h3 class="proj-title">Improving SDV2 Power Management Specifications</h3><p class="case-lede">The GB-5280 Partial Network specification was difficult to read, test, and trace. This caused friction between architects and test engineers, and added cost through repeated clarification cycles. The project measured the problem, redesigned the specification format, and verified the improvement with the people who use it.</p></header>
           <div class="case-grid">
@@ -2529,7 +2710,7 @@ Thank you for taking the time to view my work. </p>
         </article>
 
         <article class="case" id="proj-syseng">
-          <header class="case-head"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Case Study · Systems Engineering Take-Home Exercise · 45 Minutes</p><h3 class="proj-title">Requirements &amp; Verification for an Autonomous Tracking System</h3><p class="case-lede">The scenario was a startup building a safety-critical autonomous outdoor system, with a customer demo in six weeks. The team was strong, but system-level requirements and verification were loose. Tracking was lost after vibration or occlusion, calibration took about 25 minutes with a senior engineer, logs were inconsistent, and ownership between teams was unclear. The brief asked for judgment and prioritization over completeness.</p></header>
+          <header class="case-head"><p class="exp-cat"><span class="diamond" aria-hidden="true"></span>Case Study · Autonomous weapon Systems Engineering</p><h3 class="proj-title">Requirements &amp; Verification for an Autonomous Tracking System</h3><p class="case-lede">The scenario was a startup building a safety-critical autonomous outdoor system, with a customer demo in six weeks. The team was strong, but system-level requirements and verification were loose. Tracking was lost after vibration or occlusion, calibration took about 25 minutes with a senior engineer, logs were inconsistent, and ownership between teams was unclear. The brief asked for judgment and prioritization over completeness.</p></header>
           <h4 class="case-h">Priority requirements</h4>
           <div class="req-table" role="table" aria-label="Priority requirements">
             <div class="rq-row rq-head" role="row"><span role="columnheader">Area</span><span role="columnheader">Requirement</span><span role="columnheader">Owner</span><span role="columnheader">Verification</span></div>
@@ -2547,7 +2728,7 @@ Thank you for taking the time to view my work. </p>
             <div class="case-block"><h4 class="case-h">First week</h4><ul class="eng-points"><li>Centralize systems engineering documentation and link all tracked engineering work to a system-level requirement.</li><li>Hold an alignment session with the mechanical, electrical, controls, software, and test leads. The session would confirm current compliance, negotiate requirements, and pressure-test the six-week timeline.</li></ul></div>
             <div class="case-block"><h4 class="case-h">Deliberately not formalized yet</h4><ul class="eng-points"><li><strong>The full calibration sequence</strong> depends on operator interfaces and final use cases.</li><li><strong>Heavy process documentation</strong> is deferred: systems engineering should bring clarity, not paperwork.</li><li><strong>Tracking decomposition and failure modes</strong> depend on solution choices, such as the sensor selection.</li></ul></div>
           </div>
-          <div class="proj-links"><a class="proj-link" href="assets/engineering/docs/SysEng_TakeHome.pptx" target="_blank" rel="noopener">View the slides (PPTX)<span aria-hidden="true">↗</span></a></div>
+          <div class="proj-links"><a class="proj-link" href="assets/engineering/docs/SysEng_TakeHome.pptx" data-doc-view data-pdf="assets/engineering/docs/SysEng_TakeHome.pdf">View the slides (PPTX)<span aria-hidden="true">↗</span></a></div>
         </article>
       </div>
     </div>
@@ -2607,6 +2788,10 @@ Thank you for taking the time to view my work. </p>
               in/skylerdo
               <span class="arrow" aria-hidden="true">↗</span>
             </a>
+          </div>
+          <div class="contact-item svc" data-for="artist">
+            <p class="lbl">Open for Commission</p>
+            <ul class="svc-list"><li>Jewelry &amp; Metalsmithing</li><li>Sumi-e Ink Painting</li><li>Shodo Calligraphy</li><li>Hanko · Name Seals</li><li>Origami</li><li>Photography<span>Portrait · Pet · Product · Travel &amp; Event</span></li></ul>
           </div>
           <div class="contact-item" data-for="engineer">
             <p class="lbl">GitHub</p>
@@ -2696,11 +2881,11 @@ Thank you for taking the time to view my work. </p>
   const linkEls = document.querySelectorAll('.nav-links a');
   const activeList = () => document.querySelector('.nav-links[data-for="' + document.body.dataset.mode + '"]');
 
-  // Mode switching: Artist · Warrior · Engineer
-  const MODES = ['artist', 'warrior', 'engineer'];
-  const TITLES = { artist: 'Artist', warrior: 'Warrior', engineer: 'Engineer' };
+  // Mode switching: About · Art Services · Engineering Services
+  const MODES = ['warrior', 'artist', 'engineer'];
+  const TITLES = { artist: 'Art Services', warrior: 'About', engineer: 'Engineering Services' };
   function setMode(m) {
-    if (!MODES.includes(m)) m = 'artist';
+    if (!MODES.includes(m)) m = 'warrior';
     document.body.dataset.mode = m;
     document.querySelectorAll('[data-mode-go]').forEach(a => {
       const on = a.dataset.modeGo === m;
@@ -2710,7 +2895,7 @@ Thank you for taking the time to view my work. </p>
     document.title = 'Skyler Đỗ · ' + TITLES[m] + ' · Pure Sky Creations · 青天閣';
     document.querySelectorAll('.nav-links').forEach(l => l.classList.remove('is-open'));
     navToggle.setAttribute('aria-expanded', 'false');
-    try { localStorage.setItem('psc-mode', m); } catch (e) {}
+    try { localStorage.setItem('psc-mode-v2', m); } catch (e) {}
   }
   document.querySelectorAll('[data-mode-go]').forEach(a => a.addEventListener('click', e => {
     e.preventDefault();
@@ -2730,7 +2915,7 @@ Thank you for taking the time to view my work. </p>
     return !!p;
   }
   window.addEventListener('hashchange', route);
-  if (!route()) { let saved = null; try { saved = localStorage.getItem('psc-mode'); } catch (e) {} setMode(saved || 'artist'); }
+  if (!route()) { let saved = null; try { saved = localStorage.getItem('psc-mode-v2'); } catch (e) {} setMode(saved || 'warrior'); }
 
   const onScroll = () => {
     nav.classList.toggle('is-scrolled', window.scrollY > 8);
@@ -2838,6 +3023,8 @@ Thank you for taking the time to view my work. </p>
       const forge = img.closest('.forge-shot');
       if (forge) return { sub: '大太刀 · Ōdachi · Step ' + txt(forge, '.fc-no'), title: txt(forge, '.fc-name'), desc: img.alt || '' };
       if (img.closest('.blade-photo')) return { sub: '大太刀 · Ōdachi', title: '龍牙 Tatsukiba', desc: img.alt || '' };
+      const ph = img.closest('.ph');
+      if (ph) return { sub: '写真 · Photography', title: txt(ph, 'figcaption'), desc: img.alt || '' };
       if (img.closest('.origami-collage')) return { sub: '折り紙 · Origami', title: 'Folded by hand', desc: img.alt || '' };
       return { sub: '', title: '', desc: img.alt || '' };
     }
@@ -2869,7 +3056,8 @@ Thank you for taking the time to view my work. </p>
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 
-    const selector = '.disc-shots img, .proj-grid img, .piece-mat img, .shot-frame img, .origami-collage img, .exp-shots img, .mc-photos img, .cb-grid img, .forge-frame img, .blade-photo img';
+    document.querySelectorAll('.piece-thumbs').forEach(t=>t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const m=t.previousElementSibling.querySelector('img');m.src=b.dataset.src;m.alt=b.dataset.alt;t.querySelectorAll('button').forEach(x=>x.classList.toggle('is-on',x===b))}));
+    const selector = '.disc-shots img, .proj-grid img, .piece-mat img, .shot-frame img, .origami-collage img, .exp-shots img, .mc-photos img, .cb-grid img, .forge-frame img, .blade-photo img, .ph img';
     document.querySelectorAll(selector).forEach(img => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => open(img));
@@ -2884,5 +3072,19 @@ Thank you for taking the time to view my work. </p>
     });
   })();
 </script>
+<script>(function(){var w=document.querySelector('#eng-experience .exp-order'),l=document.getElementById('eng-exp-list');if(!w||!l)return;var cur='new';w.addEventListener('click',function(e){var b=e.target.closest('.exp-order-b');if(!b||b.dataset.order===cur)return;cur=b.dataset.order;Array.prototype.slice.call(l.children).reverse().forEach(function(c){l.appendChild(c)});l.querySelectorAll('.eng-roles').forEach(function(r){Array.prototype.slice.call(r.children).reverse().forEach(function(c){r.appendChild(c)})});w.querySelectorAll('.exp-order-b').forEach(function(x){var on=x===b;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on)});});})();</script>
+<div class="docv" id="docViewer" role="dialog" aria-modal="true" aria-label="Document preview"><div class="docv-bar"><span class="docv-title" id="docvTitle"></span><span class="docv-count" id="docvCount"></span><a id="docvDl" href="#" download>Download</a><button type="button" id="docvClose" aria-label="Close preview">Close ✕</button></div><div class="docv-pages" id="docvPages"></div><iframe class="docv-frame" id="docvFrame" title="Presentation preview" allowfullscreen></iframe><div class="docv-note" id="docvNote"><p></p></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>(function(){var v=document.getElementById('docViewer'),f=document.getElementById('docvFrame'),pg=document.getElementById('docvPages'),t=document.getElementById('docvTitle'),c=document.getElementById('docvCount'),d=document.getElementById('docvDl'),note=document.getElementById('docvNote');var job=0;
+if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+function mode(m,msg){v.dataset.view=m;if(msg)note.querySelector('p').innerHTML=msg;}
+function close(){job++;v.classList.remove('is-open');f.src='about:blank';pg.innerHTML='';document.body.style.overflow='';}
+async function renderPdf(href){var my=++job;mode('pdf');pg.innerHTML='<p class="docv-load">Loading…</p>';try{var buf=await (await fetch(href)).arrayBuffer();var doc=await pdfjsLib.getDocument({data:buf}).promise;if(my!==job)return;pg.innerHTML='';c.textContent=doc.numPages+(doc.numPages>1?' pages':' page');var w=Math.min(pg.clientWidth-24,1400);
+for(var i=1;i<=doc.numPages;i++){if(my!==job)return;var p=await doc.getPage(i);var vp0=p.getViewport({scale:1});var sc=w/vp0.width,dpr=Math.min(window.devicePixelRatio||1,2);var vp=p.getViewport({scale:sc*dpr});var cv=document.createElement('canvas');cv.width=vp.width;cv.height=vp.height;cv.style.width=(vp.width/dpr)+'px';cv.setAttribute('aria-label','Page '+i);pg.appendChild(cv);await p.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise;}}catch(err){mode('note','The preview could not load. Use Download to open the file.');}}
+document.addEventListener('click',function(e){var a=e.target.closest('a[data-doc-view]');if(!a)return;e.preventDefault();var href=a.dataset.pdf||a.getAttribute('href');var art=a.closest('article');var hh=art&&art.querySelector('h3,h4');t.textContent=hh?hh.textContent:a.textContent;c.textContent='';d.href=a.getAttribute('href');v.classList.add('is-open');document.body.style.overflow='hidden';
+if(/\.pdf$/i.test(href)&&window.pdfjsLib){renderPdf(href);return;}
+var pub=location.protocol==='https:'&&!/localhost|127\.0\.0\.1/.test(location.hostname)&&window.top===window;
+if(pub){mode('office');f.src='https://view.officeapps.live.com/op/embed.aspx?src='+encodeURIComponent(new URL(href,location.href).href);}else mode('note','The slide preview loads on the published site.<br />Use Download to open the file here.');});
+document.getElementById('docvClose').addEventListener('click',close);v.addEventListener('click',function(e){if(e.target===v)close();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&v.classList.contains('is-open'))close();});})();</script>
 </body>
 </html>
