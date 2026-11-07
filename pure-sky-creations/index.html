@@ -870,9 +870,10 @@
     transition: background .2s ease, color .2s ease;
   }
   .piece-buy:hover { background: var(--navy); color: var(--gold-pale); }
-  .piece-card.is-sold .piece-mat img { opacity: .72; filter: saturate(.55); }
-  .piece-card.is-sold .piece-buy { display: none; }
+  .piece-card.is-sold .piece-buy { color: var(--ink-mute); border-color: var(--line); text-decoration: line-through; pointer-events: none; cursor: default; }
   .piece-card.is-sold .piece-status { color: var(--ink-mute); }
+  .piece-card.is-pending .piece-status { color: var(--gold-ink); font-style: italic; }
+  .piece-card.is-pending .piece-buy { color: var(--ink-mute); border-color: var(--line); pointer-events: none; cursor: default; }
   .piece-zelle { margin: 9px 0 0; font-size: 11.5px; line-height: 1.45; color: var(--ink-mute); }
   .piece-zelle a { color: var(--gold-ink); border-bottom: 1px solid var(--gold-line); }
   .piece-zelle a:hover { color: var(--navy); }
@@ -918,6 +919,13 @@
     border-bottom: 1px solid var(--gold-line);
   }
   .commission-group-label .diamond { width: 6px; height: 6px; }
+  #jewelry > .commission-group-label, #shodo > .commission-group-label { font-family: var(--font-serif); font-size: clamp(24px, 2.4vw, 30px); font-weight: 500; letter-spacing: .01em; text-transform: none; margin: clamp(64px, 8vw, 112px) 0 clamp(28px, 3.5vw, 40px); padding-bottom: 16px; }
+  #jewelry > .commission-group-label:first-of-type, #shodo > .commission-group-label:first-of-type { margin-top: clamp(36px, 4vw, 52px); }
+  #jewelry > .commission-group-label .diamond, #shodo > .commission-group-label .diamond { width: 8px; height: 8px; }
+  .sub-group { margin-top: clamp(48px, 6vw, 72px); }
+  .sub-group-label { font-family: var(--font-display); font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-ink); display: flex; align-items: center; gap: 12px; margin: 0 0 10px; }
+  .sub-group-label .diamond { width: 5px; height: 5px; }
+  .sub-group-desc { font-family: var(--font-serif); font-style: italic; font-size: 17px; line-height: 1.5; color: var(--ink-mute); max-width: 62ch; margin: 0 0 clamp(22px, 3vw, 32px); text-wrap: pretty; }
   .commission-group-label .count {
     margin-left: auto; font-family: var(--font-serif); font-style: italic;
     text-transform: none; letter-spacing: 0; font-size: 15px; color: var(--ink-mute);
@@ -1357,6 +1365,11 @@
     background: var(--slot);
   }
 
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:48px;height:48px;display:none;align-items:center;justify-content:center;border:1px solid var(--gold-line);border-radius:50%;background:rgba(15,22,40,.55);color:#FCFAF4;cursor:pointer;transition:background .2s,color .2s}
+  .lb-nav:hover{background:rgba(15,22,40,.9);color:var(--gold-soft)}
+  .lb-prev{left:clamp(8px,2vw,28px)}.lb-next{right:clamp(8px,2vw,28px)}
+  .lightbox.has-many .lb-nav{display:flex}
+  .lb-count{font-family:var(--font-display);font-size:11px;letter-spacing:.24em;color:var(--gold-soft);margin:0 0 8px}
   .lb-caption {
     text-align: center;
     max-width: min(640px, 90vw);
@@ -1555,11 +1568,11 @@ body[data-mode="engineer"] .diamond{transform:none;border-radius:50%;background:
 
 a.dojo-chip{transition:border-color .2s ease,color .2s ease}
 .ph{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}.ph img{display:block;width:100%;height:100%;object-fit:cover;cursor:zoom-in;background:var(--bg-tint);transition:opacity .25s ease}.ph img:hover{opacity:.92}.ph figcaption{font-family:var(--font-display);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute)}
-.ph-places{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}.ph-places .ph{grid-column:span 3}.ph-places .ph:nth-child(n+5){grid-column:span 4}.ph-places .ph img{aspect-ratio:3/2;height:auto}
+.ph-places{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}.ph-places .ph{grid-column:span 6}.ph-places .ph img{aspect-ratio:3/2;height:auto}
 .ph-portraits{columns:3;column-gap:18px}.ph-portraits .ph{break-inside:avoid;margin-bottom:18px}.ph-portraits .ph img{height:auto}
 .ph-product{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:center}.ph-product .ph img{aspect-ratio:2/3;height:auto}.ph-product-copy{max-width:52ch}
 #photography .seki+.seki{margin-top:clamp(48px,6vw,80px)}
-@media (max-width:820px){.ph-places{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-places .ph,.ph-places .ph:nth-child(n+5){grid-column:auto}.ph-places .ph:last-child{grid-column:1/-1}.ph-portraits{columns:2}.ph-product{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-product-copy{grid-column:1/-1}}
+@media (max-width:820px){.ph-places{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-places .ph,.ph-places .ph:nth-child(n+5){grid-column:auto}.ph-places .ph:last-child:nth-child(odd){grid-column:1/-1}.ph-portraits{columns:2}.ph-product{grid-template-columns:repeat(2,minmax(0,1fr))}.ph-product-copy{grid-column:1/-1}}
 @media (max-width:520px){.ph-places{grid-template-columns:1fr}.ph-places .ph:last-child{grid-column:auto}.ph-portraits{columns:1}}
 .svc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}.svc-list li{font-family:var(--font-serif);font-size:clamp(18px,1.6vw,21px);color:var(--navy);font-weight:500;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}.svc-list li::before{content:"";width:6px;height:6px;background:var(--gold);transform:rotate(45deg) translateY(-3px);flex:none}.svc-list li span{flex-basis:100%;padding-left:18px;font-family:var(--font-display);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute)}
 a.dojo-chip:hover{border-color:var(--gold)}
@@ -1622,11 +1635,11 @@ a.dojo-chip:hover{border-color:var(--gold)}
 </a>
 <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><line x1="3" y1="7" x2="19" y2="7" stroke="currentColor" stroke-width="1.4"></line><line x1="3" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.4"></line></svg></button>
 <ul class="nav-links" data-for="artist">
-<li class="has-sub"><a href="#work">Pieces<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#jewelry">Jewelry &amp; Metalsmithing</a></li><li><a href="#teardrop-kittens">Teardrop Kittens</a></li><li><a href="#sumi-e">Sumi-e Ink Painting</a></li><li><a href="#shodo">Shodo Calligraphy</a></li><li><a href="#origami">Origami</a></li></ul></li>
+<li class="has-sub"><a href="#work">Pieces<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#jewelry">Jewelry</a></li><li><a href="#jewelry-pendants">· Pendants</a></li><li><a href="#teardrop-kittens">·· Teardrop Kittens</a></li><li><a href="#jewelry-rings">· Rings</a></li><li><a href="#jewelry-origami">· Origami Jewelry</a></li><li><a href="#shodo">Calligraphy</a></li><li><a href="#shodo-poems">· Poems &amp; Long Form</a></li><li><a href="#shodo-characters">· One &amp; Two Characters</a></li><li><a href="#shodo-paintings">· Sumi-e Paintings</a></li><li><a href="#origami">Origami</a></li></ul></li>
 <li class="has-sub"><a href="#events-exhibitions">Events &amp; Exhibitions<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#exp-dsc">Calligraphy Booth · Detroit Shipping Co.</a></li><li><a href="#exp-michigan-central">Calligraphy Class · Michigan Central</a></li><li><a href="#exp-chinatown">Artist Stall · Chinatown Block Party</a></li><li><a href="#exp-bbac">Group Exhibition · BBAC</a></li></ul></li>
 <li class="has-sub"><a href="#photography">Photography<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#photo-places">Places</a></li><li><a href="#photo-portraits">Portraits</a></li><li><a href="#photo-product">Product</a></li></ul></li>
-<li class="has-sub"><a href="#commissions">Commissions<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#commissions-jewelry">Jewelry</a></li><li><a href="#commissions-hanko">Hanko · Name Seals</a></li><li><a href="#commissions-shodo">Shodo Calligraphy</a></li><li><a href="#photography">Photography</a></li></ul></li>
-<li class="has-sub"><a href="#experiences">Experiences<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li class="nav-sub-label">Skill Exchanges</li><li><a href="#exp-blacksmithing">Blacksmithing</a></li><li><a href="#exp-artisans">Local Japanese Artisans</a></li><li><a href="#exp-teachers">Shodo Teachers</a></li><li><a href="#forging">Sword Forging · Seki</a></li></ul></li>
+<li class="has-sub"><a href="#commissions">Commissions<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li><a href="#commissions-jewelry">Jewelry</a></li><li><a href="#commissions-hanko">Hanko · Name Seals</a></li><li><a href="#commissions-shodo">Calligraphy</a></li></ul></li>
+<li class="has-sub"><a href="#experiences">Experiences<span class="caret" aria-hidden="true"></span></a><ul class="nav-sub"><li class="nav-sub-label">Skill Exchanges</li><li><a href="#exp-blacksmithing">Blacksmithing</a></li><li><a href="#exp-artisans">Local Japanese Artisans</a></li><li><a href="#exp-teachers">Shodo Teachers</a></li><li class="nav-sub-label">Forging</li><li><a href="#forging">Sword Forging · Seki</a></li></ul></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 <ul class="nav-links" data-for="warrior">
@@ -1655,11 +1668,11 @@ a.dojo-chip:hover{border-color:var(--gold)}
           <p class="hero-eyebrow"><a href="#warrior" data-mode-go="warrior">About</a> · <a href="#artist" data-mode-go="artist" class="is-on">Art Services</a> · <a href="#engineer" data-mode-go="engineer">Engineering Services</a></p>
           <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
           <p class="hero-tag">青天閣 Pure Sky Creations</p>
-          <p class="hero-statement">Welcome to Pure Sky Creations. My work spans jewelry and metalsmithing, ink painting, calligraphy, seal carving, and origami, and is shaped by both Eastern aesthetic tradition and Western fabrication craft. Each piece is made to be precise in execution and considered in form.</p>
+          <p class="hero-statement">Welcome to Pure Sky Creations. My work spans jewelry, ink painting, calligraphy, seal carving, and origami, and is shaped by both Eastern aesthetic tradition and Western fabrication craft. Each piece is made to be precise in execution and considered in form.</p>
           <dl class="hero-meta">
             <div>
               <dt>MEDIUMS</dt>
-              <dd>Jewelry &amp; Metalsmithing · Sumi-e · Shodo · Hanko · Origami</dd>
+              <dd>Jewelry · Calligraphy · Hanko · Origami</dd>
             </div>
             <div>
               <dt>Languages</dt>
@@ -1690,7 +1703,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       <!-- Practice 1 — Jewelry -->
       <article class="practice practice--shop" id="jewelry">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>i. Jewelry &amp; Metalsmithing</p>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>i. Jewelry</p>
           <h3 class="practice-title">Sterling silver, designed and fabricated from sketch to finished piece.</h3>
           <p class="practice-desc">
             Techniques include bezel and prong setting, mixed-metal construction, and sculptural casting.
@@ -1700,6 +1713,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
         <!-- To sell a piece: point its Acquire link at the piece's Stripe Payment Link (href="https://buy.stripe.com/...").
              Edit <span class="piece-status"> to a price like "$185", or "Sold" / "Reserved".
              To mark a piece sold, add class "is-sold" to its <figure class="piece-card">. -->
+        <p class="commission-group-label" id="jewelry-pendants"><span class="diamond" aria-hidden="true"></span>Pendants</p>
         <div class="piece-grid">
           <figure class="piece-card">
             <div class="piece-mat"><img src="assets/jewelry/azure-souls.jpg" alt="Azure Souls: two silver dolphins encircling a faceted blue heart gem on a box chain" loading="lazy" /></div>
@@ -1721,13 +1735,13 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
-          <figure class="piece-card">
+          <figure class="piece-card is-sold">
             <div class="piece-mat"><img src="assets/jewelry/mystic-topaz-pendant.jpg?v=2" alt="Mystic Topaz Pendant, front view: oval mystic topaz prong-set in a sterling silver ring between two brass oak-leaf wings, on a box chain" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/mystic-topaz-pendant.jpg?v=2" data-alt="Mystic Topaz Pendant, front view" aria-label="Front view"><img src="assets/jewelry/mystic-topaz-pendant.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/mystic-topaz-pendant-2.jpg" data-alt="Mystic Topaz Pendant, left side view showing the prong setting and leaf wing" aria-label="Left side view"><img src="assets/jewelry/mystic-topaz-pendant-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/mystic-topaz-pendant-3.jpg" data-alt="Mystic Topaz Pendant, right side view showing the stone profile and leaf wing" aria-label="Right side view"><img src="assets/jewelry/mystic-topaz-pendant-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Mystic Topaz Pendant</h4>
               <p class="piece-spec">Sterling Silver &amp; Brass · Mystic Topaz</p>
               <p class="piece-desc">A blue-green mystic topaz prong-set in sterling silver between a pair of brass oak-leaf wings.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
@@ -1737,26 +1751,6 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <h4 class="piece-title">La Vie en Améthyste</h4>
               <p class="piece-spec">Silver &amp; Copper · Amethyst</p>
               <p class="piece-desc">A trillion amethyst meets a silver-and-copper rose climbing a slender vine.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
-              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
-            </div>
-          </figure>
-          <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/double-banded-labradorite-ring.jpg" alt="Double Banded Labradorite Ring worn on a hand, bezel-set blue labradorite on a split band" loading="lazy" /></div>
-            <div class="piece-body">
-              <h4 class="piece-title">Double Banded Labradorite Ring</h4>
-              <p class="piece-spec">Sterling Silver · Labradorite</p>
-              <p class="piece-desc">A bezel-set labradorite floats above a split double band.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
-              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
-            </div>
-          </figure>
-          <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/double-heart-ring.jpg" alt="Double Heart Ring: cluster of red and green stones forming blossoms on a silver band" loading="lazy" /></div>
-            <div class="piece-body">
-              <h4 class="piece-title">Double Heart Ring</h4>
-              <p class="piece-spec">Sterling Silver · Zirconium Stones</p>
-              <p class="piece-desc">Red and green stones cluster into twin blossoms across a silver band.</p>
               <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
@@ -1792,16 +1786,6 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/jewelry/origami-earrings.jpg" alt="Origami Earrings: a pair of folded chiyogami paper cranes on gold-fill ear hooks" loading="lazy" /></div>
-            <div class="piece-body">
-              <h4 class="piece-title">Origami Earrings</h4>
-              <p class="piece-spec">Chiyogami · Gold-fill</p>
-              <p class="piece-desc">A pair of folded chiyogami paper cranes suspended from gold-fill hooks.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
-              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
-            </div>
-          </figure>
-          <figure class="piece-card">
             <div class="piece-mat"><img src="assets/jewelry/silver-rose-1.jpg" alt="Silver Rose, front view: a small hand-formed silver rosebud on a curving silver stem with two copper leaves, on a box chain" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/silver-rose-1.jpg" data-alt="Silver Rose, front view" aria-label="Front view"><img src="assets/jewelry/silver-rose-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/silver-rose-2.jpg" data-alt="Silver Rose, angled view showing the layered petals" aria-label="Angled view showing the layered petals"><img src="assets/jewelry/silver-rose-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/silver-rose-3.jpg" data-alt="Silver Rose, side view showing the bail and stem" aria-label="Side view showing the bail and stem"><img src="assets/jewelry/silver-rose-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Silver Rose</h4>
@@ -1812,18 +1796,9 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
         </div>
-      </article>
-
-      <!-- Practice 1b — Teardrop Kitten Series -->
-      <article class="practice practice--shop" id="teardrop-kittens">
-        <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>ii. Teardrop Kittens</p>
-          <h3 class="practice-title">One silhouette, <em>many stones.</em></h3>
-          <p class="practice-desc">
-            A signature seated-cat pendant, in which an oval head frames a single teardrop
-            cabochon. Each is cast in a different stone and carries its own character.
-          </p>
-        </div>
+        <div class="sub-group" id="teardrop-kittens">
+          <p class="sub-group-label"><span class="diamond" aria-hidden="true"></span>Teardrop Kittens</p>
+          <p class="sub-group-desc">One silhouette, many stones. A signature seated-cat pendant, in which an oval head frames a single teardrop cabochon, each cast in a different stone with its own character.</p>
         <div class="piece-grid">
           <figure class="piece-card">
             <div class="piece-mat"><img src="assets/jewelry/tk-african-azurite.jpg?v=2" alt="Teardrop Kitten in African azurite, front view: silver cat with pointed ears and curled tail framing a teal-and-indigo teardrop, on a black cord" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-african-azurite.jpg?v=2" data-alt="Teardrop Kitten in African azurite, front view" aria-label="Front view"><img src="assets/jewelry/tk-african-azurite.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-african-azurite-2.jpg" data-alt="Teardrop Kitten in African azurite, angled view showing the stone's markings and bezel" aria-label="Angled view"><img src="assets/jewelry/tk-african-azurite-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-african-azurite-3.jpg" data-alt="Teardrop Kitten in African azurite, three-quarter view showing the ears and curled tail" aria-label="Three-quarter view"><img src="assets/jewelry/tk-african-azurite-3.jpg" alt="" loading="lazy" /></button></div>
@@ -1855,13 +1830,13 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
-          <figure class="piece-card">
+          <figure class="piece-card is-pending">
             <div class="piece-mat"><img src="assets/jewelry/tk-labradorite.jpg?v=2" alt="Teardrop Kitten in labradorite, front view: silver cat with the chain threaded through its ears, framing a blue-flash labradorite teardrop" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/jewelry/tk-labradorite.jpg?v=2" data-alt="Teardrop Kitten in labradorite, front view" aria-label="Front view"><img src="assets/jewelry/tk-labradorite.jpg?v=2" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-labradorite-2.jpg" data-alt="Teardrop Kitten in labradorite, angled view showing the stone's flash and bezel" aria-label="Angled view"><img src="assets/jewelry/tk-labradorite-2.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/jewelry/tk-labradorite-3.jpg" data-alt="Teardrop Kitten in labradorite, side view showing the bezel wall and tail" aria-label="Side view"><img src="assets/jewelry/tk-labradorite-3.jpg" alt="" loading="lazy" /></button></div>
             <div class="piece-body">
               <h4 class="piece-title">Teardrop Kitten · Labradorite</h4>
               <p class="piece-spec">Sterling Silver · Labradorite</p>
               <p class="piece-desc">A deep labradorite with an electric blue flash, hung on a fine silver chain.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <div class="piece-foot"><span class="piece-status">Pending sale</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
@@ -1876,70 +1851,65 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
         </div>
-      </article>
-
-      <!-- Practice 2 — Ink Painting -->
-      <article class="practice practice--shop" id="sumi-e">
-        <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iii. Sumi-e Ink Painting</p>
-          <h3 class="practice-title">Original narrative compositions in the East Asian sumi-e tradition.</h3>
-          <p class="practice-desc">
-            Brush, ink, and selective watercolor on paper and fabric, employing wet and dry
-            brushwork, wash gradation, and gestural line. All subject matter is
-            original.
-          </p>
         </div>
+        <p class="commission-group-label" id="jewelry-rings"><span class="diamond" aria-hidden="true"></span>Rings</p>
         <div class="piece-grid">
-          <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/pieces/dragon-kimono.jpg" alt="Sumi-e of a black dragon with blue scale accents coiled above a red-robed kimono figure on water, with a red seal" loading="lazy" /></div>
+          <figure class="piece-card is-sold">
+            <div class="piece-mat"><img src="assets/jewelry/double-banded-labradorite-ring.jpg" alt="Double Banded Labradorite Ring worn on a hand, bezel-set blue labradorite on a split band" loading="lazy" /></div>
             <div class="piece-body">
-              <h4 class="piece-title">Dragon &amp; Kimono Figure</h4>
-              <p class="piece-spec">墨絵 · Sumi-e</p>
-              <p class="piece-desc">A black dragon coils above a red-robed figure on the water, its scales caught in blue.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <h4 class="piece-title">Double Banded Labradorite Ring</h4>
+              <p class="piece-spec">Sterling Silver · Labradorite</p>
+              <p class="piece-desc">A bezel-set labradorite floats above a split double band.</p>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
-          <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/pieces/enso-zen.jpg" alt="Ensō circle in black and red ink enclosing a bonsai, with the kanji 禅 and a red seal" loading="lazy" /></div>
+          <figure class="piece-card is-sold">
+            <div class="piece-mat"><img src="assets/jewelry/double-heart-ring.jpg" alt="Double Heart Ring: cluster of red and green stones forming blossoms on a silver band" loading="lazy" /></div>
             <div class="piece-body">
-              <h4 class="piece-title">Zen</h4>
-              <p class="piece-spec">禅 · Ensō &amp; Bonsai</p>
-              <p class="piece-desc">An ensō in black and red encircles a bonsai beneath the character for Zen.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
-              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
-            </div>
-          </figure>
-          <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/pieces/enso-budo.jpg" alt="Ensō circle enclosing a bare ink tree on rock with the characters 武道 and a red seal" loading="lazy" /></div>
-            <div class="piece-body">
-              <h4 class="piece-title">Budō</h4>
-              <p class="piece-spec">武道 · Ensō &amp; Tree</p>
-              <p class="piece-desc">A bare ink tree takes root inside a sweeping ensō, paired with 武道, “the martial way.”</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <h4 class="piece-title">Double Heart Ring</h4>
+              <p class="piece-spec">Sterling Silver · Zirconium Stones</p>
+              <p class="piece-desc">Red and green stones cluster into twin blossoms across a silver band.</p>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
         </div>
+        <p class="commission-group-label" id="jewelry-origami"><span class="diamond" aria-hidden="true"></span>Origami Jewelry</p>
+        <div class="piece-grid">
+          <figure class="piece-card is-sold">
+            <div class="piece-mat"><img src="assets/jewelry/origami-earrings.jpg" alt="Origami Earrings: a pair of folded chiyogami paper cranes on gold-fill ear hooks" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Origami Earrings</h4>
+              <p class="piece-spec">Chiyogami · Gold-fill</p>
+              <p class="piece-desc">A pair of folded chiyogami paper cranes suspended from gold-fill hooks.</p>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+        </div>
+
       </article>
 
-      <!-- Practice 3 — Calligraphy -->
+      <!-- Practice 2 — Calligraphy -->
       <article class="practice practice--shop" id="shodo">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iv. Shodo Calligraphy</p>
-          <h3 class="practice-title">Japanese brush calligraphy, completed in a single take as both performance and object.</h3>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>ii. Calligraphy</p>
+          <h3 class="practice-title">Brush and ink, completed in a single take as both performance and object.</h3>
           <p class="practice-desc">
             Kanji and Chinese characters rendered in gyosho and related scripts at
-            gallery scale.
+            gallery scale, alongside original sumi-e compositions in brush, ink, and
+            selective watercolor.
           </p>
           <div class="practice-credit">
             <strong>Exhibited</strong>
             Heike Monogatari opening verse, Birmingham Bloomfield Art Center Student Showcase.
           </div>
         </div>
+        <p class="commission-group-label" id="shodo-poems"><span class="diamond" aria-hidden="true"></span>Poems &amp; Long Form</p>
         <div class="piece-grid">
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/pieces/shodo-heike.jpg" alt="Shodo of the Heike Monogatari opening verse: 祇園精舎の鐘の声… brushed in four vertical columns with a red seal, framed and hung at the BBAC gallery" loading="lazy" /></div>
+            <div class="piece-mat"><img src="assets/pieces/shodo-heike-v2.jpg" alt="Shodo of the Heike Monogatari opening verse: 祇園精舎の鐘の声… brushed in four vertical columns with a red seal, framed and hung at the BBAC gallery" loading="lazy" /></div>
             <div class="piece-body">
               <h4 class="piece-title">Heike Monogatari · Opening Verse</h4>
               <p class="piece-spec">平家物語 · The Tale of the Heike</p>
@@ -1948,6 +1918,20 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
+          <figure class="piece-card">
+            <div class="piece-mat"><img src="assets/pieces/shodo-furuike-v2.jpg" alt="Framed vertical shodo of Bashō's haiku 古池や 蛙飛び込む 水の音 in three cascading columns, a green origami frog mounted mid-leap beside 飛び込む, with a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Furuike ya · Bashō</h4>
+              <p class="piece-spec">古池や · The Old Pond</p>
+              <p class="piece-desc">Bashō's haiku brushed in three cascading columns on a tall framed panel, with an origami frog mounted mid-leap beside 飛び込む (“jumps in”).</p>
+              <p class="piece-desc">Written in 1686, it is the most famous haiku in Japanese. With one sound breaking the stillness of an old pond, Bashō turned the form from wordplay toward quiet observation, a moment that holds both permanence and passing.</p>
+              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+        </div>
+        <p class="commission-group-label" id="shodo-characters"><span class="diamond" aria-hidden="true"></span>One &amp; Two Characters</p>
+        <div class="piece-grid">
           <figure class="piece-card">
             <div class="piece-mat"><img src="assets/pieces/shodo-kuhaku.jpg" alt="Shodo calligraphy of the two kanji 空白 (kūhaku, blank space) in black ink with a red seal" loading="lazy" /></div>
             <div class="piece-body">
@@ -1969,16 +1953,6 @@ a.dojo-chip:hover{border-color:var(--gold)}
             </div>
           </figure>
           <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/pieces/shodo-furuike.jpg" alt="Shodo of Bashō's haiku 古池や蛙飛び込む水の音 beside a green origami frog" loading="lazy" /></div>
-            <div class="piece-body">
-              <h4 class="piece-title">Furuike ya · Bashō</h4>
-              <p class="piece-spec">古池や · The Old Pond</p>
-              <p class="piece-desc">Bashō's frog haiku brushed in full, set beside a folded origami frog.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
-              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
-            </div>
-          </figure>
-          <figure class="piece-card">
             <div class="piece-mat"><img src="assets/pieces/shodo-bu.jpg" alt="Shodo calligraphy of the kanji 武 (bu, martial) in bold black brushwork with a red seal" loading="lazy" /></div>
             <div class="piece-body">
               <h4 class="piece-title">Bu</h4>
@@ -1988,13 +1962,13 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
-          <figure class="piece-card">
+          <figure class="piece-card is-sold">
             <div class="piece-mat"><img src="assets/pieces/shodo-kame.jpg" alt="Shodo calligraphy of the kanji 亀 (kame, turtle) in bold black brushwork with a red seal, paired with a green origami turtle" loading="lazy" /></div>
             <div class="piece-body">
               <h4 class="piece-title">Kame</h4>
               <p class="piece-spec">亀 · Turtle</p>
               <p class="piece-desc">The character for turtle, a symbol of longevity, brushed with a sweeping final stroke and joined by a folded green origami turtle.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
@@ -2018,13 +1992,36 @@ a.dojo-chip:hover{border-color:var(--gold)}
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
-          <figure class="piece-card">
-            <div class="piece-mat"><img src="assets/pieces/shodo-collection.jpg" alt="A set of framed shodo and ink works displayed together, including 空白, 武道, 義 and 禅" loading="lazy" /></div>
+        </div>
+        <p class="commission-group-label" id="shodo-paintings"><span class="diamond" aria-hidden="true"></span>Sumi-e Paintings</p>
+        <div class="piece-grid">
+          <figure class="piece-card is-sold">
+            <div class="piece-mat"><img src="assets/pieces/dragon-kimono.jpg" alt="Sumi-e of a black dragon with blue scale accents coiled above a red-robed kimono figure on water, with a red seal" loading="lazy" /></div>
             <div class="piece-body">
-              <h4 class="piece-title">Selected Works</h4>
-              <p class="piece-spec">Framed &amp; Mounted</p>
-              <p class="piece-desc">A set of framed shodō and ink pieces, matted and ready to hang.</p>
-              <div class="piece-foot"><span class="piece-status">Available</span><a class="piece-buy" href="#contact">Acquire</a></div>
+              <h4 class="piece-title">Dragon &amp; Kimono Figure</h4>
+              <p class="piece-spec">墨絵 · Sumi-e</p>
+              <p class="piece-desc">A black dragon coils above a red-robed figure on the water, its scales caught in blue.</p>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card is-sold">
+            <div class="piece-mat"><img src="assets/pieces/enso-zen.jpg" alt="Ensō circle in black and red ink enclosing a bonsai, with the kanji 禅 and a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Zen</h4>
+              <p class="piece-spec">禅 · Ensō &amp; Bonsai</p>
+              <p class="piece-desc">An ensō in black and red encircles a bonsai beneath the character for Zen.</p>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
+              <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
+            </div>
+          </figure>
+          <figure class="piece-card is-sold">
+            <div class="piece-mat"><img src="assets/pieces/enso-budo.jpg" alt="Ensō circle enclosing a bare ink tree on rock with the characters 武道 and a red seal" loading="lazy" /></div>
+            <div class="piece-body">
+              <h4 class="piece-title">Budō</h4>
+              <p class="piece-spec">武道 · Ensō &amp; Tree</p>
+              <p class="piece-desc">A bare ink tree takes root inside a sweeping ensō, paired with 武道, “the martial way.”</p>
+              <div class="piece-foot"><span class="piece-status">Unavailable</span><a class="piece-buy" href="#contact" aria-disabled="true" tabindex="-1">Acquire</a></div>
               <p class="piece-zelle">Secure card checkout via <strong>Stripe</strong>, or pay by <a href="mailto:pure.sky.creations.contact@gmail.com">Zelle</a>.</p>
             </div>
           </figure>
@@ -2034,7 +2031,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       <!-- Origami subsection -->
       <article class="practice practice--shop" id="origami">
         <div class="practice-head">
-          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>v. Origami</p>
+          <p class="practice-label"><span class="diamond" aria-hidden="true"></span>iii. Origami</p>
           <h3 class="practice-title">Folded by <em>hand.</em></h3>
           <p class="practice-desc">A lighter practice of animals, birds, and creatures, each folded from a single sheet. These are studies in patience, undertaken between larger works.</p>
         </div>
@@ -2058,7 +2055,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
     </div>
   </section>
 
-  <!-- ─────────── COMMISSIONS ─────────── -->
+  <!-- ─────────── EVENTS & EXHIBITIONS ─────────── -->
   <section class="section" id="events-exhibitions" data-screen-label="03 Events &amp; Exhibitions">
     <div class="wrap">
       <header class="section-head">
@@ -2172,6 +2169,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
           <figure class="ph"><img src="assets/photography/dsc01169.jpg" alt="A family standing on a sandstone ledge above the white volcanic canyons of Sarakiniko, the Aegean behind" loading="lazy" /><figcaption>Sarakiniko · Milos</figcaption></figure>
           <figure class="ph"><img src="assets/photography/dsc02597.jpg" alt="Late sun over a long curving beach, wind-whipped surf rolling in under a clear blue sky" loading="lazy" /><figcaption>Aegean shoreline</figcaption></figure>
           <figure class="ph"><img src="assets/photography/dsc04117.jpg" alt="City lights spreading across the dark ground seen from an airplane window at night" loading="lazy" /><figcaption>City lights from above</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc06391.jpg" alt="A weathered wooden arched footbridge over a still pond, sunlit willows and green lawn reflected in the water" loading="lazy" /><figcaption>Footbridge in autumn light</figcaption></figure>
         </div>
       </div>
       <div class="seki" id="photo-portraits">
@@ -2190,8 +2188,9 @@ a.dojo-chip:hover{border-color:var(--gold)}
           <figure class="ph"><img src="assets/photography/dsc05566.jpg" alt="A figure seated on granite steps at night, face tilted up into a single pool of light beside a steel handrail" loading="lazy" /><figcaption>Looking up</figcaption></figure>
           <figure class="ph"><img src="assets/photography/dsc05583.jpg" alt="A figure seen from behind, sitting on the riverwalk facing a lit skyline across the water, a long shadow cast forward" loading="lazy" /><figcaption>Across the river</figcaption></figure>
           <figure class="ph"><img src="assets/photography/dsc05006.jpg" alt="A man in sunglasses holding a jug of cider before the Yates Cider Mill sign, pumpkins at his feet" loading="lazy" /><figcaption>Yates Cider Mill · Rochester Hills</figcaption></figure>
-          <figure class="ph"><img src="assets/photography/dsc04532.jpg" alt="A tabby cat perched atop a dark green cat tree, glaring down through half-closed eyes" loading="lazy" /><figcaption>On high</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc06143.jpg" alt="A tabby cat perched atop a dark green cat tree against a black backdrop, eyes closed and chin lifted toward the light" loading="lazy" /><figcaption>On high</figcaption></figure>
           <figure class="ph"><img src="assets/photography/dsc04549.jpg" alt="A wide-eyed tabby cat curled on a black office chair, peering out beneath the armrest" loading="lazy" /><figcaption>The chair is taken</figcaption></figure>
+          <figure class="ph"><img src="assets/photography/dsc05416.jpg" alt="A tabby cat burrowed into a nest of a grey hoodie and white towels, peering out with heavy-lidded eyes" loading="lazy" /><figcaption>Laundry day</figcaption></figure>
         </div>
       </div>
       <div class="seki" id="photo-product">
@@ -2247,10 +2246,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
           <p class="commission-note">A <em>hanko</em> <span class="jp">判子</span> is a personal name seal carved into a small block of stone. Inked in vermilion and pressed to paper, it stands in for a handwritten signature across much of East Asia. Each one here is cut by hand, rendering a name in characters chosen for both their sound and their meaning.</p>
           <div class="piece-grid">
             <figure class="piece-card">
-              <div class="piece-mat piece-mat--duo">
-                <img src="assets/commissions/hanko-jacqueline-1.jpg" alt="Hanko stone carved with the characters 雀蓮 for Jacqueline, held in a carving vise" loading="lazy" />
-                <img src="assets/commissions/hanko-jacqueline-2.jpg" alt="Close-up of the 雀蓮 hanko seal face" loading="lazy" />
-              </div>
+              <div class="piece-mat"><img src="assets/commissions/hanko-jacqueline-1.jpg" alt="Hanko stone carved with the characters 雀蓮 for Jacqueline, held in a carving vise" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/commissions/hanko-jacqueline-1.jpg" data-alt="Hanko stone carved with the characters 雀蓮 for Jacqueline, held in a carving vise" aria-label="View 1"><img src="assets/commissions/hanko-jacqueline-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/commissions/hanko-jacqueline-2.jpg" data-alt="Close-up of the 雀蓮 hanko seal face" aria-label="View 2"><img src="assets/commissions/hanko-jacqueline-2.jpg" alt="" loading="lazy" /></button></div>
               <div class="piece-body">
                 <h4 class="piece-title">雀蓮 · Jacqueline</h4>
                 <p class="piece-spec">Hand-carved Seal · Soapstone</p>
@@ -2259,10 +2255,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
               </div>
             </figure>
             <figure class="piece-card">
-              <div class="piece-mat piece-mat--duo">
-                <img src="assets/commissions/hanko-leah-1.jpg" alt="Hanko stone carved with the characters 丽亚 for Leah" loading="lazy" />
-                <img src="assets/commissions/hanko-leah-2.jpg" alt="Close-up of the 丽亚 hanko seal face inked in red" loading="lazy" />
-              </div>
+              <div class="piece-mat"><img src="assets/commissions/hanko-leah-1.jpg" alt="Hanko stone carved with the characters 丽亚 for Leah" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/commissions/hanko-leah-1.jpg" data-alt="Hanko stone carved with the characters 丽亚 for Leah" aria-label="View 1"><img src="assets/commissions/hanko-leah-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/commissions/hanko-leah-2.jpg" data-alt="Close-up of the 丽亚 hanko seal face inked in red" aria-label="View 2"><img src="assets/commissions/hanko-leah-2.jpg" alt="" loading="lazy" /></button></div>
               <div class="piece-body">
                 <h4 class="piece-title">丽亚 · Leah</h4>
                 <p class="piece-spec">Hand-carved Seal · Soapstone</p>
@@ -2271,10 +2264,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
               </div>
             </figure>
             <figure class="piece-card">
-              <div class="piece-mat piece-mat--duo">
-                <img src="assets/commissions/hanko-shaandili-1.jpg" alt="Hanko stone carved with the characters 珊迪丽 for Shaandili" loading="lazy" />
-                <img src="assets/commissions/hanko-shaandili-2.jpg" alt="Close-up of the 珊迪丽 hanko seal face" loading="lazy" />
-              </div>
+              <div class="piece-mat"><img src="assets/commissions/hanko-shaandili-1.jpg" alt="Hanko stone carved with the characters 珊迪丽 for Shaandili" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/commissions/hanko-shaandili-1.jpg" data-alt="Hanko stone carved with the characters 珊迪丽 for Shaandili" aria-label="View 1"><img src="assets/commissions/hanko-shaandili-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/commissions/hanko-shaandili-2.jpg" data-alt="Close-up of the 珊迪丽 hanko seal face" aria-label="View 2"><img src="assets/commissions/hanko-shaandili-2.jpg" alt="" loading="lazy" /></button></div>
               <div class="piece-body">
                 <h4 class="piece-title">珊迪丽 · Shaandili</h4>
                 <p class="piece-spec">Hand-carved Seal · Soapstone</p>
@@ -2283,10 +2273,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
               </div>
             </figure>
             <figure class="piece-card">
-              <div class="piece-mat piece-mat--duo">
-                <img src="assets/commissions/hanko-sagarika-1.jpg" alt="Hanko stone carved with the characters 萨加丽卡 for Sagarika" loading="lazy" />
-                <img src="assets/commissions/hanko-sagarika-2.jpg" alt="Close-up of the 萨加丽卡 hanko seal face" loading="lazy" />
-              </div>
+              <div class="piece-mat"><img src="assets/commissions/hanko-sagarika-1.jpg" alt="Hanko stone carved with the characters 萨加丽卡 for Sagarika" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/commissions/hanko-sagarika-1.jpg" data-alt="Hanko stone carved with the characters 萨加丽卡 for Sagarika" aria-label="View 1"><img src="assets/commissions/hanko-sagarika-1.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/commissions/hanko-sagarika-2.jpg" data-alt="Close-up of the 萨加丽卡 hanko seal face" aria-label="View 2"><img src="assets/commissions/hanko-sagarika-2.jpg" alt="" loading="lazy" /></button></div>
               <div class="piece-body">
                 <h4 class="piece-title">萨加丽卡 · Sagarika</h4>
                 <p class="piece-spec">Hand-carved Seal · Soapstone</p>
@@ -2299,16 +2286,16 @@ a.dojo-chip:hover{border-color:var(--gold)}
 
         <!-- Shodo commissions -->
         <div class="commission-group" id="commissions-shodo">
-          <p class="commission-group-label"><span class="diamond" aria-hidden="true"></span>Shodo Calligraphy<span class="count">Custom brushwork, commissioned to order</span></p>
+          <p class="commission-group-label"><span class="diamond" aria-hidden="true"></span>Calligraphy<span class="count">Custom brushwork, commissioned to order</span></p>
           <p class="commission-note">Commissioned <em>shodō</em> <span class="jp">書道</span>: a name, a word, or a line of verse, brushed by hand in a chosen script and then sealed. New commissions are welcome.</p>
           <div class="piece-grid">
-            <figure class="piece-card is-placeholder">
-              <div class="piece-mat piece-mat--tbd"><span class="tbd-mark">TBD</span></div>
+            <figure class="piece-card">
+              <div class="piece-mat"><img src="assets/pieces/shodo-aini-b.jpg" alt="Framed shodo calligraphy of the two kanji 愛煮 in bold black brushwork with a red seal, leaning against a grey felt wall" loading="lazy" /></div><div class="piece-thumbs"><button type="button" class="is-on" data-src="assets/pieces/shodo-aini-b.jpg" data-alt="Framed shodo calligraphy of the two kanji 愛煮 in bold black brushwork with a red seal, leaning against a grey felt wall" aria-label="View 1"><img src="assets/pieces/shodo-aini-b.jpg" alt="" loading="lazy" /></button><button type="button" data-src="assets/pieces/shodo-aini-a.jpg" data-alt="The framed 愛煮 calligraphy laid flat on grey felt, seen from above" aria-label="View 2"><img src="assets/pieces/shodo-aini-a.jpg" alt="" loading="lazy" /></button></div>
               <div class="piece-body">
-                <h4 class="piece-title">New Commission</h4>
-                <p class="piece-spec">書道 · Hand-brushed · Forthcoming</p>
-                <p class="piece-desc">A custom calligraphy commission. The character, script, and dimensions are decided together.</p>
-                <div class="piece-foot"><span class="piece-status piece-status--commission">Open for commission</span></div>
+                <h4 class="piece-title">Ai Zhu</h4>
+                <p class="piece-spec">愛煮 · Loves to Cook</p>
+                <p class="piece-desc">A custom commission for someone who loves to cook, brushed in a staggered layout and finished with a red seal.</p>
+                <div class="piece-foot"><span class="piece-status piece-status--commission">Private commission</span></div>
               </div>
             </figure>
           </div>
@@ -2485,7 +2472,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
         <h1 class="hero-name" style="font-family: BlinkMacSystemFont">Skyler Đỗ</h1>
         <p class="hero-tag">青天閣 · Pure Sky Creations</p>
         <p class="hero-statement">Born in California and raised in Asia, I work across three disciplines: making by hand, engineering systems, and training in the martial way. Each is practiced with the same attention to form, patience, and intention.</p>
-        <dl class="hero-meta"><div><dt>Art Services</dt><dd><a href="#artist" data-mode-go="artist">Metalsmithing · Ink &amp; Brush · Photography →</a></dd></div><div><dt>Engineering Services</dt><dd><a href="#engineer" data-mode-go="engineer">Systems Engineering · Mechatronics →</a></dd></div></dl>
+        <dl class="hero-meta"><div><dt>Art Services</dt><dd><a href="#artist" data-mode-go="artist">Jewelry · Ink &amp; Brush · Photography →</a></dd></div><div><dt>Engineering Services</dt><dd><a href="#engineer" data-mode-go="engineer">Systems Engineering · Mechatronics →</a></dd></div></dl>
       </div>
       <figure class="bio-portrait"><img src="assets/portrait-skyler.jpg" alt="Skyler Đỗ in a dark wool coat and scarf, leaning on the railing of a stone stairway at night" /></figure>
     </div></div>
@@ -2499,7 +2486,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
       </header>
       <div class="about-body">
         <dl class="about-facts">
-          <div><dt>Art</dt><dd>Metalsmithing · Ink &amp; Brush · Seal Carving · Paper Folding · Photography</dd></div>
+          <div><dt>Art</dt><dd>Jewelry · Ink &amp; Brush · Seal Carving · Paper Folding · Photography</dd></div>
           <div><dt>Engineering</dt><dd>Systems Engineering · Mechatronics · Vehicle Systems</dd></div>
           <div><dt>Martial Arts</dt><dd>Sword · Grappling · Archery · Striking</dd></div>
           <div><dt>Education</dt><dd>University of Michigan · University of Illinois</dd></div>
@@ -2791,7 +2778,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
           </div>
           <div class="contact-item svc" data-for="artist">
             <p class="lbl">Open for Commission</p>
-            <ul class="svc-list"><li>Jewelry &amp; Metalsmithing</li><li>Sumi-e Ink Painting</li><li>Shodo Calligraphy</li><li>Hanko · Name Seals</li><li>Origami</li><li>Photography<span>Portrait · Pet · Product · Travel &amp; Event</span></li></ul>
+            <ul class="svc-list"><li>Jewelry</li><li>Calligraphy</li><li>Hanko · Name Seals</li><li>Origami</li><li>Photography<span>Portrait · Pet · Product · Travel &amp; Event</span></li></ul>
           </div>
           <div class="contact-item" data-for="engineer">
             <p class="lbl">GitHub</p>
@@ -2862,9 +2849,12 @@ a.dojo-chip:hover{border-color:var(--gold)}
       <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.6" />
     </svg>
   </button>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous photo"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><polyline points="14,4 7,11 14,18" fill="none" stroke="currentColor" stroke-width="1.6" /></svg></button>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next photo"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><polyline points="8,4 15,11 8,18" fill="none" stroke="currentColor" stroke-width="1.6" /></svg></button>
   <figure class="lb-stage">
     <img class="lb-img" id="lbImg" alt="" />
     <figcaption class="lb-caption">
+      <p class="lb-count" id="lbCount"></p>
       <p class="lb-sub" id="lbSub"></p>
       <h3 class="lb-title" id="lbTitle"></h3>
       <p class="lb-desc" id="lbDesc"></p>
@@ -3034,19 +3024,43 @@ a.dojo-chip:hover{border-color:var(--gold)}
       el.style.display = value ? '' : 'none';
     }
 
+    const lbPrev = document.getElementById('lbPrev'), lbNext = document.getElementById('lbNext'), lbCount = document.getElementById('lbCount');
+    const GROUPS = '.piece-card, .disc-shots, .proj-grid, .exp-shots, .mc-photos, .cb-grid, .origami-collage, .ph-places, .ph-portraits, .ph-product, .forge-frames, .seki';
+    let items = [], idx = 0, card = null;
+    function show(i) {
+      idx = (i + items.length) % items.length;
+      const it = items[idx];
+      const m = it.img ? meta(it.img) : meta(card.querySelector('.piece-mat img'));
+      lbImg.src = it.src; lbImg.alt = it.alt;
+      setLine(lbSub, m.sub); setLine(lbTitle, m.title);
+      setLine(lbDesc, it.img ? m.desc : (txt(card, '.piece-desc') || it.alt));
+      setLine(lbCount, items.length > 1 ? (idx + 1) + ' / ' + items.length : '');
+      overlay.classList.toggle('has-many', items.length > 1);
+      if (card && it.btn) it.btn.click();
+    }
     function open(img) {
-      const m = meta(img);
-      lbImg.src = img.currentSrc || img.src;
-      lbImg.alt = img.alt || '';
-      setLine(lbSub, m.sub);
-      setLine(lbTitle, m.title);
-      setLine(lbDesc, m.desc);
+      card = null; items = [];
+      const pc = img.closest('.piece-card');
+      const thumbs = pc && pc.querySelector('.piece-thumbs');
+      if (thumbs) {
+        card = pc;
+        items = [...thumbs.querySelectorAll('button')].map(b => ({ src: b.dataset.src, alt: b.dataset.alt || '', btn: b }));
+        idx = Math.max(0, items.findIndex(x => x.btn.classList.contains('is-on')));
+      } else {
+        const g = img.closest(GROUPS);
+        const list = g ? [...g.querySelectorAll(selector)].filter(x => !x.closest('.piece-thumbs')) : [img];
+        items = list.map(x => ({ src: x.currentSrc || x.src, alt: x.alt || '', img: x }));
+        idx = Math.max(0, list.indexOf(img));
+      }
+      show(idx);
       lastFocus = document.activeElement;
       overlay.classList.add('is-open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       lbClose.focus();
     }
+    lbPrev.addEventListener('click', e => { e.stopPropagation(); show(idx - 1); });
+    lbNext.addEventListener('click', e => { e.stopPropagation(); show(idx + 1); });
 
     function close() {
       overlay.classList.remove('is-open');
@@ -3059,6 +3073,7 @@ a.dojo-chip:hover{border-color:var(--gold)}
     document.querySelectorAll('.piece-thumbs').forEach(t=>t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const m=t.previousElementSibling.querySelector('img');m.src=b.dataset.src;m.alt=b.dataset.alt;t.querySelectorAll('button').forEach(x=>x.classList.toggle('is-on',x===b))}));
     const selector = '.disc-shots img, .proj-grid img, .piece-mat img, .shot-frame img, .origami-collage img, .exp-shots img, .mc-photos img, .cb-grid img, .forge-frame img, .blade-photo img, .ph img';
     document.querySelectorAll(selector).forEach(img => {
+      if (img.closest('.piece-thumbs')) return;
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => open(img));
     });
@@ -3067,8 +3082,14 @@ a.dojo-chip:hover{border-color:var(--gold)}
       if (e.target === overlay || e.target.classList.contains('lb-stage') || e.target.classList.contains('lb-caption')) close();
     });
     lbClose.addEventListener('click', close);
+    let tx = null;
+    overlay.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    overlay.addEventListener('touchend', e => { if (tx === null || items.length < 2) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 40) show(idx + (d < 0 ? 1 : -1)); tx = null; });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+      if (!overlay.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (items.length > 1 && e.key === 'ArrowLeft') show(idx - 1);
+      else if (items.length > 1 && e.key === 'ArrowRight') show(idx + 1);
     });
   })();
 </script>
