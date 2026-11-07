@@ -10,8 +10,7 @@ Update folders are exports from the design tool. They hold a complete new `index
 ## Repo layout
 
 - `pure-sky-creations/` is the only folder Netlify publishes (`netlify.toml`, no build command). Pushing to `main` triggers the deploy.
-- `index.html`, `image-slot.js`, `assets/`, `uploads/`, `github-update/` and `netlify-deploy/` at the repo root are old copies that do not affect the live site. Leave them alone unless the user asks, and don't put updates there.
-- `.github/workflows/jekyll-gh-pages.yml` also runs on every push. It deploys to GitHub Pages, separately from Netlify.
+- `uploads/` holds the user's original photos, which have no exact copy in the site. It isn't published, so leave it alone and don't put updates there.
 
 ## 1. Preflight
 
@@ -38,7 +37,7 @@ python -I .claude/skills/integrate-site-update/scripts/check_site.py pure-sky-cr
 ```
 
 If it reports FAIL, don't push a broken page:
-- **Missing asset:** look for it under the old root folders and in git history. Copy it into the site only if it is clearly the same file. Otherwise ask the user.
+- **Missing asset:** look for it in git history. Copy it into the site only if it is clearly the same file. Otherwise ask the user.
 - **Wrong case:** tell the user which path differs. Windows hides this, but it 404s on Netlify.
 - **Broken anchor:** usually a nav link to a removed section. Ask the user, because the fix changes their page.
 
